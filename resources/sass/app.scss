@@ -1,0 +1,198 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito'); // Variables
+@import 'variables'; // Bootstrap
+// @import 'lightslider';
+@import '~bootstrap/scss/bootstrap';
+
+.bg-eliano {
+    background-color: $eliano;
+}
+
+.h-60 {
+    height: 60px;
+}
+
+.search-scheda {
+    height: 80px;
+    border-radius: 20px;
+}
+
+.bold-20 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.masthead {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item img {
+    height: 90vh;
+    width: 100vw;
+    z-index: 999;
+}
+
+.nav {
+    z-index: 1002;
+}
+//titole immobile nello slider
+
+.carousel-caption {
+    position: absolute;
+    width: 45%;
+    background-color: rgba(248, 249, 250, 0.6);
+    bottom: 20%;
+    left: 0;
+    margin-left: 10%;
+    border-top-left-radius: 15px;
+    padding-bottom: 0;
+    padding-right: 0;
+}
+
+.carousel-indicators {
+    width: 50%;
+    margin: auto auto 7%;
+}
+//search bar home
+
+.search-home {
+    width: 80%;
+    height: 120px;
+    top: 85%;
+    left: 0.1 * 100vw;
+    border-radius: 5px;
+}
+
+.go-to {
+    padding: 10px;
+}
+
+.go-to a {
+    padding: 10px;
+    margin-left: 0;
+    background-color: #F7B500;
+}
+
+.status {
+    background-color: #F7B500;
+    border-radius: 5px;
+    width: 80px;
+    height: 32px;
+    -webkit-box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    -moz-box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    position: absolute;
+    bottom: 90px;
+    left: 20px;
+}
+
+.status-scheda {
+    background-color: #F7B500;
+    border-radius: 5px;
+    width: 85px;
+    -webkit-box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    -moz-box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    p {
+      font-size: 16px;
+      padding: 5px;
+    }
+}
+
+.status-offerta {
+    background-color: #F7B500;
+    border-radius: 5px;
+    width: 60px;
+    -webkit-box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    -moz-box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    box-shadow: 7px 9px 10px -6px rgba(0,0,0,0.82);
+    p {
+      font-size: 12px;
+      padding: 5px;
+    }
+}
+
+.search-sel {
+    background-color: transparent;
+    width: 200px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align-last: center;
+}
+
+.logo {
+    width: 20%;
+    z-index: 1001;
+    top: 10%;
+}
+
+.evidenza {
+    margin-top: 100px;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+hr {
+    border: 0.5px solid #F7B500;
+}
+
+.color-yellow {
+    color: #F7B500;
+}
+
+.active,
+.bg-yellow {
+    background-color: #F7B500 !important;
+}
+
+.under-title {
+    font-weight: 100;
+}
+
+#menu {
+    width: 100vw;
+    height: 100vh;
+    background-color: $eliano;
+    z-index: 2000;
+}
+
+.menu-voce {
+    font-size: 100px;
+}
+
+.menu-name {
+    font-size: 200px;
+    right: 20px;
+    bottom: 0;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-chev {
+    color: #294C59;
+}
+
+.eliano-red {
+    color: $eliano-red;
+}
+
+.font-55 {
+    font-size: 55px;
+    font-weight: 400;
+}
+
+.icona {
+    width: 30px;
+}
+
+.icona-card {
+  width: 20px;
+}
