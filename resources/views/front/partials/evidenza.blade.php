@@ -46,7 +46,7 @@
             <div class="container">
               <div class="row d-flex justify-content-between">
                 <h5>€ 150.000</h5>
-                <a href="#" class="btn bg-yellow btn-sm">Apri <i class="fa fa-search"></i></a>
+                <a href="{{route('immobile')}}" class="btn bg-yellow btn-sm">Apri <i class="fa fa-search"></i></a>
               </div>
             </div>
           </div>
