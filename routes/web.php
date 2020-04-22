@@ -38,3 +38,7 @@ Route::get('/contatti', function () {
 Route::get('/privacy-policy', function () {
     return view('front.privacy');
 })->name('privacy');
+
+Auth::routes();
+
+Route::get('/dash', 'DashController@index')->name('dash');
