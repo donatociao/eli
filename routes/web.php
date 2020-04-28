@@ -41,4 +41,8 @@ Route::get('/privacy-policy', function () {
 
 Auth::routes();
 
-Route::get('/dash', 'DashController@index')->name('dash');
+Route::get('/dash', 'DashController@index')->name('dash'); //pannello di controllo
+Route::get('/dash/immobili', 'ImmobiliController@create')->name('inserisci-imm'); //inserimento nuovo immobile
+Route::get('/dash/slider', 'SliderController@index')->name('slider'); //Gestione slider
+Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestione offerte
+Route::get('/dash/news', 'NewsController@index')->name('news'); //Gestione offerte

@@ -69,4 +69,5 @@ $(document).ready(function() {
     slider.play();
     slider.pause();
     slider.destroy();
+
 });

@@ -196,3 +196,14 @@ hr {
 .icona-card {
   width: 20px;
 }
+
+// back
+#label {
+  font-size: 0.734rem;
+}
+
+#label .col-lg-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
