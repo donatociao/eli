@@ -6,15 +6,14 @@
     <div class="row">
       <div class="col-lg-12">
         {{-- <a href="{{route('dash')}}" class="btn btn-info stretched-link mb-3">Indietro</a> --}}
-        <a href="{{route('dash')}}" class="btn btn-info mb-3"><i class="fas fa-home"></i> Indietro</a>
-        <h1 class="eliano-red">Gestisci News</h1>
+        <h1 class="eliano-red"><a href="{{route('dash')}}" class="btn btn-info mb-3 mr-3"><i class="fas fa-home"></i></a>Gestisci News</h1>
 
-        <form class="mt-5" method="post" enctype="multipart/form-data">
+        <form class="mt-3" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <div class="form-row ">
             <div class="form-group col-md-8">
               <label for="news">Testo news</label>
-              <textarea class="form-control" id="news" rows="6"></textarea>
+              <textarea class="form-control" id="news-editor" rows="6"></textarea>
             </div>
             <div class="form-group col-md-4">
               <label for="Product Name">Immagine</label>
@@ -57,4 +56,14 @@
       </div>
     </div>
   </div>
+  <script>
+  $(document).ready(function() {
+      $('#news-editor').summernote({
+        placeholder: "Scrivi qui il tuo testo",
+        height: 120
+      });
+
+  });
+</script>
+
 @endsection

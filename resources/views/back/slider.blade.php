@@ -6,8 +6,8 @@
     <div class="row">
       <div class="col-lg-12">
         {{-- <a href="{{route('dash')}}" class="btn btn-info stretched-link mb-3">Indietro</a> --}}
-        <a href="{{route('dash')}}" class="btn btn-info mb-3"><i class="fas fa-home"></i> Indietro</a>
-        <h1 class="eliano-red">Gestisci Slider</h1>
+
+        <h1 class="eliano-red"><a href="{{route('dash')}}" class="btn btn-info mb-3 mr-3"><i class="fas fa-home"></i></a>Gestisci Slider</h1>
 
         <form class="mt-5" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
