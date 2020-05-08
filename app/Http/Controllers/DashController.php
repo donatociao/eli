@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Immobile;
+use App\Stato;
 
 class DashController extends Controller
 {
@@ -23,6 +25,7 @@ class DashController extends Controller
      */
     public function index()
     {
-        return view('back.dash');
+      $immobili = Immobile::all();
+        return view('back.dash', compact('immobili'));
     }
 }

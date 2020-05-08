@@ -26,6 +26,12 @@ class CreateCategoriesTable extends Migration
             'name' => 'Appartamento',
           )
         );
+        // Inserisco Cateforia Villa
+        DB::table('categories')->insert(
+        array(
+            'name' => 'Villa',
+          )
+        );
     }
 
     /**

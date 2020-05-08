@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignToImmobilesImagesTable extends Migration
+class AddForeignToImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddForeignToImmobilesImagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('immobiles_images', function (Blueprint $table) {
+        Schema::table('images', function (Blueprint $table) {
           $table->integer('immobile_id')->unsigned()->nullable();
           $table->foreign('immobile_id')->references('id')->on('immobiles');
         });
@@ -26,8 +26,8 @@ class AddForeignToImmobilesImagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('immobile_images', function (Blueprint $table) {
-          $table->dropForeign('immobile_images_immobile_id_foreign');
+        Schema::table('images', function (Blueprint $table) {
+          $table->dropForeign('images_immobile_id_foreign');
           $table->dropColumn('immobile_id');
         });
     }

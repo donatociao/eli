@@ -15,11 +15,11 @@ class CreateImmobilesTable extends Migration
     {
         Schema::create('immobiles', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('title');
+          $table->string('titolo')->nullable();
           $table->string('description');
           $table->integer('price');
           $table->string('address');
-          $table->string('slug')->unique();
+          $table->string('slug')->nullable()->unique();
           $table->timestamps();
         });
     }

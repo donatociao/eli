@@ -11,7 +11,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Immobili</h5>
-        <a href="{{route('inserisci-imm')}}"><button type="button" class="btn btn-primary">Inserisci</button></a>
+        <a href="{{route('inserisci')}}"><button type="button" class="btn btn-primary">Inserisci</button></a>
       </div>
     </div>
   </div>

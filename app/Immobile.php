@@ -6,38 +6,31 @@ use Illuminate\Database\Eloquent\Model;
 
 class Immobile extends Model
 {
-    protected $fillable = [
-      'title',
-      'description',
-      'price',
-      'address',
-      'slug',
-      'city_id',
-      'category_id',
-      'stato_id',
-      'feature_id',
-      'detail_id'
+  protected $fillable = [
+      'titolo', 'description', 'price', 'address', 'slug', 'stato_id', 'category_id', 'city_id',
+      // 'feature_id',
+      // 'detail_id'
     ];
 
     /**
-    * Chiam la Città assocciata all'immobile.
+    * Chiamo la Città assocciata all'immobile.
     */
     public function city() {
-      return $this->hasOne('App\City');
+      return $this->belongsTo('App\City', 'city_id');
     }
 
     /**
     * Chiama lo Stato assocciato all'immobile.
     */
     public function stato() {
-      return $this->hasOne('App\Stato');
+      return $this->belongsTo('App\Stato', 'stato_id');
     }
 
     /**
     * Chiama la Categoria assocciata all'immobile.
     */
     public function category() {
-      return $this->hasOne('App\Category');
+      return $this->belongsTo('App\Category', 'category_id');
     }
 
     /**
@@ -58,7 +51,7 @@ class Immobile extends Model
     * Chiama le Immagini assocciate all'immobile.
     */
     public function images() {
-      return $this->hasMany('App\ImmobileImage');
+      return $this->hasMany('App\Image');
     }
 
 }

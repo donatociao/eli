@@ -39,10 +39,15 @@ Route::get('/privacy-policy', function () {
     return view('front.privacy');
 })->name('privacy');
 
+
+
 Auth::routes();
 
 Route::get('/dash', 'DashController@index')->name('dash'); //pannello di controllo
-Route::get('/dash/immobili', 'ImmobiliController@create')->name('inserisci-imm'); //inserimento nuovo immobile
+
+Route::get('/dash/inserisci-immobile', 'ImmobiliController@create')->name('inserisci'); //inserimento nuovo immobile
+Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //salva nuovo immobile
+
 Route::get('/dash/slider', 'SliderController@index')->name('slider'); //Gestione slider
 Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestione offerte
 Route::get('/dash/news', 'NewsController@index')->name('news'); //Gestione offerte
