@@ -13,4 +13,8 @@ class Detail extends Model
       'box',
       'ape'
     ];
+
+    public function immobile() {
+        return $this->hasOne('App\Immobile');
+    }
 }

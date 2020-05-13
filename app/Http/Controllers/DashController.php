@@ -26,6 +26,6 @@ class DashController extends Controller
     public function index()
     {
       $immobili = Immobile::all();
-        return view('back.dash', compact('immobili'));
+      return view('back.dash', compact('immobili'));
     }
 }

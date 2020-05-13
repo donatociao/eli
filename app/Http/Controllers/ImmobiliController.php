@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\City;
 use App\Immobile;
+use App\Detail;
 use App\Stato;
-
+use App\Feature;
+use App\Image;
+use DateTime;
 
 class ImmobiliController extends Controller
 {
@@ -69,93 +72,80 @@ class ImmobiliController extends Controller
 
       //recupero dati inseriti
         $dati_inseriti = $request->all();
-        $city_inserita = $dati_inseriti['city'];
+        $check_city = DB::table('cities')->select('id')->where('name', '=', $dati_inseriti['city'])->first();
+
+        if($check_city == null || $check_city->id == 0 || $check_city->id == null ) { // città non esistente -> aggiunge una nuova città
+            $now = new DateTime();
+            $formatted = $now->format('Y-m-d H:i:s');
+            $new_city = DB::table('cities')->insertGetId(['name' => $dati_inseriti['city'], 'created_at' => $formatted, 'updated_at' => $formatted]);
+            $dati_inseriti['city_id'] = $new_city;
+        } else {
+            $dati_inseriti['city_id'] = $check_city->id;
+        }
 
 
-
+        //
         //Creo le nuove istanze relative ad 1 immobile
         $nuovo_immobile = new Immobile();
-        // $nuovo_details = new Detail();
-        // $nuove_features = new Features();
-        $nuova_city = new City();
-        // $nuove_immagini = new ImmobileImage();
+        $nuovo_detail = new Detail();
+        $nuove_features = new Feature();
+        //$nuove_immagini = new ImmobileImage();
 
-        // $slug = str_slug($dati_inseriti['titolo']);
 
-        // $nuova_city = App\City::firstOrCreate(['name' => $dati_inseriti->city]);
+        //Salvo i dati feature
+        $nuove_features->fill($dati_inseriti);
+        $nuove_features->save();
+
+        //Salvo i dati dettagli
+        $nuovo_detail->fill($dati_inseriti);
+        $nuovo_detail->save();
+
+
+        $dati_inseriti['detail_id'] = $nuovo_detail->id;
+        $dati_inseriti['feature_id'] = $nuove_features->id;
+
 
         //Prendo i dati immobile
         $nuovo_immobile->fill($dati_inseriti);
-        // $nuova_city->fill($city_inserita);
 
+        $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
-        $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-');
-        $nuovo_immobile->city_id = $nuova_city['id'];
-        $nuovo_immobile->city = $city_inserita;
-
-        dd($nuovo_immobile);
 
         $nuovo_immobile->save();
-        $nuova_city->save();
-
-        // //Salvo i dati dettagli
-        // $nuovo_detail->fill($dati_inseriti);
-        // $nuovo_detail->save();
-        //
-        // //Salvo i dati feature
-        // $nuove_features->fill($dati_inseriti);
-        // $nuove_features->save();
         //
 
 
 
-        //Salvo le immagini feature
-        // $nuove_immagini->fill($dati_inseriti);
-        // $nuove_immagini->save();
 
-      //   if($request->hasFile('photos'))
-      //   {
-      //     $estensioniPermesse=['jpg','png'];
-      //     $files = $request->file('photos');
-      //     foreach($files as $file){
-      //       $filename = $file->getClientOriginalName();
-      //       $extension = $file->getClientOriginalExtension();
-      //       $check=in_array($extension,$allowedfileExtension);
-      //       dd($check);
-      //       if($check)
-      //       {
-      //         // $items= Item::create($request->all());
-      //         // $path_foto = Storage::put('filepath', $dati_inseriti['photos']);
-      //
-      //         foreach ($request->photos as $photo) {
-      //           $filename = $photo->store('photos');
-      //           dd($filename);
-      //           ImmobiliImage::create([
-      //             'immobile_id' => $nuovo_immobile->id,
-      //             'filepath' => $filename
-      //           ]);
-      //         }
-      //         echo "Foto inserita con successo";
-      //       }
-      //       else
-      //       {
-      //       echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta contatta Donato!</div>';
-      //     }
-      //   }
-      // }
+        // Salvo le immagini feature
+        $nuove_immagini = new Image();
+        $nuove_immagini->fill($dati_inseriti);
 
 
-      // //Recupero i dati
-      //  $category = $request->category;
-      //  $stato_immobile = $request->status;
+        if($request->hasFile('photos'))
+        {
+            $allowedfileExtension=['jpg','png'];
+            $files = $request->file('photos');
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check=in_array($extension,$allowedfileExtension);
+                if($check)
+                {
+                    $filename = $file->store('photos');
+                    Image::create([
+                        'immobile_id' => $nuovo_immobile->id,
+                        'filepath' => $filename
+                    ]);
+                    echo "Foto inserita con successo";
+                }
+                else
+                {
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta contatta Donato!</div>';
+                }
+            }
+        }
 
-    //   //Salvo i dati immobile foreign
-    //   $nuovo_immobile->city_id = $nuova_city->id;
-    //   $nuovo_immobile->stato_id = $_city->id;
-    //   $nuovo_immobile->category_id = $category->id;
-    //   $nuovo_immobile->feature_id = $nuove_features->id;
-    //   $nuovo_immobile->detail_id = $nuovo_detail->id;
-    //   $nuovo_immobile->save();
 
     return redirect()->route('dash');
     }

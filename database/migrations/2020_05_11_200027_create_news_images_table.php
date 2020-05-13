@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeaturesTable extends Migration
+class CreateNewsImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateFeaturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('features', function (Blueprint $table) {
+        Schema::create('news_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ristrutturato');
-            $table->string('riscaldamento');
-            $table->string('balconi');
-            $table->string('terrazzo');
-            $table->string('posto_auto');
             $table->timestamps();
+            $table->string('path');
+            $table->integer('news_id')->unsigned()->nullable();
+        });
+
+        Schema::table('news_images', function (Blueprint $table) {
+            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('features');
+        Schema::dropIfExists('news_images');
     }
 }

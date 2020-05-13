@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Immobile extends Model
 {
   protected $fillable = [
-      'titolo', 'description', 'price', 'address', 'slug', 'stato_id', 'category_id', 'city_id',
-      // 'feature_id',
-      // 'detail_id'
+      'titolo', 'description', 'price', 'address', 'slug', 'stato_id', 'category_id', 'city_id', 'feature_id', 'detail_id'
     ];
 
     /**
@@ -37,14 +35,14 @@ class Immobile extends Model
     * Chiama le Caratteristiche assocciate all'immobile.
     */
     public function feature() {
-      return $this->hasOne('App\Feature');
+      return $this->belongsTo('App\Feature', 'feature_id');
     }
 
     /**
     * Chiama i Dettagli assocciati all'immobile.
     */
     public function detail() {
-      return $this->hasOne('App\Detail');
+      return $this->belongsTo('App\Detail', 'detail_id');
     }
 
     /**

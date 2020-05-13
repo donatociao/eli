@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('front.home');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/news', function () {
     return view('front.articolo');
@@ -27,7 +25,7 @@ Route::get('/vendesi', function () {
     return view('front.vendesi');
 })->name('vendesi');
 
-Route::get('/immobile', function () {
+Route::get('/immobile/', function () {
     return view('front.immobile');
 })->name('immobile');
 
@@ -41,11 +39,14 @@ Route::get('/privacy-policy', function () {
 
 
 
+
+
 Auth::routes();
 
 Route::get('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 
 Route::get('/dash/inserisci-immobile', 'ImmobiliController@create')->name('inserisci'); //inserimento nuovo immobile
+
 Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //salva nuovo immobile
 
 Route::get('/dash/slider', 'SliderController@index')->name('slider'); //Gestione slider

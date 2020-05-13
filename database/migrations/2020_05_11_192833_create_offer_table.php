@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeaturesTable extends Migration
+class CreateOfferTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateFeaturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('features', function (Blueprint $table) {
+        Schema::create('offers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ristrutturato');
-            $table->string('riscaldamento');
-            $table->string('balconi');
-            $table->string('terrazzo');
-            $table->string('posto_auto');
             $table->timestamps();
+            $table->integer('immobile_id')->unsigned()->nullable();
         });
     }
 
@@ -31,6 +27,6 @@ class CreateFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('features');
+        Schema::dropIfExists('offer');
     }
 }

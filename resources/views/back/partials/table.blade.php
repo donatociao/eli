@@ -17,8 +17,8 @@
             <th scope="row">{{$immobile->id}}</th>
             <td>{{$immobile->titolo}}</td>
             <td>{{$immobile->stato->name}}</td>
-            <td>{{$immobile->city->name}}</td>
-            <td>Città</td>
+            <td>{{$immobile->category->name }}</td>
+            <td>{{ $immobile['city']['name'] }}</td>
             <td><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></td>
           </tr>
         @endforeach

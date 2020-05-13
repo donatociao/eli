@@ -24,6 +24,7 @@
     <div class="row">
       <div class="col-lg-12">
 
+        @foreach ($offers as $single_offer)
         <div class="card mt-5 mb-3">
           <div class="row no-gutters">
             <div class="col-md-4">
@@ -38,7 +39,8 @@
             </div>
           </div>
         </div>
-        <div class="card mt-5">
+        @endforeach
+        <!--<div class="card mt-5">
           <div class="row no-gutters">
             <div class="col-md-8">
               <div class="card-body">
@@ -51,7 +53,7 @@
               <img src="https://source.unsplash.com/user/erondu/1600x900" class="card-img" alt="...">
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>

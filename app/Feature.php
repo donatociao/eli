@@ -13,4 +13,8 @@ class Feature extends Model
     'terrazzo',
     'posto_auto'
   ];
+
+  public function immobile() {
+      return $this->hasOne('App\Immobile');
+  }
 }
