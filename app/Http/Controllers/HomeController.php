@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Stato;
+use App\Immobile;
+use App\Detail;
+use App\Image;
 
 class HomeController extends Controller
 {
@@ -21,7 +24,12 @@ class HomeController extends Controller
         $highlights = DB::select("CALL getHighlights()");
         $offers = DB::select('CALL getOffers()');
 
-        return view('front.home', compact('statos', 'cities', 'cat', 'highlights', 'offers'));
+        $immobili = Immobile::all();
+
+        $images = DB::table('images')->get();
+
+
+        return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers', 'images'));
     }
 
     /**

@@ -129,7 +129,7 @@
           </div>
 
             <div id="label"class="form-group d-flex flex-row col-lg-12">
-              <div class="col-lg-1 d-flex flex-column align-items-center">
+              <div class="col-lg-1 align-items-center">
                 <label for="ristutturato">Ristrutturato</label>
                 <input id="ristrutturato" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">
               </div>

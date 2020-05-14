@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\City;
 use App\Immobile;
 use App\Detail;
@@ -132,12 +133,12 @@ class ImmobiliController extends Controller
                 $check=in_array($extension,$allowedfileExtension);
                 if($check)
                 {
-                    $filename = $file->store('photos');
+                    $filename = $file->store('public');
                     Image::create([
                         'immobile_id' => $nuovo_immobile->id,
                         'filepath' => $filename
                     ]);
-                    echo "Foto inserita con successo";
+                    echo "Immagini inserite con successo";
                 }
                 else
                 {
