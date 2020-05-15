@@ -132,13 +132,16 @@ class ImmobiliController extends Controller
         }
         $nuovo_immobile->save();
 
+      if(!array_key_exists('evidenza', $dati_inseriti)) { 
+          echo "Ok";
+        } else {
       //controllo evidenza -> se è checked inserisco in evidenza
       if ($dati_inseriti['evidenza'] == 'on') {
         $nuova_evidenza = new Evidenza();
         $nuova_evidenza->immobile_id = $nuovo_immobile['id'];
         $nuova_evidenza->save();
+        }
       }
-
         // Salvo le immagini feature
         $nuove_immagini = new Image();
         $nuove_immagini->fill($dati_inseriti);
