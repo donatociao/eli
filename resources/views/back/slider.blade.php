@@ -9,25 +9,17 @@
 
         <h1 class="eliano-red"><a href="{{route('dash')}}" class="btn btn-info mb-3 mr-3"><i class="fas fa-home"></i></a>Gestisci Slider</h1>
 
-        <form class="mt-5" method="post" enctype="multipart/form-data">
+        <form class="mt-5" action="{{route('store.slider')}}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
           <div class="form-row">
-
             <div class="form-group col-md-5">
-              <label for="annuncio">Immobile</label>
-              <select id="annuncio" class="form-control">
+              <label for="slider">Immobile</label>
+              <select id="slider" class="form-control" name="immobile_id">
                 <option selected>Scegli immobile</option>
-                <option>Immobile 1</option>
-                <option>Immobile 2</option>
-                <option>Immobile 3</option>
+                @foreach ($immobili as $immobile)
+                  <option value="{{$immobile->id}}">{{$immobile->titolo}}</option>
+                @endforeach
               </select>
-            </div>
-
-            <div class="form-group col-md-5">
-              <label for="Product Name">Foto slider</label>
-              <br/>
-              <input type="file" class="form-control" name="photos[]" multiple/>
-              <br>
             </div>
           </div>
           <button type="submit" class=" btn btn-primary">Carica</button>
@@ -37,43 +29,23 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
                   <th scope="col">Immobile</th>
                   <th scope="col">Stato</th>
                   <th scope="col">Categoria</th>
                   <th scope="col">Città</th>
-                  <th scope="col">Immagine</th>
-                  <th scope="col">Elimina</th>
+                  <th scope="col">Azione</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry the Bird</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td>Otto</td>
-                  <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                </tr>
+                @foreach ($sliders as $slider)
+                  <tr>
+                    <td>{{$slider->immobile->titolo}}</td>
+                    <td>{{$slider->immobile->stato->name}}</td>
+                    <td>{{$slider->immobile->category->name}}</td>
+                    <td>{{$slider->$immobile['city']['name'] }}</td>
+                    <td><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></td>
+                  </tr>
+                @endforeach
               </tbody>
             </table>
           </div>

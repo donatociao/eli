@@ -53,10 +53,17 @@ class Immobile extends Model
     }
 
     /**
-    * Chiama le Immagini assocciate all'immobile.
+    * Chiama gli immobili in evidenza.
     */
     public function evidenza() {
       return $this->hasOne('App\Evidenza');
+    }
+
+    /**
+    * Chiama immobile inserito nello slider.
+    */
+    public function slider() {
+      return $this->hasOne('App\Slider');
     }
 
 }

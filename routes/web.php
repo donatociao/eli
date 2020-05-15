@@ -50,11 +50,12 @@ Route::get('/dash/inserisci-immobile', 'ImmobiliController@create')->name('creat
 Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //salva nuovo immobile
 
 //EVIDENZA
-Route::get('/dash/evidenza', 'EvidenzaController@create')->name('create.evidenza'); //View di inserimento
-Route::post('/dash/evidenza', 'EvidenzaController@store')->name('store.evidenza'); //Store
+Route::get('/dash/evidenza', 'EvidenzaController@create')->name('create.evidenza'); //Gestione evidenza
+Route::post('/dash/evidenza', 'EvidenzaController@store')->name('store.evidenza'); //Inserisco immobile in evidenza
 
 //Slider
 Route::get('/dash/slider', 'SliderController@create')->name('create.slider'); //Gestione slider
+Route::post('/dash/slider', 'SliderController@store')->name('store.slider'); //Inserisco immobile nello slider
 
 
 Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestione offerte

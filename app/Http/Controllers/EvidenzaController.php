@@ -39,7 +39,6 @@ class EvidenzaController extends Controller
     public function store(Request $request)
     {
 
-      //mannaggia DDDDDDD
         $data = $request->all();
         $nuova_evidenza = new Evidenza();
         $nuova_evidenza->fill($data);
