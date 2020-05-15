@@ -15,7 +15,7 @@ class EvidenzaController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -27,7 +27,7 @@ class EvidenzaController extends Controller
     {
       $immobili = Immobile::all();
       $highlights = Evidenza::all();
-        return view('back.immobili-evidenza', compact('highlights', 'immobili'));
+      return view('back.immobili-evidenza', compact('highlights', 'immobili'));
     }
 
     /**

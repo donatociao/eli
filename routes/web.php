@@ -58,5 +58,9 @@ Route::get('/dash/slider', 'SliderController@create')->name('create.slider'); //
 Route::post('/dash/slider', 'SliderController@store')->name('store.slider'); //Inserisco immobile nello slider
 
 
+// Offerte
 Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestione offerte
+Route::post('/dash/offerte', 'OffersController@store')->name('store.offerte'); //Inserisco immobile in offerta
+Route::get('/dash/offerte/delete/{id}', 'OffersController@destroy')->name('destroy.offerte'); //Elimino un immobile in offerta
+
 Route::get('/dash/news', 'NewsController@index')->name('news'); //Gestione offerte

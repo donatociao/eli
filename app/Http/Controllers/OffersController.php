@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Offer;
 use Illuminate\Http\Request;
+use App\Immobile;
 
 class OffersController extends Controller
 {
@@ -13,7 +16,9 @@ class OffersController extends Controller
      */
     public function index()
     {
-        return view('back.offerte');
+        $immobili = Immobile::all();
+        $offers = Offer::all();
+        return view('back.offerte', compact('immobili','offers'));
     }
 
     /**
@@ -21,9 +26,10 @@ class OffersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $immobili = Immobile::all();
+        $offers = Offer::all();
+        return view('back.offerte', compact('immobili','offers'));
     }
 
     /**
@@ -32,9 +38,23 @@ class OffersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $data = $request->all();
+        $new_offer = new Offer();
+        $new_offer->fill($data);
+
+        //conto quante offerte ci sono con l'id della request
+        $check = Offer::where('immobile_id', $data['immobile_id'])->count();
+
+        //se non ci sono offerte con l'id della request salvo
+        if ($check == 0) {
+            $new_offer->save();
+        }
+
+
+        $immobili = Immobile::all();
+        $offers = Offer::all();
+        return view('back.offerte', compact('immobili','offers'));
     }
 
     /**
@@ -77,8 +97,12 @@ class OffersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+
+        $item = Offer::findOrFail($id);
+        //$this->authorize('deleteItem', $item);
+        $item->delete();
+        return redirect(route('offerte'));
+
     }
 }
