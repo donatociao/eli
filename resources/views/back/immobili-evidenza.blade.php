@@ -5,10 +5,9 @@
   <div class="container mt-3 mb-5">
     <div class="row">
       <div class="col-lg-12">
-        {{-- <a href="{{route('dash')}}" class="btn btn-info stretched-link mb-3">Indietro</a> --}}
         <h1 class="eliano-red"><a href="{{route('dash')}}" class="btn btn-info mb-3 mr-3"><i class="fas fa-home"></i></a>Gestisci Offerte</h1>
 
-        <form class="mt-5" method="post" action="{{route('store-evidenza')}}" enctype="multipart/form-data">
+        <form class="mt-5" method="post" action="{{route('store.evidenza')}}" enctype="multipart/form-data">
           {{ csrf_field() }}
           <div class="form-row">
             <div class="form-group col-md-5">
@@ -28,7 +27,6 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  {{-- <th scope="col">#</th> --}}
                   <th scope="col">Immobile</th>
                   <th scope="col">Stato</th>
                   <th scope="col">Categoria</th>
@@ -37,13 +35,12 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($highlights as $highlight)
 
+                @foreach ($highlights as $highlight)
                   <tr>
-                    {{-- <th scope="row">{{$higlight->immobile->id}}</th> --}}
                     <td>{{$highlight->immobile->titolo}}</td>
                     <td>{{$highlight->immobile->stato->name}}</td>
-                    <td>{{$highlight->immobile->category->name }}</td>
+                    <td>{{$highlight->immobile->category->name}}</td>
                     <td>{{$highlight->$immobile['city']['name'] }}</td>
                     <td><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></td>
                   </tr>

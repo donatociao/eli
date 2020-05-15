@@ -49,11 +49,13 @@ Route::get('/dash', 'DashController@index')->name('dash'); //pannello di control
 Route::get('/dash/inserisci-immobile', 'ImmobiliController@create')->name('create.immobile'); //inserimento nuovo immobile
 Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //salva nuovo immobile
 
-//Evidenza
+//EVIDENZA
 Route::get('/dash/evidenza', 'EvidenzaController@create')->name('create.evidenza'); //View di inserimento
-Route::post('/dash/evidenza', 'EvidenzaController@store')->name('store-evidenza'); //Store
+Route::post('/dash/evidenza', 'EvidenzaController@store')->name('store.evidenza'); //Store
+
+//Slider
+Route::get('/dash/slider', 'SliderController@create')->name('create.slider'); //Gestione slider
 
 
-Route::get('/dash/slider', 'SliderController@index')->name('slider'); //Gestione slider
 Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestione offerte
 Route::get('/dash/news', 'NewsController@index')->name('news'); //Gestione offerte

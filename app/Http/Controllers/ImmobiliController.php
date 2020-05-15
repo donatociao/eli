@@ -11,6 +11,7 @@ use App\Detail;
 use App\Stato;
 use App\Feature;
 use App\Image;
+use App\Evidenza;
 use DateTime;
 
 class ImmobiliController extends Controller
@@ -37,8 +38,7 @@ class ImmobiliController extends Controller
       $status = DB::table('statos')->get(); //RECUPERO GLI STATI IN DB
       $categories = DB::table('categories')->get(); //recupero categorie
 
-
-      return view('back.inserisci',  compact('status', 'categories')); //PASSO GLI INDICI ALLA VIEW
+      return view('back.inserisci-immobile',  compact('status', 'categories')); //PASSO GLI INDICI ALLA VIEW
     }
 
     /**
@@ -109,6 +109,7 @@ class ImmobiliController extends Controller
 
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
+        //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
         {
             $allowedfileExtension=['jpg','png'];
@@ -119,30 +120,31 @@ class ImmobiliController extends Controller
                 $check=in_array($extension,$allowedfileExtension);
                 if($check)
                 {
-
                   $filename = $file->store('public/preview');
-
                   $nuovo_immobile->img_preview = $filename;
-                    echo "Immagini inserite con successo";
+                    echo "Immagine inserita con successo";
                 }
                 else
                 {
-                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta contatta Donato!</div>';
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta Donato!</div>';
                 }
             }
         }
-
         $nuovo_immobile->save();
-        //
 
-
-
+      //controllo evidenza -> se è checked inserisco in evidenza
+      if ($dati_inseriti['evidenza'] == 'on') {
+        $nuova_evidenza = new Evidenza();
+        $nuova_evidenza->immobile_id = $nuovo_immobile['id'];
+        $nuova_evidenza->save();
+      }
 
         // Salvo le immagini feature
         $nuove_immagini = new Image();
         $nuove_immagini->fill($dati_inseriti);
 
 
+        //inserimento immagini galleria immobile
         if($request->hasFile('photos'))
         {
             $allowedfileExtension=['jpg','png'];
@@ -164,13 +166,10 @@ class ImmobiliController extends Controller
                 }
                 else
                 {
-                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta contatta Donato!</div>';
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta Donato!</div>';
                 }
             }
         }
-
-
-
 
     return redirect()->route('dash');
     }

@@ -25,7 +25,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Slider</h5>
-        <a href="{{route('slider')}}"><button type="button" class="btn btn-success">Gestisci</button></a>
+        <a href="{{route('create.slider')}}"><button type="button" class="btn btn-success">Gestisci</button></a>
       </div>
     </div>
   </div>
