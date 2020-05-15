@@ -90,8 +90,6 @@ class ImmobiliController extends Controller
         $nuovo_immobile = new Immobile();
         $nuovo_detail = new Detail();
         $nuove_features = new Feature();
-        //$nuove_immagini = new ImmobileImage();
-
 
         //Salvo i dati feature
         $nuove_features->fill($dati_inseriti);

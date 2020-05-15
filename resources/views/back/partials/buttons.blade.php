@@ -11,7 +11,13 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Immobili</h5>
-        <a href="{{route('inserisci')}}"><button type="button" class="btn btn-primary">Inserisci</button></a>
+        <a href="{{route('create.immobile')}}"><button type="button" class="btn btn-primary">Inserisci</button></a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Evidenza</h5>
+        <a href="{{route('create.evidenza')}}"><button type="button" class="btn btn-primary">Inserisci</button></a>
       </div>
     </div>
   </div>

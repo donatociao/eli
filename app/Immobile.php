@@ -52,4 +52,11 @@ class Immobile extends Model
       return $this->hasMany('App\Image');
     }
 
+    /**
+    * Chiama le Immagini assocciate all'immobile.
+    */
+    public function evidenza() {
+      return $this->hasOne('App\Evidenza');
+    }
+
 }
