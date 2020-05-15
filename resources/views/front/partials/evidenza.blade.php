@@ -26,9 +26,12 @@
   <div class="container">
     <div class="row">
       @foreach ($immobili as $immobile)
+        {{-- @php
+          dd($immobile->img_preview);
+        @endphp --}}
       <div class="col-md-4 mb-4">
         <div class="card mr-0">
-          <img src="{{ asset('storage/hVNDzhGIjm5ZXytK0xsGt3dzQTDlqNwvqlXKgCgB.jpeg') }}" class="card-img-top" alt="...">
+          <img src="{{ asset('storage/'.$immobile->img_preview) }}" class="card-img-top" alt="...">
           <div class="card-body bg-eliano d-flex flex-row text-white">
             <div class="p-0 col-md-4 text-center">
               <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/vaniw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{$immobile->detail->vani}} vani</span></div>
@@ -42,7 +45,7 @@
             </div>
           <div class="card-body">
             <h5 class="card-title">{{$immobile->titolo}}</h5>
-            <p class="card-text">{!! strip_tags($immobile->description) !!}</p>
+            {{-- <p class="card-text">{!! strip_tags($immobile->description) !!}</p> --}}
             <div class="container">
               <div class="row d-flex justify-content-between">
                 <h5>€ {{$immobile->price}}</h5>

@@ -122,13 +122,20 @@
               <textarea id="text-editor" class="form-control" id="exampleFormControlTextarea1" rows="6" name="description"></textarea>
             </div>
             <div class="form-group col-md-4">
+              <label for="Product Name">Immagine di anteprima</label>
+              <br/>
+              <input type="file" class="form-control" name="img_preview[]" multiple />
+            </div>
+            <div class="form-group col-md-4">
               <label for="Product Name">Foto immobile</label>
               <br/>
               <input type="file" class="form-control" name="photos[]" multiple />
             </div>
+
           </div>
 
-            <div id="label"class="form-group d-flex flex-row col-lg-12">
+
+            <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">
               <div class="col-lg-1 align-items-center">
                 <label for="ristutturato">Ristrutturato</label>
                 <input id="ristrutturato" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">

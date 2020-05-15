@@ -19,6 +19,7 @@ class CreateImmobilesTable extends Migration
           $table->string('description');
           $table->integer('price');
           $table->string('address');
+          $table->string('img_preview');
           $table->string('slug')->nullable()->unique();
           $table->timestamps();
         });

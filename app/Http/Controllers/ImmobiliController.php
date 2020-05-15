@@ -111,6 +111,28 @@ class ImmobiliController extends Controller
 
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
+        if($request->hasFile('img_preview'))
+        {
+            $allowedfileExtension=['jpg','png'];
+            $files = $request->file('img_preview');
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check=in_array($extension,$allowedfileExtension);
+                if($check)
+                {
+
+                  $filename = $file->store('public/preview');
+
+                  $nuovo_immobile->img_preview = $filename;
+                    echo "Immagini inserite con successo";
+                }
+                else
+                {
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta contatta Donato!</div>';
+                }
+            }
+        }
 
         $nuovo_immobile->save();
         //
@@ -133,10 +155,12 @@ class ImmobiliController extends Controller
                 $check=in_array($extension,$allowedfileExtension);
                 if($check)
                 {
-                    $filename = $file->store('public');
+                  $path_foto = $file->store('public/immobili_images');
+                  // $filename = Storage::put('immobili_images', $file);
+
                     Image::create([
                         'immobile_id' => $nuovo_immobile->id,
-                        'filepath' => $filename
+                        'filepath' => $path_foto
                     ]);
                     echo "Immagini inserite con successo";
                 }
@@ -146,6 +170,8 @@ class ImmobiliController extends Controller
                 }
             }
         }
+
+
 
 
     return redirect()->route('dash');
