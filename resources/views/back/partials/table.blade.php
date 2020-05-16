@@ -8,7 +8,7 @@
           <th scope="col">Stato</th>
           <th scope="col">Categoria</th>
           <th scope="col">Città</th>
-          <th scope="col">Apri</th>
+          <th scope="col">Azioni</th>
         </tr>
       </thead>
       <tbody>
@@ -19,7 +19,10 @@
             <td>{{$immobile->stato->name}}</td>
             <td>{{$immobile->category->name }}</td>
             <td>{{ $immobile['city']['name'] }}</td>
-            <td><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></td>
+            <td>
+              <button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button>
+              <a href="{{ route('destroy.immobile', $immobile->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+            </td>
           </tr>
         @endforeach
       </tbody>

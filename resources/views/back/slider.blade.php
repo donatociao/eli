@@ -43,7 +43,10 @@
                     <td>{{$slider->immobile->stato->name}}</td>
                     <td>{{$slider->immobile->category->name}}</td>
                     <td>{{$slider->$immobile['city']['name'] }}</td>
-                    <td><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></td>
+                    <td>
+                      <button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button>
+                      <a href="{{ route('destroy.slider', $slider->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>

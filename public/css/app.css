@@ -10943,6 +10943,7 @@ a.text-dark:focus {
   top: 85%;
   left: 10vw;
   border-radius: 5px;
+  z-index: 99999;
 }
 
 .go-to {
@@ -11078,5 +11079,15 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.swiper-container {
+  width: 100vw;
+  height: 90vh;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
 }
 

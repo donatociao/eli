@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-body">
         <p class="mb-0">Oggi è il {{now()->format('d-m-Y')}}</p>
-        <h2 class="card-title">Immobili inseriti: </h2>
+        <h2 class="card-title">Immobili inseriti: {{$count}}</h2>
       </div>
     </div>
   </div>

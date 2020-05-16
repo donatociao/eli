@@ -19,9 +19,9 @@ class AddForeignToImmobiliTable extends Migration
           $table->integer('stato_id')->unsigned()->nullable();
           $table->integer('feature_id')->unsigned()->nullable();
           $table->integer('detail_id')->unsigned()->nullable();
-          $table->foreign('city_id')->references('id')->on('cities');
-          $table->foreign('category_id')->references('id')->on('categories');
-          $table->foreign('stato_id')->references('id')->on('statos');
+          $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+          $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+          $table->foreign('stato_id')->references('id')->on('statos')->onDelete('cascade');
           $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
           $table->foreign('detail_id')->references('id')->on('details')->onDelete('cascade');
 

@@ -67,6 +67,7 @@
     top: 85%;
     left: 0.1 * 100vw;
     border-radius: 5px;
+    z-index: 99999;
 }
 
 .go-to {
@@ -206,4 +207,15 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+//slider
+.swiper-container {
+    width: 100vw;
+    height: 90vh;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+color: white;
 }

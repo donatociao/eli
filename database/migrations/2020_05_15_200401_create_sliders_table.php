@@ -20,7 +20,7 @@ class CreateSlidersTable extends Migration
 
       Schema::table('sliders', function (Blueprint $table) {
         $table->integer('immobile_id')->unsigned()->nullable();
-        $table->foreign('immobile_id')->references('id')->on('immobiles');
+        $table->foreign('immobile_id')->references('id')->on('immobiles')->onDelete('cascade');;
       });
     }
 

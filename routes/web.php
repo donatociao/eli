@@ -46,16 +46,19 @@ Auth::routes();
 Route::get('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 
 //IMMOBILI
-Route::get('/dash/inserisci-immobile', 'ImmobiliController@create')->name('create.immobile'); //inserimento nuovo immobile
-Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //salva nuovo immobile
+Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile'); //view di inserimento nuovo immobile
+Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //inserisco nuovo immobile
+Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile'); //Elimino un immobile
 
 //EVIDENZA
 Route::get('/dash/evidenza', 'EvidenzaController@create')->name('create.evidenza'); //Gestione evidenza
 Route::post('/dash/evidenza', 'EvidenzaController@store')->name('store.evidenza'); //Inserisco immobile in evidenza
+Route::get('/dash/evidenza/delete/{id}', 'EvidenzaController@destroy')->name('destroy.evidenza'); //Elimino un immobile in evidenza
 
 //Slider
 Route::get('/dash/slider', 'SliderController@create')->name('create.slider'); //Gestione slider
 Route::post('/dash/slider', 'SliderController@store')->name('store.slider'); //Inserisco immobile nello slider
+Route::get('/dash/slider/delete/{id}', 'SliderController@destroy')->name('destroy.slider'); //Elimino immobile dallo slider
 
 
 // Offerte

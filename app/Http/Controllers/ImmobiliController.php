@@ -132,7 +132,7 @@ class ImmobiliController extends Controller
         }
         $nuovo_immobile->save();
 
-      if(!array_key_exists('evidenza', $dati_inseriti)) { 
+      if(!array_key_exists('evidenza', $dati_inseriti)) {
           echo "Ok";
         } else {
       //controllo evidenza -> se è checked inserisco in evidenza
@@ -220,6 +220,9 @@ class ImmobiliController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $immobile = Immobile::findOrFail($id);
+      //$this->authorize('deleteItem', $item);
+      $immobile->delete();
+      return redirect(route('dash'));
     }
 }

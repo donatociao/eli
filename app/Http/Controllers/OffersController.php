@@ -100,7 +100,6 @@ class OffersController extends Controller
     public function destroy($id) {
 
         $item = Offer::findOrFail($id);
-        //$this->authorize('deleteItem', $item);
         $item->delete();
         return redirect(route('offerte'));
 

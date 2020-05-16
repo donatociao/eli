@@ -8,6 +8,7 @@ use App\Stato;
 use App\Immobile;
 use App\Detail;
 use App\Image;
+use App\Slider;
 
 class HomeController extends Controller
 {
@@ -23,10 +24,10 @@ class HomeController extends Controller
         $cities = DB::select("CALL getAvailCities()");
         $highlights = DB::select("CALL getHighlights()");
         $offers = DB::select('CALL getOffers()');
-
+        $sliders = Slider::all();
         $immobili = Immobile::all();
 
-        return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers'));
+        return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers', 'sliders'));
     }
 
     /**

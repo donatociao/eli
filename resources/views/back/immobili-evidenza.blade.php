@@ -5,7 +5,7 @@
   <div class="container mt-3 mb-5">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="eliano-red"><a href="{{route('dash')}}" class="btn btn-info mb-3 mr-3"><i class="fas fa-home"></i></a>Gestisci Offerte</h1>
+        <h1 class="eliano-red"><a href="{{route('dash')}}" class="btn btn-info mb-3 mr-3"><i class="fas fa-home"></i></a>Immobili in evidenza</h1>
 
         <form class="mt-5" method="post" action="{{route('store.evidenza')}}" enctype="multipart/form-data">
           {{ csrf_field() }}
@@ -31,7 +31,7 @@
                   <th scope="col">Stato</th>
                   <th scope="col">Categoria</th>
                   <th scope="col">Città</th>
-                  <th scope="col">Apri</th>
+                  <th scope="col">Azioni</th>
                 </tr>
               </thead>
               <tbody>
@@ -42,7 +42,10 @@
                     <td>{{$highlight->immobile->stato->name}}</td>
                     <td>{{$highlight->immobile->category->name}}</td>
                     <td>{{$highlight->$immobile['city']['name'] }}</td>
-                    <td><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></td>
+                    <td>
+                      <button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button>
+                      <a href="{{ route('destroy.evidenza', $highlight->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+                    </td>
                   </tr>
                 @endforeach
               </tbody>

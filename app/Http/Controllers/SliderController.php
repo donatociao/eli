@@ -99,6 +99,9 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $slider = Slider::findOrFail($id);
+      $slider->delete();
+      return redirect(route('create.slider'));
+
     }
 }

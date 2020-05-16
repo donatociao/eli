@@ -25,10 +25,7 @@
 <section class="mb-5">
   <div class="container">
     <div class="row">
-      @foreach ($highlights as $highlight)
-        {{-- @php
-          dd($highlight->vani);
-        @endphp--}}
+      @foreach($highlights as $highlight)
       <div class="col-md-4 mb-4">
         <div class="card mr-0">
           <img src="{{ asset('storage/'.$highlight->img_preview) }}" class="card-img-top" alt="...">
@@ -45,7 +42,6 @@
             </div>
           <div class="card-body">
             <h5 class="card-title">{{$highlight->titolo}}</h5>
-            {{-- <p class="card-text">{!! strip_tags($immobile->description) !!}</p> --}}
             <div class="container">
               <div class="row d-flex justify-content-between">
                 <h5>€ {{$highlight->price}}</h5>
@@ -55,8 +51,7 @@
           </div>
         </div>
       </div>
-      @endforeach
-
+    @endforeach
 
     </div>
   </div>

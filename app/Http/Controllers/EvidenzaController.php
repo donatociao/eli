@@ -99,6 +99,9 @@ class EvidenzaController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $hightlight = Evidenza::findOrFail($id);
+      $hightlight->delete();
+      return redirect(route('create.evidenza'));
     }
+
 }
