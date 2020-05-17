@@ -45,7 +45,7 @@
             <div class="container">
               <div class="row d-flex justify-content-between">
                 <h5>€ {{$highlight->price}}</h5>
-                <a href="{{route('immobile')}}" class="btn bg-yellow btn-sm">Apri <i class="fa fa-search"></i></a>
+                <a href="{{route('show.immobile', ['slug' => $highlight->slug, 'immobile_id' => $highlight->immobile_id])}}" class="btn bg-yellow btn-sm">Apri <i class="fa fa-search"></i></a>
               </div>
             </div>
           </div>

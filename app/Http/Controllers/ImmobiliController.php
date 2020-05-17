@@ -93,6 +93,23 @@ class ImmobiliController extends Controller
 
         //Salvo i dati feature
         $nuove_features->fill($dati_inseriti);
+
+        //controlli sulle features
+        if(!array_key_exists('ristrutturato', $dati_inseriti)) {
+            $nuove_features->ristrutturato = 'off';
+          }
+        if (!array_key_exists('riscaldamento', $dati_inseriti)) {
+            $nuove_features->riscaldamento = 'off';
+          }
+        if (!array_key_exists('balconi', $dati_inseriti)) {
+            $nuove_features->balconi = 'off';
+          }
+        if (!array_key_exists('terrazzo', $dati_inseriti)) {
+            $nuove_features->terrazzo = 'off';
+          }
+        if (!array_key_exists('posto_auto', $dati_inseriti)) {
+            $nuove_features->posto_auto = 'off';
+          }
         $nuove_features->save();
 
         //Salvo i dati dettagli
@@ -184,9 +201,15 @@ class ImmobiliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug, $immobile_id)
     {
-        //
+      $immobile_show = Immobile::where('slug', $slug)->first();
+      if(empty($immobile_show)) {
+      echo('Metodo show Immobile controller');
+      }
+
+      $images = Image::where('immobile_id', $immobile_id)->get();
+      return view('front.immobile', compact('immobile_show', 'images'));
     }
 
     /**
@@ -220,9 +243,12 @@ class ImmobiliController extends Controller
      */
     public function destroy($id)
     {
-      $immobile = Immobile::findOrFail($id);
-      //$this->authorize('deleteItem', $item);
-      $immobile->delete();
+
+      $immobile_to_delete = Immobile::find($id);
+      if (!empty($immobile_to_delete)) {
+        $immobile_to_delete->delete();
+      }
+
       return redirect(route('dash'));
     }
 }

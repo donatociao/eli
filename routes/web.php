@@ -45,10 +45,7 @@ Auth::routes();
 //DASHBOARD
 Route::get('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 
-//IMMOBILI
-Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile'); //view di inserimento nuovo immobile
-Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //inserisco nuovo immobile
-Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile'); //Elimino un immobile
+
 
 //EVIDENZA
 Route::get('/dash/evidenza', 'EvidenzaController@create')->name('create.evidenza'); //Gestione evidenza
@@ -65,5 +62,11 @@ Route::get('/dash/slider/delete/{id}', 'SliderController@destroy')->name('destro
 Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestione offerte
 Route::post('/dash/offerte', 'OffersController@store')->name('store.offerte'); //Inserisco immobile in offerta
 Route::get('/dash/offerte/delete/{id}', 'OffersController@destroy')->name('destroy.offerte'); //Elimino un immobile in offerta
+
+//IMMOBILI
+Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile'); //view di inserimento nuovo immobile
+Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //inserisco nuovo immobile
+Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile'); //Elimino un immobile
+Route::get('/{slug}/{immobile_id}', 'ImmobiliController@show')->name('show.immobile'); //apri scheda immobile
 
 Route::get('/dash/news', 'NewsController@index')->name('news'); //Gestione offerte

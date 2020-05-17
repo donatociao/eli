@@ -44,7 +44,7 @@
                     <td>{{$slider->immobile->category->name}}</td>
                     <td>{{$slider->$immobile['city']['name'] }}</td>
                     <td>
-                      <button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button>
+                      <a href="{{route('show.immobile', ['slug' => $slider->immobile->slug, 'immobile_id' => $slider->immobile_id])}}" class="btn bg-yellow"><i class="fa fa-search-plus"></i></a>
                       <a href="{{ route('destroy.slider', $slider->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
                     </td>
                   </tr>
