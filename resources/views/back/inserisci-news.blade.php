@@ -12,15 +12,18 @@
           {{ csrf_field() }}
           <div class="form-row ">
             <div class="form-group col-md-8">
-              <label for="news">Testo news</label>
-              <textarea class="form-control" id="news-editor" rows="6"></textarea>
+              <label for="title">Titolo annuncio</label>
+              <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <div class="form-group col-md-8">
+              <label for="body">Testo news</label>
+              <textarea name="body" class="form-control" id="news-editor" rows="6"></textarea>
             </div>
             <div class="form-group col-md-4">
-              <label for="Product Name">Immagine</label>
-              <input type="file" class="form-control" name="photos[]" multiple/>
+              <label for="img_news[]">Immagine</label>
+              <input type="file" class="form-control" name="img_news[]" multiple/>
               <br>
             </div>
-
           </div>
           <button type="submit" class="btn btn-primary">Inserisci news</button>
         </form>
@@ -29,26 +32,21 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">id</th>
                   <th scope="col">Titolo</th>
                   <th scope="col">Data inserimento</th>
                   <th scope="col">Elimina</th>
                 </tr>
               </thead>
               <tbody>
+              @foreach ($news as $single_news)
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                  <th scope="row">{{ $single_news->id }}</th>
+                  <th scope="row">{{ $single_news->title }}</th>
+                  <th scope="row">{{ $single_news->created_at }}</th>
+                  <td><button action="{{ route('destroy.news', ['id' => $single_news->id ]) }}" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
-                </tr>
-                <tr>
+                @endforeach
               </tbody>
             </table>
           </div>

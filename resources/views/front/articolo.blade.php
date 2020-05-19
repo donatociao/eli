@@ -3,18 +3,17 @@
 @section('content')
   @include('front.partials.nav')
   @include('front.partials.subnav')
-
   <div class="container mb-4">
     <div class="row mt-5">
       <div class="col-lg-12">
-        <h1 class="text-uppercase"><div class="status-scheda text-center "><p class="text-uppercase text-dark">Bacheca</p></div>Cercasi Capannone a Salerno</h1>
+        <h1 class="text-uppercase"><div class="status-scheda text-center "><p class="text-uppercase text-dark">Bacheca</p></div>{{ ! $show_news->title }}</h1>
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-lg-6">
         <h3>Descrizione</h3>
-        <p>Per conto di un cliente siamo alla ricerca di un capannone industriale di 200 mq. circa in zona Salerno. </p>
-        <img src="https://source.unsplash.com/user/erondu/1600x900" class="img-fluid" alt="">
+        <p>{!!$show_news->body!!}</p>
+        <img src="{{ asset('storage/'. $image[0]['path']) }}" class="img-fluid" alt="">
       </div>
       <div class="col-lg-6 mb-5">
         <form>
@@ -41,7 +40,5 @@
       </div>
     </div>
   </div>
-
-
 @include('front.partials.footer')
 @endsection

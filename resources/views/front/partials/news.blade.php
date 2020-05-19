@@ -22,38 +22,23 @@
   </div>
   <div class="container mt-5 pb-5">
     <div class="row">
-      <div class="col-md-4">
-        <div class="card mr-0">
-          <img src="https://source.unsplash.com/user/erondu/1600x900" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="{{route('articolo')}}" class="btn bg-yellow">Leggi</a>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card mr-0">
-          <img src="https://source.unsplash.com/user/erondu/1600x900" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="{{route('articolo')}}" class="btn bg-yellow">Leggi</a>
-          </div>
-        </div>
-      </div>
+        @foreach ($news as $single_news)
+          @php
+            $img_idx = $single_news->id;
+          @endphp
 
-      <div class="col-md-4">
-        <div class="card mr-0">
-          <img src="https://source.unsplash.com/user/erondu/1600x900" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="{{route('articolo')}}" class="btn bg-yellow">Leggi</a>
+        <div class="col-md-4">
+          <div class="card mr-0">
+            <img src="{{ asset('storage/'. $images[$img_idx]) }}" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ $single_news->title }}</h5>
+              <p class="card-text">{{ ! $single_news->body }}</p>
+              <a href="{{ route('show.news', ['slug' => $single_news->slug, 'news_id' => $single_news->id]) }}" href="" class="btn bg-yellow">Leggi</a>
+            </div>
           </div>
-        </div>
       </div>
-    </div>
+      @endforeach
+
   </div>
 </section>

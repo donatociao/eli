@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\NewsImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Stato;
@@ -9,6 +10,7 @@ use App\Immobile;
 use App\Detail;
 use App\Image;
 use App\Slider;
+use App\News;
 
 class HomeController extends Controller
 {
@@ -25,9 +27,16 @@ class HomeController extends Controller
         $highlights = DB::select("CALL getHighlights()");
         $offers = DB::select('CALL getOffers()');
         $sliders = Slider::all();
+        $news = News::orderBy('id', 'DESC')->get();
+        $news_images = NewsImage::orderBy('id','DESC')->get();
+        $images = array();
         $immobili = Immobile::all();
 
-        return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers', 'sliders'));
+        foreach($news_images as $single_image) {
+            $images[$single_image['news_id']] = $single_image['path'];
+        }
+
+        return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers', 'sliders', 'news', 'images'));
     }
 
     /**

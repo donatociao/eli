@@ -41,7 +41,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">News</h5>
-        <a href="{{route('news')}}"><button type="button" class="btn btn-danger">Gestisci</button></a>
+        <a href="{{route('create.news')}}"><button type="button" class="btn btn-danger">Gestisci</button></a>
       </div>
     </div>
   </div>

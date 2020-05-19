@@ -40,6 +40,11 @@ Route::get('/privacy-policy', function () {
 
 
 
+//NEWS
+Route::get('/dash/news', 'NewsController@create')->name('create.news'); //Gestione News
+Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news'); //apri scheda articolo
+Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
+Route::delete('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news'); //Elimino una news
 
 Auth::routes();
 //DASHBOARD
@@ -69,4 +74,3 @@ Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //inse
 Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile'); //Elimino un immobile
 Route::get('/{slug}/{immobile_id}', 'ImmobiliController@show')->name('show.immobile'); //apri scheda immobile
 
-Route::get('/dash/news', 'NewsController@index')->name('news'); //Gestione offerte
