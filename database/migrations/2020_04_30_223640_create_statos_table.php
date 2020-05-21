@@ -32,6 +32,7 @@ class CreateStatosTable extends Migration
             'name' => 'Affitto',
           )
         );
+
     }
 
     /**

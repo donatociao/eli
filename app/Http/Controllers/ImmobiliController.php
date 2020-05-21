@@ -11,6 +11,7 @@ use App\Detail;
 use App\Stato;
 use App\Feature;
 use App\Image;
+use App\Category;
 use App\Evidenza;
 use DateTime;
 
@@ -250,5 +251,15 @@ class ImmobiliController extends Controller
       }
 
       return redirect(route('dash'));
+    }
+
+    public function search(Request $request) {
+        $stato = Stato::where('id', '=', $request->state_id)->pluck('search_label');
+        $matches = Immobile::where([
+                ['category_id', '=', $request->category_id],
+                ['stato_id', '=', $request->state_id],
+                ['city_id', '=', $request->state_id],
+        ])->get();
+        return view('front.fittasi', compact('matches', 'stato'));
     }
 }

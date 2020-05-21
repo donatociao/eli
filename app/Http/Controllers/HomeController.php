@@ -6,6 +6,7 @@ use App\NewsImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Stato;
+use App\Category;
 use App\Immobile;
 use App\Detail;
 use App\Image;
@@ -22,6 +23,7 @@ class HomeController extends Controller
     public function index()
     {
         $cat = DB::table('categories')->get();
+        $category = Category::all();
         $statos = DB::table('statos')->get();
         $cities = DB::select("CALL getAvailCities()");
         $highlights = DB::select("CALL getHighlights()");
@@ -36,7 +38,7 @@ class HomeController extends Controller
             $images[$single_image['news_id']] = $single_image['path'];
         }
 
-        return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers', 'sliders', 'news', 'images'));
+        return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers', 'sliders','news','images','category'));
     }
 
     /**

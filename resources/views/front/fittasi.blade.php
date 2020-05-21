@@ -3,11 +3,14 @@
 @section('content')
   @include('front.partials.nav')
   @include('front.partials.subnav')
+<!-- //Todo: Sistemare la search di questa pagina. -->
 
+  @php
+  @endphp
   <div class="subnav container mt-5 mb-5">
     <div class="row d-flex align-items-center">
       <div class="col-lg-3">
-        <h1 class="eliano-red font-55">FITTASI<i class="bg-chev fa ml-3 fa-angle-right"></i></h1>
+        <h1 class="eliano-red font-55">{{ $stato[0] }}<i class="bg-chev fa ml-3 fa-angle-right"></i></h1>
       </div>
       <div class="col-lg-9">
         <div class="bg-eliano search-scheda d-flex flex-row justify-content-center">

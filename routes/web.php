@@ -13,9 +13,9 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/news', function () {
+/*Route::get('/news', function () {
     return view('front.articolo');
-})->name('articolo');
+})->name('articolo');*/
 
 Route::get('/fittasi', function () {
     return view('front.fittasi');
@@ -40,11 +40,7 @@ Route::get('/privacy-policy', function () {
 
 
 
-//NEWS
-Route::get('/dash/news', 'NewsController@create')->name('create.news'); //Gestione News
-Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news'); //apri scheda articolo
-Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
-Route::delete('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news'); //Elimino una news
+
 
 Auth::routes();
 //DASHBOARD
@@ -68,9 +64,18 @@ Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestio
 Route::post('/dash/offerte', 'OffersController@store')->name('store.offerte'); //Inserisco immobile in offerta
 Route::get('/dash/offerte/delete/{id}', 'OffersController@destroy')->name('destroy.offerte'); //Elimino un immobile in offerta
 
+
+
 //IMMOBILI
 Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile'); //view di inserimento nuovo immobile
 Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //inserisco nuovo immobile
 Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile'); //Elimino un immobile
 Route::get('/{slug}/{immobile_id}', 'ImmobiliController@show')->name('show.immobile'); //apri scheda immobile
+Route::any('/immobile/search', 'ImmobiliController@search')->name('search.immobile');
+
+//NEWS
+Route::get('/dash/news', 'NewsController@create')->name('create.news'); //Gestione News
+Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news'); //apri scheda articolo
+Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
+Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news'); //Elimino una news
 

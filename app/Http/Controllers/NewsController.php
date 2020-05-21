@@ -76,13 +76,13 @@ class NewsController extends Controller
      */
     public function show($slug,$news_id)
     {
-        $show_news = News::where('id', $news_id)->first();
+        $show_news = News::where('id', $news_id)->firstOrFail();
         if(empty($show_news)) {
             echo('Metodo show Immobile controller');
         }
 
-        $image = NewsImage::where('news_id', $show_news->id)->get();
-        return view('front.articolo', compact('show_news', 'image'));
+        $news_image = NewsImage::where('news_id', $show_news->id)->firstOrFail();
+        return view('front.articolo', compact('show_news', 'news_image '));
     }
 
     /**

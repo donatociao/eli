@@ -7,6 +7,8 @@ $(document).ready(function() {
         $("#menu").addClass("d-none ");
     });
 
+
+
     $("#light-slider").lightSlider({
         item: 3,
         autoWidth: false,
