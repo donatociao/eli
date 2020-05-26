@@ -121,6 +121,6 @@ class NewsController extends Controller
             $news_to_delete->delete();
         }
 
-        return redirect(route('dash'));
+        return redirect(route('dash/news'));
     }
 }

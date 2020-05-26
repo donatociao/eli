@@ -46,6 +46,8 @@ Auth::routes();
 //DASHBOARD
 Route::get('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 
+//NEWS
+Route::get('/dash/news', 'HomeController@create_news')->name('create.news'); //Gestione News
 
 
 //EVIDENZA
@@ -73,9 +75,8 @@ Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('de
 Route::get('/{slug}/{immobile_id}', 'ImmobiliController@show')->name('show.immobile'); //apri scheda immobile
 Route::any('/immobile/search', 'ImmobiliController@search')->name('search.immobile');
 
-//NEWS
-Route::get('/dash/news', 'NewsController@create')->name('create.news'); //Gestione News
-Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news'); //apri scheda articolo
 Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
+Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news'); //apri scheda articolo
+//Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
 Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news'); //Elimino una news
 

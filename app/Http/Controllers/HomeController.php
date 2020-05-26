@@ -51,6 +51,12 @@ class HomeController extends Controller
 
     }
 
+    public function create_news() {
+
+        $news = News::orderBy('id', 'DESC')->get();
+        return view('back.inserisci-news', compact('news'));
+
+    }
     /**
      * Store a newly created resource in storage.
      *

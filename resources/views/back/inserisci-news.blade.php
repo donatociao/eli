@@ -44,7 +44,7 @@
                   <th scope="row">{{ $single_news->id }}</th>
                   <th scope="row">{{ $single_news->title }}</th>
                   <th scope="row">{{ $single_news->created_at }}</th>
-                  <td><button action="{{ route('destroy.news', ['id' => $single_news->id ]) }}" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                  <td><a href="{{ route('destroy.news', ['id' => $single_news->id ]) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a></td>
                 </tr>
                 @endforeach
               </tbody>

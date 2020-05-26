@@ -231,9 +231,8 @@ class ImmobiliController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+
     }
 
     /**
@@ -258,7 +257,7 @@ class ImmobiliController extends Controller
         $matches = Immobile::where([
                 ['category_id', '=', $request->category_id],
                 ['stato_id', '=', $request->state_id],
-                ['city_id', '=', $request->state_id],
+                ['city_id', '=', $request->city_id],
         ])->get();
         return view('front.fittasi', compact('matches', 'stato'));
     }
