@@ -21,6 +21,7 @@ use DateTime;
 // ToDo: immagine di default anche nelle news.
 // ToDo: nascondere sezione "In evidenza" se non ci sono immobili in evidenza
 // ToDo: slider: aggiungere un'img di default
+// ToDo: watermark + ridimensionamento
 class ImmobiliController extends Controller
 {
     /**
