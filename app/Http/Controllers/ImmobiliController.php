@@ -127,6 +127,9 @@ class ImmobiliController extends Controller
 
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
+        $video_embed = explode('watch?v=',$dati_inseriti['video_link']);
+        $nuovo_immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];
+
         //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
         {
@@ -210,6 +213,7 @@ class ImmobiliController extends Controller
       }
 
       $images = Image::where('immobile_id', $immobile_id)->get();
+      $immobile_show->price = number_format($immobile_show->price, 0, ',', '.');
       return view('front.immobile', compact('immobile_show', 'images'));
     }
 
@@ -253,12 +257,54 @@ class ImmobiliController extends Controller
     }
 
     public function search(Request $request) {
+
+        if($request->ajax()) {
+            $immobili = Immobile::where('titolo', 'LIKE', "%$request->search%")->get();
+            $output = '';
+
+            foreach($immobili as $key => $value) {
+                $stato = $value->stato->name;
+                $cat = $value->category->name;
+                $city = $value->city->name;
+                $route = route('destroy.immobile', $value->id);
+
+                $output .= "<tr>";
+                $output .= "<td>$value->id</td>";
+                $output .= "<td>$value->titolo</td>";
+                $output .= "<td>$stato</td>";
+                $output .= "<td>$cat</td>";
+                $output .= "<td>$city</td>";
+                $output .= "<td>";
+                $output .= "<button type=\"button\" class=\"btn btn-info\"><i class=\"fas fa-search-plus\"></i></button><a href=\"{$route}\"><button type=\"button\" class=\"btn btn-danger\"><i class=\"far fa-trash-alt\"></i></button></a></td>";
+                $output .= '</tr>';
+
+            }
+            return $output;
+        }
+
         $stato = Stato::where('id', '=', $request->state_id)->pluck('search_label');
-        $matches = Immobile::where([
-                ['category_id', '=', $request->category_id],
-                ['stato_id', '=', $request->state_id],
-                ['city_id', '=', $request->city_id],
-        ])->get();
-        return view('front.fittasi', compact('matches', 'stato'));
+        $form_data = array('category_id' => $request->category_id, 'stato_id' => $request->state_id, 'city_id' => $request->city_id);
+        $filters = array();
+        $cat = DB::table('categories')->get();
+        $cities = DB::select("CALL getAvailCities()");
+
+        if($stato->first() == null)
+            $stato = array('Ricerca');
+
+
+        $index = 0;
+        foreach ($form_data as $key => $value) {
+            if($value == null) {
+                continue;
+            } elseif($value != null) {
+                $filters[$index][0] = $key;
+                $filters[$index][1] = '=';
+                $filters[$index][2] = $value;
+                $index++;
+            }
+        }
+
+        $matches = Immobile::where($filters)->get();
+        return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
     }
 }

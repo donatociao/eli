@@ -15,21 +15,24 @@
       <div class="col-lg-9">
         <div class="bg-eliano search-scheda d-flex flex-row justify-content-center">
           <div class="container d-flex flex-row align-items-center justify-content-center">
+            <form class="container d-flex flex-row align-items-center justify-content-center" method="post" action="{{route('search.immobile')}}" enctype="multipart/form-data">
+              {{ csrf_field() }}
             <h2 class="text-white">Cerco</h2>
-            <select class="search-sel custom-select-sm ml-3 text-white">
-              <option selected>cosa cerchi?</option>
-              <option value="1">appartamento</option>
-              <option value="2">villa</option>
-              <option value="3">locale commerciale</option>
+            <select name="category_id" class="search-sel custom-select-sm ml-3 text-white">
+              <option selected value="">Cosa cerchi?</option>
+              @foreach ($cat as $single_cat)
+                <option  value="{{ $single_cat->id }}">{{ $single_cat->name }}</option>
+              @endforeach
             </select>
             <h2 class="text-white ml-3">a</h2>
-            <select class="search-sel custom-select-sm ml-2 text-white ml-3">
-              <option selected>dove?</option>
-              <option value="1">Eboli</option>
-              <option value="2">Salerno</option>
-              <option value="3">Roma</option>
+            <select name="city_id" class="search-sel custom-select-sm ml-2 text-white ml-3">
+              <option selected value="">Dove?</option>
+              @foreach ($cities as $city)
+                <option  value="{{ $city->id }}">{{ $city->name }}</option>
+              @endforeach
             </select>
-            <button type="button" class="ml-5 text-uppercase btn btn-light">Cerca</button>
+            <button type="submit" class="ml-5 text-uppercase btn btn-light">Cerca</button>
+            </form>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Immobile extends Model
 {
   protected $fillable = [
-      'titolo', 'description', 'price', 'address', 'slug', 'img_preview','stato_id', 'category_id', 'city_id', 'feature_id', 'detail_id'
+      'titolo', 'description', 'price', 'address', 'slug', 'img_preview','stato_id', 'category_id', 'city_id', 'feature_id', 'detail_id', 'video_link'
     ];
 
     /**

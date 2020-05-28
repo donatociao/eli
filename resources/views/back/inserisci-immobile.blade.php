@@ -66,6 +66,12 @@
             </div>
           </div>
           <div class="form-row">
+            <div class="form-group col-md-7">
+              <label for="title">Link video YouTube</label>
+              <input type="text" class="form-control" id="title" name="video_link">
+            </div>
+          </div>
+          <div class="form-row">
             <div class="form-group col-md-8">
               <label for="exampleFormControlTextarea1">Descrizione</label>
               <textarea id="text-editor" class="form-control" id="exampleFormControlTextarea1" rows="6" name="description"></textarea>

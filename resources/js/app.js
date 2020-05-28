@@ -9,6 +9,7 @@ $(document).ready(function() {
 
 
 
+
     $("#light-slider").lightSlider({
         item: 3,
         autoWidth: false,

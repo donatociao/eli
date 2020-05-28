@@ -6,21 +6,21 @@
 
       {{ csrf_field() }}
 
-    <select name="category_id" class="search-sel custom-select-sm ml-3 text-white" required>
+    <select name="category_id" class="search-sel custom-select-sm ml-3 text-white">
       <option selected value="">Cosa cerchi?</option>
       @foreach ($cat as $single_cat)
             <option  value="{{ $single_cat->id }}">{{ $single_cat->name }}</option>
       @endforeach
     </select>
     <h2 class="text-white ml-3">in</h2>
-    <select name="state_id" id="search_type" class="search-sel custom-select-sm ml-2 text-white ml-3" required>
+    <select name="state_id" id="search_type" class="search-sel custom-select-sm ml-2 text-white ml-3">
       <option selected value="">Vendita o affitto?</option>
 	  @foreach ($statos as $single_state)
 		<option value="{{ $single_state->id }}">{{ $single_state->name }}</option>
 	  @endforeach
     </select>
     <h2 class="text-white ml-3">a</h2>
-    <select name="city_id" class="search-sel custom-select-sm ml-2 text-white ml-3" required>
+    <select name="city_id" class="search-sel custom-select-sm ml-2 text-white ml-3">
       <option selected value="">Dove?</option>
       @foreach ($cities as $city)
         <option  value="{{ $city->id }}">{{ $city->name }}</option>

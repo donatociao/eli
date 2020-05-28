@@ -7,6 +7,5 @@
     @include('back.partials.base')
     @include('back.partials.buttons')
     @include('back.partials.search-back')
-    @include('back.partials.table')
   </div>
 @endsection
