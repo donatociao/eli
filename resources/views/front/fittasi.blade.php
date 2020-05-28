@@ -3,7 +3,6 @@
 @section('content')
   @include('front.partials.nav')
   @include('front.partials.subnav')
-<!-- //Todo: Sistemare la search di questa pagina. -->
 
   @php
   @endphp

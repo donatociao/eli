@@ -15,6 +15,9 @@ use App\Category;
 use App\Evidenza;
 use DateTime;
 
+// ToDo: Update pages for every Model
+// ToDo: required sulle prime due righe del form
+// ToDo: cambiare il campo APE da TextField a DropDown [classi APE] + "in definizione"
 class ImmobiliController extends Controller
 {
     /**
