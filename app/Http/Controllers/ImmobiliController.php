@@ -18,6 +18,9 @@ use DateTime;
 // ToDo: Update pages for every Model
 // ToDo: required sulle prime due righe del form
 // ToDo: cambiare il campo APE da TextField a DropDown [classi APE] + "in definizione"
+// ToDo: immagine di default anche nelle news.
+// ToDo: nascondere sezione "In evidenza" se non ci sono immobili in evidenza
+// ToDo: slider: aggiungere un'img di default
 class ImmobiliController extends Controller
 {
     /**
