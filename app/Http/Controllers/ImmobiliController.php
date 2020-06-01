@@ -29,10 +29,13 @@ class ImmobiliController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAffittasi()
     {
-
-
+      $matches = DB::table('immobiles')->select('id')->where('stato_id', '=', '2')->get(); //RECUPERO GLI IMMOBILI IN affitto
+      $cat = DB::table('categories')->get();
+      $stato = DB::table('statos')->get(); //RECUPERO GLI STATI IN DB
+      $cities = DB::select("CALL getAvailCities()");
+      return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
     }
 
     /**
@@ -101,7 +104,6 @@ class ImmobiliController extends Controller
 
         //Salvo i dati feature
         $nuove_features->fill($dati_inseriti);
-
         //controlli sulle features
         if(!array_key_exists('ristrutturato', $dati_inseriti)) {
             $nuove_features->ristrutturato = 'off';

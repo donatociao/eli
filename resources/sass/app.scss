@@ -1,6 +1,7 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito'); // Variables
 @import 'variables'; // Bootstrap
+@import 'mediaqueries'; // Bootstrap
 // @import 'lightslider';
 @import '~bootstrap/scss/bootstrap';
 
@@ -41,7 +42,7 @@
 .nav {
     z-index: 1002;
 }
-//titole immobile nello slider
+//titolo immobile nello slider
 
 .carousel-caption {
     position: absolute;
@@ -187,6 +188,11 @@ hr {
 
 .font-55 {
     font-size: 55px;
+    font-weight: 400;
+}
+
+.font-50 {
+    font-size: 50px;
     font-weight: 400;
 }
 

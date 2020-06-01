@@ -12,10 +12,10 @@
           <img src="{{ asset('storage/' . $single_match->img_preview) }}" class="card-img-top" alt="...">
           <div class="card-body bg-eliano d-flex flex-row text-white">
             <div class="p-0 col-md-4 text-center">
-              <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/vaniw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_match->detail->vani }}</span></div>
+              <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/vaniw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_match->detail->vani }} vani</span></div>
             </div>
             <div class="p-0 col-md-4 text-center">
-              <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/wcw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_match->detail->wc }}</span></div>
+              <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/wcw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_match->detail->wc }} wc</span></div>
             </div>
             <div class="p-0 col-md-4 text-center">
               <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/areaw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_match->detail->mq }} mq</span></div>

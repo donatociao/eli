@@ -116,5 +116,13 @@
 
  })
  </script>
+  <script>
+  $('#delete').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget)
+    var slider_id = button.data('sliderid')
+    var modal = $(this);
+    modal.find('.modal-body #slider_to_delete').val(slider_id);
+    })
+ </script>
   </body>
 </html>

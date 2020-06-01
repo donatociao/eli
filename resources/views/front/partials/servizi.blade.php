@@ -23,7 +23,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/locazione.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Locazione</h5>
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/vendita.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Vendita</h5>
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/legale.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Assistenza Legale</h5>
@@ -48,7 +48,7 @@
 
       </div>
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/perizie.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Perizie e Valutazioni</h5>
@@ -61,7 +61,7 @@
   <div class="container mt-4 pb-5">
     <div class="row pb-5">
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/mercato.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Indagini di Mercato</h5>
@@ -70,7 +70,7 @@
 
       </div>
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/ristrutturazioni.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Progettazioni</h5>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/mutui.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Mutui e Leasing</h5>
@@ -87,7 +87,7 @@
 
       </div>
       <div class="col-lg-3">
-        <div class="card">
+        <div class="card mb-3">
           <div class="card-body text-center">
             <a href="#" class=""><img src="{{asset('img/catastali.png')}}" alt="" class="img-fluid w-50"></a>
             <h5 class="card-title text-center mt-2">Pratiche Catastali</h5>

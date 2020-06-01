@@ -2,31 +2,9 @@
   <li class="nav-item">
     <a class="nav-link menu-open" href="#"><i class="fi-xwlux2-three-bars-solid text-white"></i></a>
   </li>
-  {{-- <li class="nav-item">
-    <a class="nav-link text-white bold-20" href="#">LOGIN</a>
-  </li> --}}
-
-  {{-- @if (Route::has('login'))
-    @auth
-      <li class="nav-item">
-        <a class="nav-link text-white bold-20" href="{{ route('dash') }}">PANNELLO</a>
-      </li>
-    @else
-      <li class="nav-item">
-        <a class="nav-link text-white bold-20" href="{{ route('login') }}">LOGIN</a>
-      </li>
-
-      @if (Route::has('register'))
-        <li class="nav-item">
-          <a class="nav-link text-white bold-20" href="{{ route('register') }}">REGISTRATI</a>
-        </li>
-      @endif
-
-    @endauth
-  @endif --}}
   <!-- Authentication Links -->
   @guest
-      <li class="nav-item">
+      <li class="login nav-item">
           <a class="nav-link text-white bold-20" href="{{ route('login') }}">LOGIN</a>
       </li>
     @else

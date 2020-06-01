@@ -17,9 +17,7 @@ Route::get('/', 'HomeController@index')->name('home');
     return view('front.articolo');
 })->name('articolo');*/
 
-Route::get('/fittasi', function () {
-    return view('front.fittasi');
-})->name('fittasi');
+Route::get('/fittasi', 'ImmobiliController@indexAffittasi')->name('fittasi');
 
 Route::get('/vendesi', function () {
     return view('front.vendesi');
@@ -79,4 +77,3 @@ Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inseris
 Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news'); //apri scheda articolo
 //Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
 Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news'); //Elimino una news
-
