@@ -67,13 +67,14 @@ Route::get('/dash/offerte/delete/{id}', 'OffersController@destroy')->name('destr
 
 
 //IMMOBILI
-Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile'); //view di inserimento nuovo immobile
-Route::post('/dash', 'ImmobiliController@store')->name('immobili.store'); //inserisco nuovo immobile
-Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile'); //Elimino un immobile
+Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile')->middleware('auth'); //view di inserimento nuovo immobile
+Route::post('/dash', 'ImmobiliController@store')->name('immobili.store')->middleware('auth'); //inserisco nuovo immobile
+Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile')->middleware('auth'); //Elimino un immobile
 Route::get('/{slug}/{immobile_id}', 'ImmobiliController@show')->name('show.immobile'); //apri scheda immobile
 Route::any('/immobile/search', 'ImmobiliController@search')->name('search.immobile');
+Route::any('/dash/immobili/edit/{id}', 'ImmobiliController@edit')->name('edit.immobile')->middleware('auth');
+Route::post('/dash/immobili/upd/{id}', 'ImmobiliController@update')->name('update.immobile')->middleware('auth');
 
-Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
-Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news'); //apri scheda articolo
-//Route::post('/dash/news', 'NewsController@store')->name('store.news'); //Inserisco news
-Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news'); //Elimino una news
+Route::post('/dash/news', 'NewsController@store')->name('store.news')->middleware('auth'); //Inserisco news
+Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news')->middleware('auth'); //apri scheda articolo
+Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news')->middleware('auth'); //Elimino una news

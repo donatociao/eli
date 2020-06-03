@@ -20,7 +20,7 @@
             <td>{{$immobile->category->name }}</td>
             <td>{{ $immobile['city']['name'] }}</td>
             <td>
-              <button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button>
+              <button type="button" class="btn btn-info"><i class="fas fa-edit"></i></button>
               <a href="{{ route('destroy.immobile', $immobile->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
             </td>
           </tr>

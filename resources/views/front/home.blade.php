@@ -5,7 +5,9 @@
   @include('front.partials.slider')
   @include('front.partials.search-mobile')
   @include('front.partials.search-home')
-  @include('front.partials.evidenza')
+  @if(count($highlights) > 0)
+    @include('front.partials.evidenza')
+  @endif
   @include('front.partials.servizi')
   @include('front.partials.offerte')
   @include('front.partials.news')

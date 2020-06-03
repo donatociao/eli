@@ -14,31 +14,30 @@ use App\Image;
 use App\Category;
 use App\Evidenza;
 use DateTime;
+use Illuminate\Support\Facades\Auth;
 
 // ToDo: Update pages for every Model
-// ToDo: required sulle prime due righe del form
 // ToDo: cambiare il campo APE da TextField a DropDown [classi APE] + "in definizione"
 // ToDo: immagine di default anche nelle news.
-// ToDo: nascondere sezione "In evidenza" se non ci sono immobili in evidenza
 // ToDo: slider: aggiungere un'img di default
 // ToDo: watermark + ridimensionamento
 class ImmobiliController extends Controller
 {
-    /**
+    /*
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function indexAffittasi()
     {
-      $matches = DB::table('immobiles')->select('id')->where('stato_id', '=', '2')->get(); //RECUPERO GLI IMMOBILI IN affitto
-      $cat = DB::table('categories')->get();
-      $stato = DB::table('statos')->get(); //RECUPERO GLI STATI IN DB
-      $cities = DB::select("CALL getAvailCities()");
-      return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
+        $matches = Immobile::where('stato_id', '=', '2')->get();
+        $cat = DB::table('categories')->get();
+        $stato = array('Fittasi');
+        $cities = DB::select("CALL getAvailCities()");
+        return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
     }
 
-    /**
+    /*
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -52,7 +51,7 @@ class ImmobiliController extends Controller
       return view('back.inserisci-immobile',  compact('status', 'categories')); //PASSO GLI INDICI ALLA VIEW
     }
 
-    /**
+    /*
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -60,27 +59,41 @@ class ImmobiliController extends Controller
      */
     public function store(Request $request)
     {
-      // Validazione dei dati
-      // $validated = $request->validate([
-      // // 'status' => 'required',
-      // // 'category' => 'required',
-      // // 'city' => 'required|string|max:255',
-      // // 'address' => 'required|string|max:255',
-      // // 'price' => 'required|integer|min:1',
-      // // 'titolo' => 'required|string|max:255',
-      // // 'mq' => 'required|integer|min:1',
-      // // 'vani' => 'required|integer|min:1',
-      // // 'wc' => 'required|integer|min:1',
-      // // 'box' => 'required|integer|min:1',
-      // // 'ape' => 'required|string|max:255',
-      // // 'description' => 'required',
-      // // 'ristrut' => 'required|boolean',
-      // // 'riscald' => 'required|boolean',
-      // // 'terrazzo' => 'required|boolean',
-      // // 'balconi' => 'required|boolean',
-      // // 'posto' => 'required|boolean',
-      // // 'evidenza' => 'required|boolean'
-      // ]);
+
+        $rules = [
+             'stato_id' => 'required',
+             'category_id' => 'required|int',
+             'city_id' => 'required|string|max:255',
+             'address' => 'required|string|max:255',
+             'price' => 'required|integer|min:1',
+             'title' => 'required|string|max:255',
+             'mq' => 'required|integer|min:1',
+             'vani' => 'required|integer|min:1',
+             'wc' => 'required|integer|min:1',
+             'box' => 'required|integer|min:1',
+             'ape' => 'required|string|max:255',
+            ];
+
+        $customMessages = [
+            'required' => 'Il campo :attribute non può essere vuoto.',
+            'integer' => 'Il campo :attribute non può essere vuoto.',
+
+        ];
+        $customAttributes = [
+            'stato_id' => 'Status',
+            'city_id' => 'Città',
+            'address' => 'Indirizzo',
+            'price' => 'Richiesta',
+            'title' => 'Titolo',
+            'wc' => 'WC',
+            'box' => 'Box',
+            'vani' => 'Vani',
+            'mq' => 'Mq',
+            'category_id' => 'Categoria',
+            'ape' => 'APE'
+        ];
+
+        $this->validate($request,$rules,$customMessages,$customAttributes);
 
       //recupero dati inseriti
         $dati_inseriti = $request->all();
@@ -234,18 +247,80 @@ class ImmobiliController extends Controller
      */
     public function edit($id)
     {
-        //
+        $imm_to_edit = Immobile::find($id);
+        $status = Stato::all();
+        $categories = Category::all();
+
+        return view('back.edit-immobile', compact('imm_to_edit', 'status','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
 
+    public function update(Request $request,$id) {
+        $rules = [
+            'stato_id' => 'required',
+            'category_id' => 'required|int',
+            'city' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+            'titolo' => 'required|string|max:255',
+            'mq' => 'required|integer|min:1',
+            'vani' => 'required|integer|min:1',
+            'wc' => 'required|integer|min:1',
+            'box' => 'required|integer|min:1',
+            'ape' => 'required|string|max:255',
+        ];
+
+        $customMessages = [
+            'required' => 'Il campo :attribute non può essere vuoto.',
+            'integer' => 'Il campo :attribute non può essere vuoto.',
+
+        ];
+        $customAttributes = [
+            'stato_id' => 'Status',
+            'city_id' => 'Città',
+            'address' => 'Indirizzo',
+            'price' => 'Richiesta',
+            'title' => 'Titolo',
+            'wc' => 'WC',
+            'box' => 'Box',
+            'vani' => 'Vani',
+            'mq' => 'Mq',
+            'category_id' => 'Categoria',
+            'ape' => 'APE'
+        ];
+
+        $this->validate($request,$rules,$customMessages,$customAttributes);
+
+
+        $immobile = Immobile::find($id);
+        $check_city = DB::table('cities')->select('id')->where('name', '=', $request['city'])->first();
+
+        $immobile->titolo = $request->titolo;
+        $immobile->address = $request->titolo;
+        $immobile->video_link = $request->video_link;
+        $immobile->description = $request->description;
+        $immobile->stato_id = $request->stato_id;
+        $immobile->price = $request->price;
+        $immobile->city_id = $check_city->id;
+
+        $detail = Detail::find($immobile->detail_id);
+        $detail->mq = $request->mq;
+        $detail->vani = $request->vani;
+        $detail->box = $request->box;
+        $detail->ape = $request->ape;
+        $detail->wc = $request->wc;
+
+        $features = Feature::find($immobile->feature_id);
+        $features->ristrutturato = $request->ristrutturato ;
+        $features->riscaldamento = $request->riscaldamento ;
+        $features->terrazzo = $request->terrazzo ;
+        $features->balconi = $request->balconi ;
+        $features->posto_auto = $request->posto_auto ;
+
+        $features->save();
+        $detail->save();
+        $immobile->save();
+        return redirect(route('dash'));
     }
 
     /**

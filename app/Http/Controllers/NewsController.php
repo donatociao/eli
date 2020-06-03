@@ -34,6 +34,9 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        if(!is_numeric($request->immobile_id))
+            return redirect(route('dash/news'));
+
         $news_data = $request->all();
         $news = new News();
         $news_image  = new NewsImage();

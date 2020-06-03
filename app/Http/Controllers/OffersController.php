@@ -39,6 +39,9 @@ class OffersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        if(!is_numeric($request->immobile_id))
+            return redirect(route('offerte'));
+
         $data = $request->all();
         $new_offer = new Offer();
         $new_offer->fill($data);

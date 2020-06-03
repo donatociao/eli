@@ -38,6 +38,8 @@ class EvidenzaController extends Controller
      */
     public function store(Request $request)
     {
+        if(!is_numeric($request->immobile_id))
+            return redirect(route('create.evidenza'));
 
         $data = $request->all();
         $nuova_evidenza = new Evidenza();

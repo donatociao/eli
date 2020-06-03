@@ -37,8 +37,11 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
+        if(!is_numeric($request->immobile_id))
+            return redirect(route('create.slider'));
+
+
       $data = $request->all();
       $nuovo_slider = new Slider();
       $nuovo_slider->fill($data);

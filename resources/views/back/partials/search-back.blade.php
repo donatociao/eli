@@ -54,6 +54,7 @@
           <td>
             <button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button>
             <a href="{{ route('destroy.immobile', $immobile->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+            <a href="{{ route('edit.immobile', $immobile->id) }}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button></a>
           </td>
         </tr>
       @endforeach
