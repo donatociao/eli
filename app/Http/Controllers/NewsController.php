@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\News;
 use App\NewsImage;
 
-class NewsController extends Controller
-{
+class NewsController extends Controller {
     /**
      * Display a listing of the resource.
      *
@@ -34,9 +33,6 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        if(!is_numeric($request->immobile_id))
-            return redirect(route('dash/news'));
-
         $news_data = $request->all();
         $news = new News();
         $news_image  = new NewsImage();
@@ -65,9 +61,13 @@ class NewsController extends Controller
                     echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta Donato!</div>';
                 }
             }
-            $news_image->news_id = $news->id;
-            $news_image->save();
+
+        } else {
+            $img = 'public/news/default.png';
+            $news_image->path = $img;
         }
+        $news_image->news_id = $news->id;
+        $news_image->save();
 
     }
 
@@ -77,15 +77,15 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug,$news_id)
-    {
+    public function show($news_id) {
         $show_news = News::where('id', $news_id)->firstOrFail();
         if(empty($show_news)) {
             echo('Metodo show Immobile controller');
         }
 
-        $news_image = NewsImage::where('news_id', $show_news->id)->firstOrFail();
-        return view('front.articolo', compact('show_news', 'news_image '));
+        $news_image = NewsImage::where('news_id', $show_news->id)->first();
+
+        return view('front.articolo', compact('show_news', 'news_image'));
     }
 
     /**
@@ -94,9 +94,10 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id) {
+        $news_to_edit = News::find($id);
+
+        return view('back.edit-news', compact('news_to_edit'));
     }
 
     /**
@@ -106,9 +107,15 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $news = News::find($id);
+        //$news_image  = new NewsImage();
+
+        $news->title = $request->title;
+        $news->body = $request->body;
+
+        $news->save();
+        return redirect(route('dash'));
     }
 
     /**
@@ -117,13 +124,12 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         $news_to_delete = News::find($id);
         if (!empty($news_to_delete)) {
             $news_to_delete->delete();
         }
 
-        return redirect(route('dash/news'));
+        return redirect(route('create.news'));
     }
 }

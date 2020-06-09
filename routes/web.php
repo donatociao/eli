@@ -46,7 +46,7 @@ Route::get('/dash', 'DashController@index')->name('dash'); //pannello di control
 
 //NEWS
 Route::get('/dash/news', 'HomeController@create_news')->name('create.news'); //Gestione News
-
+Route::any('/news/{news_id}', 'NewsController@show')->name('show.news')->middleware('auth'); //apri scheda articolo
 
 //EVIDENZA
 Route::get('/dash/evidenza', 'EvidenzaController@create')->name('create.evidenza'); //Gestione evidenza
@@ -76,5 +76,6 @@ Route::any('/dash/immobili/edit/{id}', 'ImmobiliController@edit')->name('edit.im
 Route::post('/dash/immobili/upd/{id}', 'ImmobiliController@update')->name('update.immobile')->middleware('auth');
 
 Route::post('/dash/news', 'NewsController@store')->name('store.news')->middleware('auth'); //Inserisco news
-Route::get('/{slug}/{news_id}', 'NewsController@show')->name('show.news')->middleware('auth'); //apri scheda articolo
 Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news')->middleware('auth'); //Elimino una news
+Route::get('/dash/news/edit/{id}', 'NewsController@edit')->name('edit.news')->middleware('auth'); //Modifico una news
+Route::post('/dash/news/upd/{id}', 'NewsController@update')->name('update.news')->middleware('auth'); //Modifico una news

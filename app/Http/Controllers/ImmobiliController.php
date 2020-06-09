@@ -16,11 +16,7 @@ use App\Evidenza;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 
-// ToDo: Update pages for every Model
-// ToDo: cambiare il campo APE da TextField a DropDown [classi APE] + "in definizione"
-// ToDo: immagine di default anche nelle news.
-// ToDo: slider: aggiungere un'img di default
-// ToDo: watermark + ridimensionamento
+// ToDo: ridimensionamento
 class ImmobiliController extends Controller
 {
     /*
@@ -61,17 +57,17 @@ class ImmobiliController extends Controller
     {
 
         $rules = [
-             'stato_id' => 'required',
-             'category_id' => 'required|int',
-             'city_id' => 'required|string|max:255',
-             'address' => 'required|string|max:255',
-             'price' => 'required|integer|min:1',
-             'title' => 'required|string|max:255',
-             'mq' => 'required|integer|min:1',
-             'vani' => 'required|integer|min:1',
-             'wc' => 'required|integer|min:1',
-             'box' => 'required|integer|min:1',
-             'ape' => 'required|string|max:255',
+            'stato_id' => 'required',
+            'category_id' => 'required|int',
+            'city' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+            'titolo' => 'required|string|max:255',
+            'mq' => 'required|integer|min:1',
+            'vani' => 'required|integer|min:1',
+            'wc' => 'required|integer|min:1',
+            'box' => 'required|integer|min:1',
+            'ape' => 'required|string|max:255',
             ];
 
         $customMessages = [
@@ -149,8 +145,10 @@ class ImmobiliController extends Controller
 
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
-        $video_embed = explode('watch?v=',$dati_inseriti['video_link']);
-        $nuovo_immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];
+        if($nuovo_immobile->video_link != '') {
+            $video_embed = explode('watch?v=', $dati_inseriti['video_link']);
+            $nuovo_immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];
+        }
 
         //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
@@ -203,11 +201,16 @@ class ImmobiliController extends Controller
                 {
                   $path_foto = $file->store('public/immobili_images');
                   // $filename = Storage::put('immobili_images', $file);
+                    $img_path = public_path('storage/public/immobili_images/'.$file->hashName());
 
+                    $img_name = $file->hashName();
+                    Image::addWaterMark($img_path, $img_name);
                     Image::create([
                         'immobile_id' => $nuovo_immobile->id,
                         'filepath' => $path_foto
                     ]);
+
+                    $file->move(public_path('images/'), asset('public/immobili_images'));
                     echo "Immagini inserite con successo";
                 }
                 else
