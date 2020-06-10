@@ -99,13 +99,12 @@
 
 
                     @foreach ($immobile_images as $image)
+                        @for($i=0; $i<10; $i++)
                             <div class="img-container">
                                 <img class="img-thumbnail" src="{{ asset('storage/'.$image->filepath) }}" />
                                 <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#">CANCELLA</a></div>
-
-
-
                             </div>
+                        @endfor
                      @endforeach
 
 

@@ -16,7 +16,6 @@ use App\Evidenza;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 
-// ToDo: ridimensionamento
 class ImmobiliController extends Controller
 {
     /*
