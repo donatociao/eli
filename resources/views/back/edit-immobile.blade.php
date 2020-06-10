@@ -95,8 +95,20 @@
                             <br/>
                             <input type="file" class="form-control" name="photos[]" multiple />
                         </div>
-
                     </div>
+
+
+                    @foreach ($immobile_images as $image)
+                            <div class="img-container">
+                                <img class="img-thumbnail" src="{{ asset('storage/'.$image->filepath) }}" />
+                                <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#">CANCELLA</a></div>
+
+
+
+                            </div>
+                     @endforeach
+
+
 
 
                     <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">

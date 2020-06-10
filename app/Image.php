@@ -22,18 +22,19 @@ class Image extends Model
 
       $img = Img::make($img_path);
 
-      $img->insert(public_path('images/watermark.png'), 'bottom-right', 10, 10);
+      if($img->width() > 800 && $img->height() > 600)
+        $img = Image::resizeImage($img);
 
-
+      $img->insert(public_path('images/watermark.png'), 'top-left', 10, 10);
       $img->save(public_path('/storage/public/immobili_images/'.$img_name[0].'.'.$img_name[1]));
       $img->encode($img_name[1]);
+
   }
 
-  public static function createThumbnail($path, $width, $height) {
-        $img = Image::make($path)->resize($width, $height, function ($constraint) {
-            $constraint->aspectRatio();
-        });
-        $img->save($path);
-    }
+  public static function resizeImage($imgObject) {
+      $imgObject->fit(800, 600);
+
+      return $imgObject;
+  }
 
 }

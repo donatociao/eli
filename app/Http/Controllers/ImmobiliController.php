@@ -159,8 +159,7 @@ class ImmobiliController extends Controller
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
-                if($check)
-                {
+                if($check) {
                   $filename = $file->store('public/preview');
                   $nuovo_immobile->img_preview = $filename;
                     echo "Immagine inserita con successo";
@@ -197,13 +196,13 @@ class ImmobiliController extends Controller
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
-                if($check)
-                {
+                if($check) {
                   $path_foto = $file->store('public/immobili_images');
                   // $filename = Storage::put('immobili_images', $file);
                     $img_path = public_path('storage/public/immobili_images/'.$file->hashName());
 
                     $img_name = $file->hashName();
+
                     Image::addWaterMark($img_path, $img_name);
                     Image::create([
                         'immobile_id' => $nuovo_immobile->id,
@@ -213,8 +212,7 @@ class ImmobiliController extends Controller
                     $file->move(public_path('images/'), asset('public/immobili_images'));
                     echo "Immagini inserite con successo";
                 }
-                else
-                {
+                else {
                     echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta Donato!</div>';
                 }
             }
@@ -253,8 +251,9 @@ class ImmobiliController extends Controller
         $imm_to_edit = Immobile::find($id);
         $status = Stato::all();
         $categories = Category::all();
+        $immobile_images = Image::where('immobile_id', '=', $imm_to_edit->id)->get();
 
-        return view('back.edit-immobile', compact('imm_to_edit', 'status','categories'));
+        return view('back.edit-immobile', compact('imm_to_edit', 'status','categories', 'immobile_images'));
     }
 
 

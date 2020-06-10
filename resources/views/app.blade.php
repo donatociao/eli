@@ -35,6 +35,7 @@
     <script src="/js/lightslider.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script type="text/javascript">
     $(document).ready(function() {
       $('#imageGallery').lightSlider({
