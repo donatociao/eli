@@ -71,7 +71,18 @@
             </div>
             <div class="form-group col-md-1">
               <label for="ape">APE</label>
-              <input type="text" class="form-control" id="ape" placeholder="Classe" name="ape" >
+              <select id="ape" name="ape" class="form-control" value="{{ old('stato_id') }}">
+                <option value="A">G</option>
+                <option value="F">F</option>
+                <option value="E">E</option>
+                <option value="D">D</option>
+                <option value="C">C</option>
+                <option value="B">B</option>
+                <option value="A1">A1</option>
+                <option value="A2">A2</option>
+                <option value="A3">A3</option>
+                <option value="A4">A4</option>
+              </select>
             </div>
           </div>
           <div class="form-row">

@@ -36,7 +36,6 @@ class ImmobiliController extends Controller
     {
         $matches = Immobile::where('stato_id', '=', '1')->get();
         $cat = DB::table('categories')->get();
-
         $stato = array('Vendesi');
         $cities = DB::select("CALL getAvailCities()");
         return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));

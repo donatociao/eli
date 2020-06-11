@@ -11049,6 +11049,14 @@ a.text-dark:focus {
   background-color: #437C90;
 }
 
+.red-eliano {
+  color: #881A39;
+}
+
+.w-80 {
+  width: 80px;
+}
+
 .h-60 {
   height: 60px;
 }

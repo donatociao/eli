@@ -32,6 +32,10 @@ Route::get('/contatti', function () {
     return view('front.contatti-page');
 })->name('contatti');
 
+Route::get('/servizi', function () {
+    return view('front.servizi');
+})->name('servizi');
+
 Route::get('/privacy-policy', function () {
     return view('front.privacy');
 })->name('privacy');

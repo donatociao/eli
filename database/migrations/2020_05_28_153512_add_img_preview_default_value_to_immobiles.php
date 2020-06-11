@@ -14,7 +14,7 @@ class AddImgPreviewDefaultValueToImmobiles extends Migration
     public function up()
     {
         Schema::table('immobiles', function (Blueprint $table) {
-            $table->string('img_preview')->default('public/preview/default.png');
+            // $table->string('img_preview')->default('public/preview/default.png');
         });
     }
 
