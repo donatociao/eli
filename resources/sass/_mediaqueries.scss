@@ -49,7 +49,11 @@ iPad 3
 }
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
-/* Styles */
+#subnav-mobile,
+#ricerca-mobile,
+{
+  display: none;
+}
 }
 
 /* Large screens ----------- */

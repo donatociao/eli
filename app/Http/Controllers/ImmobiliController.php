@@ -88,7 +88,7 @@ class ImmobiliController extends Controller
             'ape' => 'APE'
         ];
 
-        $this->validate($request,$rules,$customMessages,$customAttributes);
+        // $this->validate($request,$rules,$customMessages,$customAttributes);
 
       //recupero dati inseriti
         $dati_inseriti = $request->all();

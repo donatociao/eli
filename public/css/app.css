@@ -61,7 +61,10 @@ iPad 3
 /* Desktops and laptops ----------- */
 
 @media only screen and (min-width: 1224px) {
-  /* Styles */
+  #subnav-mobile,
+  #ricerca-mobile {
+    display: none;
+  }
 }
 
 /* Large screens ----------- */
@@ -11103,7 +11106,7 @@ a.text-dark:focus {
   top: 85%;
   left: 10vw;
   border-radius: 5px;
-  z-index: 99999;
+  z-index: 99998;
 }
 
 .go-to {
@@ -11196,7 +11199,7 @@ hr {
   width: 100vw;
   height: 100vh;
   background-color: #437C90;
-  z-index: 2000;
+  z-index: 99999;
 }
 
 .menu-voce {

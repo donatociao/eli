@@ -23,7 +23,7 @@
             </div>
           <div class="card-body">
             <h5 class="card-title">{!! $single_match->titolo  !!} </h5>
-            <p class="card-text">{!! $single_match->description !!}</p>
+            {{-- <p class="card-text">{!! $single_match->description !!}</p> --}}
             <div class="container">
               <div class="row d-flex justify-content-between">
                 <h5>€ {{ $single_match->price }}</h5>
