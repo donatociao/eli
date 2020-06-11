@@ -18,10 +18,11 @@ Route::get('/', 'HomeController@index')->name('home');
 })->name('articolo');*/
 
 Route::get('/fittasi', 'ImmobiliController@indexAffittasi')->name('fittasi');
+Route::get('/vendesi', 'ImmobiliController@indexVendesi')->name('vendesi');
 
-Route::get('/vendesi', function () {
+/*Route::get('/vendesi', function () {
     return view('front.vendesi');
-})->name('vendesi');
+})->name('vendesi');*/
 
 Route::get('/immobile/', function () {
     return view('front.immobile');

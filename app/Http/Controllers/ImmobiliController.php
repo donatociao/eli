@@ -32,6 +32,16 @@ class ImmobiliController extends Controller
         return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
     }
 
+    public function indexVendesi()
+    {
+        $matches = Immobile::where('stato_id', '=', '1')->get();
+        $cat = DB::table('categories')->get();
+
+        $stato = array('Vendesi');
+        $cities = DB::select("CALL getAvailCities()");
+        return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
+    }
+
     /*
      * Show the form for creating a new resource.
      *
@@ -88,7 +98,7 @@ class ImmobiliController extends Controller
             'ape' => 'APE'
         ];
 
-        // $this->validate($request,$rules,$customMessages,$customAttributes);
+        $this->validate($request,$rules,$customMessages,$customAttributes);
 
       //recupero dati inseriti
         $dati_inseriti = $request->all();
