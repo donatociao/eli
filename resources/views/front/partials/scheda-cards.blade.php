@@ -3,8 +3,7 @@
     <div class="row">
       @php
         if($matches->isEmpty())
-          echo '<div class="text-center"><h1>Non ci sono risultati</h1></div>';
-
+          echo '<div class="text-center"><h1>Non ci sono risultati per questa ricerca.</h1></div>';
       @endphp
       @foreach ($matches as $single_match)
       <div class="col-md-4">
@@ -20,7 +19,7 @@
             <div class="p-0 col-md-4 text-center">
               <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/areaw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_match->detail->mq }} mq</span></div>
             </div>
-            </div>
+          </div>
           <div class="card-body">
             <h5 class="card-title">{!! $single_match->titolo  !!} </h5>
             {{-- <p class="card-text">{!! $single_match->description !!}</p> --}}

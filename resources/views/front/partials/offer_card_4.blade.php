@@ -4,11 +4,24 @@
             <img src="{{ asset('storage/' . $single_offer->img_preview) }}" class="card-img" alt="...">
         </div>
         <div class="col-md-8">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title text-uppercase">{{ $single_offer->titolo }}</h5>
+                <div class="card-body d-flex">
+                  <div class="p-0 col-md-4 text-center">
+                    <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/vani.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_offer->vani }} vani</span></div>
+                  </div>
+                  <div class="p-0 col-md-4 text-center">
+                    <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/wc.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_offer->wc }} wc</span></div>
+                  </div>
+                  <div class="p-0 col-md-4 text-center">
+                    <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/area.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_offer->mq }} mq</span></div>
+                  </div>
+                </div>
                 <p class="card-text">{!! $single_offer->description !!}</p>
-                <p class="card-text"><small class="text-muted">{{ $single_offer->price }} €</small></p>
-                <a href="{{route('show.immobile', ['slug' => $single_offer->slug, 'immobile_id' => $single_offer->id])}}" class="btn bg-yellow btn-sm">Apri <i class="fa fa-search"></i></a>
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-text red-eliano">€ {{ $single_offer->price }}</h3>
+                  <a href="{{route('show.immobile', ['slug' => $single_offer->slug, 'immobile_id' => $single_offer->id])}}" class="btn bg-yellow">Apri <i class="fa fa-search"></i></a>
+                </div>
             </div>
         </div>
     </div>

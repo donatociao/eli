@@ -23,7 +23,7 @@
         </ul>
         <h4 class="mt-3">Descrizione</h4>
         <p>{!!$immobile_show->description!!}</p>
-        <div><iframe width="560" height="315" src="{{ $immobile_show->video_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div><iframe class="w-100" src="{{ $immobile_show->video_link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
       </div>
       <div class="col-lg-4 mb-5">
         <h4 class="">Dettagli immobile</h4>
