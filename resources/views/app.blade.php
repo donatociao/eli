@@ -84,7 +84,13 @@
           @endauth
         @endif
       </ul> --}}
-
+    @isset($messages)
+      <script>Swal.fire({
+              icon: '{{ $messages->msgType }}',
+              title: 'Avviso',
+              text: '{{ $messages->message }}',
+          })</script>
+    @endif
       <div class="masthead position-absolute">
         @yield('content')
       </div>

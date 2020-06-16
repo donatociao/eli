@@ -11,6 +11,7 @@ use App\Detail;
 use App\Stato;
 use App\Feature;
 use App\Image;
+use Illuminate\Support\Facades\Redirect;
 use App\Category;
 use App\Evidenza;
 use DateTime;
@@ -72,9 +73,9 @@ class ImmobiliController extends Controller
             'price' => 'required|integer|min:1',
             'titolo' => 'required|string|max:255',
             'mq' => 'required|integer|min:1',
-            'vani' => 'required|integer|min:1',
-            'wc' => 'required|integer|min:1',
-            'box' => 'required|integer|min:1',
+            'vani' => 'required|integer|min:0',
+            'wc' => 'required|integer|min:0',
+            'box' => 'required|integer|min:0',
             'ape' => 'required|string|max:255',
             ];
 
@@ -260,7 +261,6 @@ class ImmobiliController extends Controller
         $status = Stato::all();
         $categories = Category::all();
         $immobile_images = Image::where('immobile_id', '=', $imm_to_edit->id)->get();
-
         return view('back.edit-immobile', compact('imm_to_edit', 'status','categories', 'immobile_images'));
     }
 
@@ -274,9 +274,9 @@ class ImmobiliController extends Controller
             'price' => 'required|integer|min:1',
             'titolo' => 'required|string|max:255',
             'mq' => 'required|integer|min:1',
-            'vani' => 'required|integer|min:1',
-            'wc' => 'required|integer|min:1',
-            'box' => 'required|integer|min:1',
+            'vani' => 'required|integer|min:0',
+            'wc' => 'required|integer|min:0',
+            'box' => 'required|integer|min:0',
             'ape' => 'required|string|max:255',
         ];
 
@@ -330,7 +330,12 @@ class ImmobiliController extends Controller
         $features->save();
         $detail->save();
         $immobile->save();
-        return redirect(route('dash'));
+        $messages = array('message' => 'Tutto ok', 'msgType' => 'success');
+        return redirect(route('dash'))->with('messages',$messages);
+
+
+
+
     }
 
     /**

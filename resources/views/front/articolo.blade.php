@@ -13,7 +13,7 @@
       <div class="col-lg-6">
         <h3>Descrizione</h3>
         <p>{!!$show_news->body!!}</p>
-        <img src="{{ asset('storage/'. $news_image[0]['path']) }}" class="img-fluid" alt="">
+        <img src="{{ asset('storage/'. $news_image->path) }}" class="img-fluid" alt="">
       </div>
       <div class="col-lg-6 mb-5">
         <form>

@@ -47,7 +47,7 @@ Route::get('/privacy-policy', function () {
 
 Auth::routes();
 //DASHBOARD
-Route::get('/dash', 'DashController@index')->name('dash'); //pannello di controllo
+Route::any('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 
 //NEWS
 Route::get('/dash/news', 'HomeController@create_news')->name('create.news'); //Gestione News

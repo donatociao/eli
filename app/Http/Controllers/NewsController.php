@@ -84,7 +84,6 @@ class NewsController extends Controller {
         }
 
         $news_image = NewsImage::where('news_id', $show_news->id)->first();
-
         return view('front.articolo', compact('show_news', 'news_image'));
     }
 
