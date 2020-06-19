@@ -5,11 +5,11 @@
     <div class="swiper-wrapper">
         <!-- Slides -->
         @if($sliders->count()== 0)
-            <div class="swiper-slide">
+            <div>
                 <div class="container d-flex justify-content-center">
                     <img src="{{asset('img/logo_w.png')}}" class="logo position-absolute" alt="">
                 </div>
-                <img src="{{asset('storage/default.png')}}" class="d-block w-100">
+                <img src="{{asset('storage/default.jpg')}}" class="d-block w-100">
             </div>
 
         @else
