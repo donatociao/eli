@@ -44,7 +44,7 @@
             <h5 class="card-title">{{$highlight->titolo}}</h5>
             <div class="container">
               <div class="row d-flex justify-content-between">
-                <h5>€ {{$highlight->price}}</h5>
+                <h5>€ {{number_format($highlight->price, 0, ',', '.')}}</h5>
                 <a href="{{route('show.immobile', ['slug' => $highlight->slug, 'immobile_id' => $highlight->immobile_id])}}" class="btn bg-yellow btn-sm">Apri <i class="fa fa-search"></i></a>
               </div>
             </div>

@@ -16,8 +16,8 @@
           </div>
           <p class="card-text">{!! $single_offer->description !!}</p>
           <div class="d-flex justify-content-between">
-            <a href="{{route('show.immobile', ['slug' => $single_offer->slug, 'immobile_id' => $single_offer->id])}}" class="btn bg-yellow">Apri <i class="fa fa-search"></i></a>
-            <h3 class="card-text red-eliano">€ {{ $single_offer->price }}</h3>
+            <a href="{{route('show.immobile', ['slug' => $single_offer->slug, 'immobile_id' => $single_offer->immobile_id])}}" class="btn bg-yellow">Apri <i class="fa fa-search"></i></a>
+            <h3 class="card-text red-eliano">€ {{ number_format($single_offer->price, 0, ',', '.') }}</h3>
           </div>
       </div>
     </div>

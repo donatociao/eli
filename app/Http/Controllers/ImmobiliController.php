@@ -332,6 +332,27 @@ class ImmobiliController extends Controller
 
         $messages = array('message' => 'Tutto ok', 'msgType' => 'success');
 
+        //Inserimento immagine di copertina
+        if($request->hasFile('img_preview'))
+        {
+            $allowedfileExtension=['jpg','png'];
+            $files = $request->file('img_preview');
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check=in_array($extension,$allowedfileExtension);
+                if($check) {
+                  $filename = $file->store('public/preview');
+                  $immobile->img_preview = $filename;
+                    echo "Immagine inserita con successo";
+                }
+                else
+                {
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta Donato!</div>';
+                }
+            }
+        }
+
         //inserimento immagini galleria immobile
         if($request->hasFile('photos'))
         {

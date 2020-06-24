@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="text-center">
-    <p class="under-title "><em>Scorpi subito le nostre offerte del mese in vendita o in affitto!</em></p>
+    <p class="under-title "><em>Scopri subito le nostre offerte del mese in vendita o in affitto!</em></p>
   </div>
   <div class="container">
     <div class="row">
