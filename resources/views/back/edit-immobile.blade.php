@@ -11,6 +11,46 @@
             </ul>
         </div>
     @endif
+    <script type="text/javascript">
+        function delRequest(value) {
+            $.ajax({
+                type: 'get',
+                url: '{{ URL::to('delimg/') }}/' + value,
+                success: function (data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Foto cancellata!'
+
+                    });
+                    $('#'+value).hide();
+                }
+            });
+        }
+
+        function delRequestPreview(value) {
+            $.ajax({
+                type: 'get',
+                url: '{{ URL::to('delfrompreview/') }}/' + value,
+                success: function (data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Foto di anteprima eliminata!'
+
+                    });
+                    $('#'+value).hide();
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
+    </script>
     <div class="container mt-3 mb-5">
         <div class="row">
             <div class="col-lg-12">
@@ -71,7 +111,18 @@
                         </div>
                         <div class="form-group col-md-1">
                             <label for="ape">APE</label>
-                            <input type="text" class="form-control" id="ape" placeholder="Classe" name="ape" value="{{ $imm_to_edit->detail->ape }}">
+                            <select id="ape" name="ape" class="form-control" value="{{ $imm_to_edit->detail->ape }}">
+                                <option value="G" {{ $imm_to_edit->detail->ape == "G" ? 'selected' : '' }}>G</option>
+                                <option value="F" {{ $imm_to_edit->detail->ape == "F" ? 'selected' : '' }}>F</option>
+                                <option value="E" {{ $imm_to_edit->detail->ape == "E" ? 'selected' : '' }}>E</option>
+                                <option value="D" {{ $imm_to_edit->detail->ape == "D" ? 'selected' : '' }}>D</option>
+                                <option value="C" {{ $imm_to_edit->detail->ape == "C" ? 'selected' : '' }}>C</option>
+                                <option value="B" {{ $imm_to_edit->detail->ape == "B" ? 'selected' : '' }}>B</option>
+                                <option value="A1" {{ $imm_to_edit->detail->ape == "A1" ? 'selected' : '' }}>A1</option>
+                                <option value="A2" {{ $imm_to_edit->detail->ape == "A2" ? 'selected' : '' }}>A2</option>
+                                <option value="A3" {{ $imm_to_edit->detail->ape == "A3" ? 'selected' : '' }}>A3</option>
+                                <option value="A4" {{ $imm_to_edit->detail->ape == "A4" ? 'selected' : '' }}>A4</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
@@ -89,7 +140,12 @@
                             <label for="Product Name">Immagine di anteprima</label>
                             <br/>
                             <input type="file" class="form-control" name="img_preview[]" multiple />
+                            <div id="{{ $imm_to_edit->id }}" class="img-container">
+                                <img class="img-thumbnail" src="{{ asset('storage/'.$imm_to_edit->img_preview) }}" />
+                                <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#" onclick="delRequestPreview({{ $imm_to_edit->id }}); return false;">CANCELLA</a></div>
+                            </div>
                         </div>
+
                         <div class="form-group col-md-4">
                             <label for="Product Name">Foto immobile</label>
                             <br/>
@@ -99,9 +155,9 @@
 
 
                     @foreach ($immobile_images as $image)
-                            <div class="img-container">
+                            <div id="{{ $image->id }}" class="img-container">
                                 <img class="img-thumbnail" src="{{ asset('storage/'.$image->filepath) }}" />
-                                <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#">CANCELLA</a></div>
+                                <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#" onclick="delRequest({{ $image->id }}); return false;">CANCELLA</a></div>
                             </div>
                      @endforeach
 

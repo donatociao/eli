@@ -69,6 +69,7 @@ class NewsController extends Controller {
         $news_image->news_id = $news->id;
         $news_image->save();
 
+        return redirect(route('dash'));
     }
 
     /**

@@ -329,8 +329,40 @@ class ImmobiliController extends Controller
 
         $features->save();
         $detail->save();
-        $immobile->save();
+
         $messages = array('message' => 'Tutto ok', 'msgType' => 'success');
+
+        //inserimento immagini galleria immobile
+        if($request->hasFile('photos'))
+        {
+            $allowedfileExtension=['jpg','png'];
+            $files = $request->file('photos');
+            foreach($files as $file){
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $check=in_array($extension,$allowedfileExtension);
+                if($check) {
+                    $path_foto = $file->store('public/immobili_images');
+                    // $filename = Storage::put('immobili_images', $file);
+                    $img_path = public_path('storage/public/immobili_images/'.$file->hashName());
+
+                    $img_name = $file->hashName();
+
+                    Image::addWaterMark($img_path, $img_name);
+                    Image::create([
+                        'immobile_id' => $immobile->id,
+                        'filepath' => $path_foto
+                    ]);
+
+                    $file->move(public_path('images/'), asset('public/immobili_images'));
+                    echo "Immagini inserite con successo";
+                }
+                else {
+                    echo '<div class="alert alert-warning"><strong>Warning!</strong>Ciao {{ Auth::user()->name }}, puoi caricare solo file png o jpg. Per qualsiasi dubbio contatta Donato!</div>';
+                }
+            }
+        }
+        $immobile->save();
         return redirect(route('dash'))->with('messages',$messages);
 
 
@@ -374,7 +406,8 @@ class ImmobiliController extends Controller
                 $output .= "<td>$cat</td>";
                 $output .= "<td>$city</td>";
                 $output .= "<td>";
-                $output .= "<button type=\"button\" class=\"btn btn-info\"><i class=\"fas fa-search-plus\"></i></button><a href=\"{$route}\"><button type=\"button\" class=\"btn btn-danger\"><i class=\"far fa-trash-alt\"></i></button></a></td>";
+                $output .= "<button type=\"button\" class=\"btn btn-info\"><i class=\"fas fa-search-plus\"></i></button><a href=\"{$route}\"><button type=\"button\" class=\"btn btn-danger\"><i class=\"far fa-trash-alt\"></i></button></a>
+                            <a href=\"{{ route('edit.immobile', $value->id) }}\"><button type=\"button\" class=\"btn btn-warning\"><i class=\"far fa-edit\"></i></button></a></td>";
                 $output .= '</tr>';
 
             }

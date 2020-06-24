@@ -69,7 +69,8 @@ Route::get('/dash/offerte', 'OffersController@index')->name('offerte'); //Gestio
 Route::post('/dash/offerte', 'OffersController@store')->name('store.offerte'); //Inserisco immobile in offerta
 Route::get('/dash/offerte/delete/{id}', 'OffersController@destroy')->name('destroy.offerte'); //Elimino un immobile in offerta
 
-
+Route::any('/delimg/{id}', 'ImageController@removeImage')->name('removeImage'); //delete image
+Route::any('/delfrompreview/{path}', 'ImageController@removeImageFromImmobile')->name('removeImageFromImmobile'); //delete preview image
 
 //IMMOBILI
 Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile')->middleware('auth'); //view di inserimento nuovo immobile
@@ -84,3 +85,4 @@ Route::post('/dash/news', 'NewsController@store')->name('store.news')->middlewar
 Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news')->middleware('auth'); //Elimino una news
 Route::get('/dash/news/edit/{id}', 'NewsController@edit')->name('edit.news')->middleware('auth'); //Modifico una news
 Route::post('/dash/news/upd/{id}', 'NewsController@update')->name('update.news')->middleware('auth'); //Modifico una news
+
