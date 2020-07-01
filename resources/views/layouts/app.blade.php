@@ -18,7 +18,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-
+{{-- APP BACk --}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,7 +28,7 @@
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
           <a class="navbar-brand" href="{{ url('/') }}">
-            Eliano Immobiliare
+            <img src="{{asset('img/logo.png')}}" class="logo" alt="logo">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link " href="{{ route('login') }}">LOGIN</a>
+                                <a class="nav-link " href="{{ route('login') }}"></a>
                             </li>
 
                             {{-- @if (Route::has('register'))

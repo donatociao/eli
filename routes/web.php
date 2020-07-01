@@ -13,16 +13,8 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-/*Route::get('/news', function () {
-    return view('front.articolo');
-})->name('articolo');*/
-
 Route::get('/fittasi', 'ImmobiliController@indexAffittasi')->name('fittasi');
 Route::get('/vendesi', 'ImmobiliController@indexVendesi')->name('vendesi');
-
-/*Route::get('/vendesi', function () {
-    return view('front.vendesi');
-})->name('vendesi');*/
 
 Route::get('/immobile/', function () {
     return view('front.immobile');
@@ -85,4 +77,3 @@ Route::post('/dash/news', 'NewsController@store')->name('store.news')->middlewar
 Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news')->middleware('auth'); //Elimino una news
 Route::get('/dash/news/edit/{id}', 'NewsController@edit')->name('edit.news')->middleware('auth'); //Modifico una news
 Route::post('/dash/news/upd/{id}', 'NewsController@update')->name('update.news')->middleware('auth'); //Modifico una news
-

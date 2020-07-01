@@ -25,4 +25,9 @@ class ImageController extends Controller {
         unlink($path);
     }
 
+    public function updatePreviewImg($immobile_id) {
+      
+
+    }
+
 }

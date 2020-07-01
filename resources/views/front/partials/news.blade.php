@@ -29,7 +29,7 @@
           @endphp
 
         <div class="col-md-4">
-          <div class="card mr-0">
+          <div class="card mr-0 mt-3">
             <img src="{{ asset('storage/'.$images[$img_idx]) }}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ $single_news->title }}</h5>

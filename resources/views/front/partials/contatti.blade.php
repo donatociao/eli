@@ -33,8 +33,8 @@
       </address>
       <div class="mt-5 mb-5">
         <h3>Seguici sui social!</h3>
-        <a class="mr-3" href="#"><i class="fi-xnsuxx-facebook"></i></a>
-        <a href="#" class="mt-1"><i class="fi-xnsuxx-twitter"></i></a>
+        <a class="mr-3" href="https://www.facebook.com/elianoimmobiliare/"><i class="fi-xnsuxx-facebook"></i></a>
+        <a href="https://twitter.com/elianoinfo" class="mt-1"><i class="fi-xnsuxx-twitter"></i></a>
       </div>
     </div>
     <div class="col-lg-6 mb-5">

@@ -7,7 +7,7 @@
       @endphp
       @foreach ($matches as $single_match)
       <div class="col-md-4">
-        <div class="card mr-0">
+        <div class="card mr-0 mt-3">
           <img src="{{ asset('storage/' . $single_match->img_preview) }}" class="card-img-top" alt="...">
           <div class="card-body bg-eliano d-flex flex-row text-white">
             <div class="p-0 col-md-4 text-center">
