@@ -22,7 +22,7 @@ class Image extends Model
 
       $img = Img::make($img_path);
 
-      if($img->width() > 1200 && $img->height() > 900)
+      if($img->width() > 800 && $img->height() > 600)
         $img = Image::resizeImage($img);
 
       $img->insert(public_path('images/watermark.png'), 'top-left', 10, 10);
@@ -32,7 +32,7 @@ class Image extends Model
   }
 
   public static function resizeImage($imgObject) {
-      $imgObject->fit(1200, 900);
+      $imgObject->fit(800, 600);
 
       return $imgObject;
   }
