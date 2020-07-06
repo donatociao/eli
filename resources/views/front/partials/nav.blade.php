@@ -1,8 +1,8 @@
 <ul class="nav justify-content-between bg-eliano h-60 d-flex align-items-center sticky-top">
 {{-- Decommentare menu --}}
-  {{-- <li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link menu-open" href="#"><i class="fi-xwlux2-three-bars-solid text-white"></i></a>
-  </li> --}}
+  </li>
 
   <!-- Authentication Links -->
   @guest
