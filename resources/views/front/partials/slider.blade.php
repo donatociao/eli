@@ -7,13 +7,16 @@
         @if($sliders->count()== 0)
             <div>
                 <div class="container d-flex justify-content-center">
-                    <img src="{{asset('img/logo_w.png')}}" class="logo position-absolute" alt="">
+                    <img src="{{asset('img/logo_w.png')}}" class="logo position-absolute" alt="logo-eliano">
                 </div>
                 <img src="{{asset('images/default.jpg')}}" class="d-block w-100">
             </div>
 
         @else
         @foreach ($sliders as $slider)
+          @php
+            dd($slider->immobile->img_preview);
+          @endphp
           <div class="swiper-slide">
             <div class="container d-flex justify-content-center">
               <img src="{{asset('img/logo_w.png')}}" class="logo position-absolute" alt="">
