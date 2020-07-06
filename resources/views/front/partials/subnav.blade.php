@@ -7,7 +7,7 @@
       <h5><i class="fi-xnluxx-envelope mr-1"></i>info@eliano.it</h5>
     </div>
     <div class="col-lg-2">
-      <h5><i class="fi-xnluxx-phone mr-1"></i>0828 367278</h5>
+      <h5><i class="fi-xnluxx-phone mr-1"></i>0828 367378</h5>
     </div>
     <div class="col-lg-6 text-right d-flex flex-row justify-content-end">
       <h5><a class="mr-3" href="#"><i class="fi-cnsuxx-facebook-circle"></i></a></h5>
