@@ -16,21 +16,21 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/fittasi', 'ImmobiliController@indexAffittasi')->name('fittasi');
 Route::get('/vendesi', 'ImmobiliController@indexVendesi')->name('vendesi');
 
-Route::get('/immobile/', function () {
-    return view('front.immobile');
-})->name('immobile');
+// Route::get('/immobile/', function () {
+//     return view('front.immobile');
+// })->name('immobile');
 
-Route::get('/contatti', function () {
-    return view('front.contatti-page');
-})->name('contatti');
-
-Route::get('/servizi', function () {
-    return view('front.servizi');
-})->name('servizi');
-
-Route::get('/privacy-policy', function () {
-    return view('front.privacy');
-})->name('privacy');
+// Route::get('/contatti', function () {
+//     return view('front.contatti-page');
+// })->name('contatti');
+//
+// Route::get('/servizi', function () {
+//     return view('front.servizi');
+// })->name('servizi');
+//
+// Route::get('/privacy-policy', function () {
+//     return view('front.privacy');
+// })->name('privacy');
 
 
 
