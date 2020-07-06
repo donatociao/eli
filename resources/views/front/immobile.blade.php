@@ -29,11 +29,11 @@
         <h4 class="">Dettagli immobile</h4>
         <div class="row">
           <div class="col-lg-6">
-            <div class="mt-4 d-flex align-items-center"><img src="http://localhost:8000/img/area.png" alt="area" class="icona"><span class="ml-3">{{$immobile_show->detail->mq}} mq.</span></div>
-            <div class="mt-4 d-flex align-items-center"><img src="http://localhost:8000/img/vani.png" alt="vani" class="icona"><span class="ml-3">{{$immobile_show->detail->vani}} Vani</span></div>
-            <div class="mt-4 d-flex align-items-center"><img src="http://localhost:8000/img/wc.png" alt="wc" class="icona"><span class="ml-3">{{$immobile_show->detail->wc}} Bagni</span></div>
-            <div class="mt-4 d-flex align-items-center"><img src="http://localhost:8000/img/box.png" alt="box" class="icona"><span class="ml-3">{{$immobile_show->detail->box}} box</span></div>
-            <div class="mt-4 d-flex align-items-center"><img src="http://localhost:8000/img/ape.png" alt="ape" class="icona"><span class="ml-3">Classe {{$immobile_show->detail->ape}}</span></div>
+            <div class="mt-4 d-flex align-items-center"><img src="{{asset('img/area.png')}}" alt="area" class="icona"><span class="ml-3">{{$immobile_show->detail->mq}} mq.</span></div>
+            <div class="mt-4 d-flex align-items-center"><img src="{{asset('img/vani.png')}}" alt="vani" class="icona"><span class="ml-3">{{$immobile_show->detail->vani}} Vani</span></div>
+            <div class="mt-4 d-flex align-items-center"><img src="{{asset('img/wc.png')}}" alt="wc" class="icona"><span class="ml-3">{{$immobile_show->detail->wc}} Bagni</span></div>
+            <div class="mt-4 d-flex align-items-center"><img src="{{asset('img/box.png')}}" alt="box" class="icona"><span class="ml-3">{{$immobile_show->detail->box}} box</span></div>
+            <div class="mt-4 d-flex align-items-center"><img src="{{asset('img/ape.png')}}" alt="ape" class="icona"><span class="ml-3">Classe {{$immobile_show->detail->ape}}</span></div>
           </div>
           <div class="col-lg-6">
             <div class="mt-4 d-flex align-items-center">
