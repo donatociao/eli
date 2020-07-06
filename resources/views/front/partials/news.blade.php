@@ -30,7 +30,7 @@
 
         <div class="col-md-4">
           <div class="card mr-0 mt-3">
-            <img src="{{ asset('storage/'.$images[$img_idx]) }}" class="card-img-top img-fluid" alt="...">
+            <img src="{{ asset('storage/public'.$images[$img_idx]) }}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{ $single_news->title }}</h5>
               <p class="card-text">{{ ! $single_news->body }}</p>
