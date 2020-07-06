@@ -163,27 +163,26 @@
 
 
 
-
                     <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">
                         <div class="col-lg-1 align-items-center">
                             <label for="ristutturato">Ristrutturato</label>
-                            <input id="ristrutturato" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">
+                            <input id="ristrutturato" type="checkbox" {{ $features->ristrutturato == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">
                         </div>
                         <div class="col-lg-1 ml-3">
                             <label for="riscaldamento">Riscaldamento</label>
-                            <input id="riscaldamento" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="riscaldamento">
+                            <input id="riscaldamento" type="checkbox" {{ $features->riscaldamento == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="riscaldamento">
                         </div>
                         <div class="col-lg-1 ml-3">
                             <label for="terrazzo">Terrazzo</label>
-                            <input id="terrazzo" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="terrazzo">
+                            <input id="terrazzo" type="checkbox" {{ $features->terrazzo == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="terrazzo">
                         </div>
                         <div class="col-lg-1 ml-3">
                             <label for="balconi">Balconi</label>
-                            <input id="balconi" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="balconi">
+                            <input id="balconi" type="checkbox" {{ $features->balconi == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="balconi">
                         </div>
                         <div class="col-lg-1 ml-3">
                             <label for="posto-auto">Posto auto</label>
-                            <input id="posto_auto" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="posto_auto">
+                            <input id="posto_auto" type="checkbox" {{ $features->posto_auto == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="posto_auto">
                         </div>
                         <div class="col-lg-1 ml-5">
                             <label for="evidenza"><b>Evidenza</b></label>

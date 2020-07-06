@@ -119,25 +119,20 @@ class ImmobiliController extends Controller
         $nuovo_immobile = new Immobile();
         $nuovo_detail = new Detail();
         $nuove_features = new Feature();
-
-        //Salvo i dati feature
         $nuove_features->fill($dati_inseriti);
-        //controlli sulle features
-        if(!array_key_exists('ristrutturato', $dati_inseriti)) {
+
+
+        if($nuove_features->ristrutturato == null)
             $nuove_features->ristrutturato = 'off';
-          }
-        if (!array_key_exists('riscaldamento', $dati_inseriti)) {
+        if($nuove_features->riscaldamento == null)
             $nuove_features->riscaldamento = 'off';
-          }
-        if (!array_key_exists('balconi', $dati_inseriti)) {
-            $nuove_features->balconi = 'off';
-          }
-        if (!array_key_exists('terrazzo', $dati_inseriti)) {
-            $nuove_features->terrazzo = 'off';
-          }
-        if (!array_key_exists('posto_auto', $dati_inseriti)) {
+        if($nuove_features->terrazzo == null)
+            $nuove_features->terrazzo= 'off';
+        if($nuove_features->posto_auto == null)
             $nuove_features->posto_auto = 'off';
-          }
+        if($nuove_features->balconi == null)
+            $nuove_features->balconi = 'off';
+
         $nuove_features->save();
 
         //Salvo i dati dettagli
@@ -260,8 +255,9 @@ class ImmobiliController extends Controller
         $imm_to_edit = Immobile::find($id);
         $status = Stato::all();
         $categories = Category::all();
+        $features = Feature::find($imm_to_edit->feature_id);
         $immobile_images = Image::where('immobile_id', '=', $imm_to_edit->id)->get();
-        return view('back.edit-immobile', compact('imm_to_edit', 'status','categories', 'immobile_images'));
+        return view('back.edit-immobile', compact('imm_to_edit', 'status','categories', 'immobile_images', 'features'));
     }
 
 
@@ -326,6 +322,17 @@ class ImmobiliController extends Controller
         $features->terrazzo = $request->terrazzo ;
         $features->balconi = $request->balconi ;
         $features->posto_auto = $request->posto_auto ;
+
+        if($features->ristrutturato == null)
+            $features->ristrutturato = 'off';
+        if($features->riscaldamento == null)
+            $features->riscaldamento = 'off';
+        if($features->terrazzo == null)
+            $features->terrazzo= 'off';
+        if($features->posto_auto == null)
+            $features->posto_auto = 'off';
+        if($features->balconi == null)
+            $features->balconi = 'off';
 
         $features->save();
         $detail->save();
