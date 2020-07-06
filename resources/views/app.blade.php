@@ -2,11 +2,33 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" lang=”it” content="Eliano Servizi Immobiliari a Eboli">
+    <link rel="canonical" href="https://eliano.it"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta lang=”it” content="Eliano immobiliare, immobiliare eboli, affitto eboli, appartamento eboli, vendita eboli, immobile eboli, immobiliare eboli" name="keywords">
+    <meta http-equiv=”content-language” content=”it”>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Eliano Immobiliare a Eboli</title>
+    @if(Route::current()->getName() == 'show.immobile')
+      <!-- Open Graph -->
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="{{$immobile_show->titolo}}">
+      <meta property="og:site_name" content="Eliano Immobiliare"  >
+      <meta property="og:image" content="{{ asset('storage/'.$immobile_show->img_preview) }}">
+      <meta property="og:url" content="https://www.eliano.it">
+      <meta property="og:description" content="Eliano Servizi Immobiliari a Eboli">
+      <meta property="og:locale" content="it_IT">
+    @elseif (Route::current()->getName() == 'home')
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Eliano Servizi Immobiliari a Eboli">
+      <meta property="og:site_name" content="Eliano Immobiliare"  >
+      <meta property="og:image" content="">
+      <meta property="og:url" content="https://www.eliano.it">
+      <meta property="og:description" content="Eliano Servizi Immobiliari a Eboli">
+      <meta property="og:locale" content="it_IT">
+    @endif
 
-    <title>Eliano Immobiliare</title>
 
 
     <!-- Bootstrap CSS -->

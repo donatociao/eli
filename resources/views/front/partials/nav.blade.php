@@ -5,7 +5,7 @@
   <!-- Authentication Links -->
   @guest
       <li class="login nav-item">
-          <a class="nav-link text-white bold-20" href="{{ route('login') }}">LOGIN</a>
+          {{-- <a class="nav-link text-white bold-20" href="{{ route('login') }}"></a> --}}
       </li>
     @else
       <li class="nav-item dropdown text-white bold-20">

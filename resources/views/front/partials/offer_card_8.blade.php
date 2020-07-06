@@ -14,15 +14,15 @@
               <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/area.png')}}" alt="area" class="icona-card"><span class="ml-2">{{ $single_offer->mq }} mq</span></div>
             </div>
           </div>
-          <p class="card-text">{!! $single_offer->description !!}</p>
-          <div class="d-flex justify-content-between">
+          {{-- <p class="card-text">{!! $single_offer->description !!}</p> --}}
+          <div class="d-flex justify-content-between mt-4">
             <a href="{{route('show.immobile', ['slug' => $single_offer->slug, 'immobile_id' => $single_offer->immobile_id])}}" class="btn bg-yellow">Apri <i class="fa fa-search"></i></a>
             <h3 class="card-text red-eliano">€ {{ number_format($single_offer->price, 0, ',', '.') }}</h3>
           </div>
       </div>
     </div>
     <div class="col-md-4">
-      <img src="{{ asset('storage/' . $single_offer->img_preview) }}" class="card-img" alt="...">
+      <img src="{{ asset('storage/' . $single_offer->img_preview) }}" class="card-img img-fluid" alt="...">
     </div>
   </div>
 </div>
