@@ -1,6 +1,6 @@
 <header>
   <!-- Slider main container -->
-<div class="swiper-container">
+  <div class="swiper-container">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
@@ -18,7 +18,7 @@
             <div class="container d-flex justify-content-center">
               <img src="{{asset('img/logo_w.png')}}" class="logo position-absolute" alt="">
             </div>
-            <img src="{{asset('storage/'.$slider->immobile->img_preview)}}" class="d-block w-100" alt="{{$slider->immobile->titolo}}">
+            <img src="{{asset('storage/'.$slider->immobile->img_preview)}}" class="d-block w-100 " alt="{{$slider->immobile->titolo}}">
             <div class="carousel-caption text-left d-none d-md-block">
               <div class="status text-center"><p class="text-uppercase text-dark">{{$slider->immobile->stato->name}}</p></div>
               <div class="container pr-0">
@@ -44,5 +44,5 @@
 
     <!-- If we need scrollbar -->
     <div class="swiper-scrollbar"></div>
-</div>
+  </div>
 </header>

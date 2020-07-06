@@ -127,24 +127,23 @@
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script>
- var mySwiper = new Swiper ('.swiper-container', {
-   // Optional parameters
-   direction: 'horizontal',
-   loop: true,
+      var mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
 
 
-   navigation: {
-     nextEl: '.swiper-button-next',
-     prevEl: '.swiper-button-prev',
-   },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
 
-   autoplay: {
-    delay: 5000,
-  },
+          autoplay: {
+            delay: 5000,
+          },
+        })
+  </script>
 
-
- })
- </script>
   <script>
   $('#delete').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
