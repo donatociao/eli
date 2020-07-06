@@ -14,9 +14,6 @@
 
         @else
         @foreach ($sliders as $slider)
-          @php
-            dd($slider->immobile->img_preview);
-          @endphp
           <div class="swiper-slide">
             <div class="container d-flex justify-content-center">
               <img src="{{asset('img/logo_w.png')}}" class="logo position-absolute" alt="">
