@@ -162,7 +162,7 @@ class ImmobiliController extends Controller
         //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
         {
-            $allowedfileExtension=['jpg','png'];
+            $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('img_preview');
             foreach($files as $file){
                 $filename = $file->getClientOriginalName();
@@ -199,7 +199,7 @@ class ImmobiliController extends Controller
         //inserimento immagini galleria immobile
         if($request->hasFile('photos'))
         {
-            $allowedfileExtension=['jpg','png'];
+            $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('photos');
             foreach($files as $file){
                 $filename = $file->getClientOriginalName();
@@ -335,7 +335,7 @@ class ImmobiliController extends Controller
         //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
         {
-            $allowedfileExtension=['jpg','png'];
+            $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('img_preview');
             foreach($files as $file){
                 $filename = $file->getClientOriginalName();
@@ -356,7 +356,7 @@ class ImmobiliController extends Controller
         //inserimento immagini galleria immobile
         if($request->hasFile('photos'))
         {
-            $allowedfileExtension=['jpg','png'];
+            $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('photos');
             foreach($files as $file){
                 $filename = $file->getClientOriginalName();
