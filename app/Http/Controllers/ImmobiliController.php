@@ -16,6 +16,7 @@ use App\Category;
 use App\Evidenza;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image as Img;
 
 class ImmobiliController extends Controller
 {
@@ -164,9 +165,12 @@ class ImmobiliController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
-                  $filename = $file->store('public/preview');
-                  $nuovo_immobile->img_preview = $filename;
-                    echo "Immagine inserita con successo";
+                    $filename = $file->store('public/preview');
+                    $nuovo_immobile->img_preview = $filename;
+                    $img_path = public_path('storage/public/preview/'.$file->hashName());
+                    $imgObject = Img::make($img_path);
+                    Image::resizeImage($imgObject, true, $file->hashName(), '/storage/public/preview/');
+                    // echo "Immagine inserita con successo";
                 }
                 else
                 {
@@ -354,8 +358,10 @@ class ImmobiliController extends Controller
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
                   $filename = $file->store('public/preview');
-                  $immobile->img_preview = $filename->fit(1920, 1080);
-                    echo "Immagine inserita con successo";
+                  $immobile->img_preview = $filename;
+                  $img_path = public_path('storage/public/preview/'.$file->hashName());
+                  $imgObject = Img::make($img_path);
+                  Image::resizeImage($imgObject, true, $file->hashName(), '/storage/public/preview/');
                 }
                 else
                 {

@@ -32,10 +32,18 @@ class Image extends Model
   }
 
 
-  public static function resizeImage($imgObject) {
+  public static function resizeImage($imgObject, $save=false, $img_name=null, $save_path=null) {
+
       $imgObject->fit(1920, 1080);
 
-      return $imgObject;
+      if($save == false) {
+          return $imgObject;
+      } else {
+          $img_name = explode('.', $img_name);
+          $imgObject->save(public_path($save_path . $img_name[0].'.'.$img_name[1]));
+          $imgObject->encode($img_name[1]);
+      }
+
   }
 
 }
