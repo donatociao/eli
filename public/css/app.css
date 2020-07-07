@@ -11381,6 +11381,11 @@ hr {
   height: 50px;
 }
 
+select {
+  color: red;
+  background: white;
+}
+
 ::-moz-selection {
   color: red;
   background: white;
