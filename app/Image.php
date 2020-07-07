@@ -31,6 +31,19 @@ class Image extends Model
 
   }
 
+  public static function addResize($img_path, $img_name) {
+      $img_name = explode('.', $img_name);
+
+      $img = Img::make($img_path);
+
+      if($img->width() > 1920 && $img->height() > 1080)
+        $img = Image::resizeImage($img);
+
+      $img->save(public_path('/storage/public/immobili_images/'.$img_name[0].'.'.$img_name[1]));
+      $img->encode($img_name[1]);
+
+  }
+
   public static function resizeImage($imgObject) {
       $imgObject->fit(1920, 1080);
 

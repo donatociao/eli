@@ -211,6 +211,7 @@ class ImmobiliController extends Controller
                     $img_name = $file->hashName();
 
                     Image::addWaterMark($img_path, $img_name);
+                    Image::addResize($img_path, $img_name);
                     Image::create([
                         'immobile_id' => $nuovo_immobile->id,
                         'filepath' => $path_foto
@@ -383,6 +384,7 @@ class ImmobiliController extends Controller
                     $img_name = $file->hashName();
 
                     Image::addWaterMark($img_path, $img_name);
+                    Image::addResize($img_path, $img_name);
                     Image::create([
                         'immobile_id' => $immobile->id,
                         'filepath' => $path_foto
