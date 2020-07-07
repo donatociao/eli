@@ -161,11 +161,11 @@ class ImmobiliController extends Controller
             $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('img_preview');
             foreach($files as $file){
-                $file = Image::resizeImage($file);
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
+                  $file = Image::resizeImage($file);
                   $filename = $file->store('public/preview');
                   $nuovo_immobile->img_preview = $filename;
                     echo "Immagine inserita con successo";
@@ -211,13 +211,13 @@ class ImmobiliController extends Controller
                     $img_name = $file->hashName();
 
                     Image::addWaterMark($img_path, $img_name);
-                    Image::addResize($img_path, $img_name);
+
                     Image::create([
                         'immobile_id' => $nuovo_immobile->id,
                         'filepath' => $path_foto
                     ]);
 
-                    $file = Image::resizeImage($file);
+                    Image::resizeImage($file);
 
                     $file->move(public_path('images/'), asset('public/immobili_images'));
                     echo "Immagini inserite con successo";
