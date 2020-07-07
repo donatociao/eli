@@ -161,11 +161,11 @@ class ImmobiliController extends Controller
             $files = $request->file('img_preview');
             $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             foreach($files as $file){
-                $file = Image::resizeImage($file);
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
+                  $file = Image::resizeImage($file);
                   $filename = $file->store('public/preview');
                   $nuovo_immobile->img_preview = $filename;
                     echo "Immagine inserita con successo";
