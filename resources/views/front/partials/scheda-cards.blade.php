@@ -21,7 +21,10 @@
             </div>
           </div>
           <div class="card-body">
-            <h5 class="card-title">{!! $single_match->titolo  !!} </h5>
+            <div class="card-height">
+              <h5 class="card-title" >{!!$single_match->titolo!!} </h5>
+            </div>
+
             {{-- <p class="card-text">{!! $single_match->description !!}</p> --}}
             <div class="container">
               <div class="row d-flex justify-content-between">
