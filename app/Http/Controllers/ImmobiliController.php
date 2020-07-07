@@ -303,7 +303,7 @@ class ImmobiliController extends Controller
         $check_city = DB::table('cities')->select('id')->where('name', '=', $request['city'])->first();
 
         $immobile->titolo = $request->titolo;
-        $immobile->address = $request->titolo;
+        $immobile->address = $request->address;
         $immobile->video_link = $request->video_link;
         $immobile->description = $request->description;
         $immobile->stato_id = $request->stato_id;
