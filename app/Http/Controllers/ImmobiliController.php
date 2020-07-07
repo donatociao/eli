@@ -347,13 +347,14 @@ class ImmobiliController extends Controller
         {
             $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('img_preview');
+
             foreach($files as $file){
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
                   $filename = $file->store('public/preview');
-                  $immobile->img_preview = $filename;
+                  $immobile->img_preview = $filename->fit(1920, 1080);
                     echo "Immagine inserita con successo";
                 }
                 else
