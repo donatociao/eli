@@ -28,8 +28,8 @@
       <address class="mb-5">
         <p><i class="fi-xnluxx-map-marker mr-2"></i>Via B. Buozzi, 41 - Eboli (SA)</p>
         <p><i class="fi-xnluxx-envelope mr-2"></i><a class="text-black" href="mailto:info@eliano.it">info@eliano.it</a></p>
-        <p><i class="fi-xnluxx-phone mr-2"></i><a href="tel:+390828367378"></a>+39 0828 367378</p>
-        <p><i class="fi-xnsuxx-smartphone-solid mr-2"></i><a href="tel:+393939648916"></a>+39 393 9648916</p>
+        <p><i class="fi-xnluxx-phone mr-2"></i><a href="tel:+390828367378">+39 0828 367378</a></p>
+        <p><i class="fi-xnsuxx-smartphone-solid mr-2"></i><a href="tel:+393939648916">+39 393 9648916</a></p>
       </address>
       <div class="mt-5 mb-5">
         <h3>Seguici sui social!</h3>
