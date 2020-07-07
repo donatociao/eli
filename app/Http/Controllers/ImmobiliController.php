@@ -160,6 +160,7 @@ class ImmobiliController extends Controller
             $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('img_preview');
             foreach($files as $file){
+                $file = Image::resizeImage($file);
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
