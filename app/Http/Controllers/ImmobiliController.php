@@ -384,9 +384,6 @@ class ImmobiliController extends Controller
                         'immobile_id' => $immobile->id,
                         'filepath' => $path_foto
                     ]);
-
-                    $file = Image::resizeImage($file);
-
                     $file->move(public_path('images/'), asset('public/immobili_images'));
                     echo "Immagini inserite con successo";
                 }
