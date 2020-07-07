@@ -77,7 +77,6 @@ class ImmobiliController extends Controller
             'wc' => 'required|integer|min:0',
             'box' => 'required|integer|min:0',
             'ape' => 'required|string|max:255',
-            'description' => 'string',
             ];
 
         $customMessages = [
@@ -176,7 +175,6 @@ class ImmobiliController extends Controller
                 }
             }
         }
-        $nuovo_immobile->description = $request->description;
         $nuovo_immobile->save();
 
       if(!array_key_exists('evidenza', $dati_inseriti)) {
