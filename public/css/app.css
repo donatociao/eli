@@ -11187,6 +11187,7 @@ a.text-dark:focus {
   border-top: none;
   -moz-text-align-last: center;
        text-align-last: center;
+  border-color: white;
 }
 
 .logo {
@@ -11379,5 +11380,10 @@ hr {
 
 .card-height {
   height: 50px;
+}
+
+select option {
+  background-color: white;
+  color: black;
 }
 

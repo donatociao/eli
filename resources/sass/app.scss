@@ -135,6 +135,7 @@
     border-right: none;
     border-top: none;
     text-align-last: center;
+    border-color: white;
 }
 
 .logo {
@@ -330,4 +331,9 @@ color: white;
 
 .card-height {
   height: 50px;
+}
+
+select option {
+    background-color: white;
+    color: black;
 }
