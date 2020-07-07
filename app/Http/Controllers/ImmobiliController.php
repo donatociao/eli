@@ -214,7 +214,7 @@ class ImmobiliController extends Controller
                         'filepath' => $path_foto
                     ]);
 
-                    Image::resizeImage($file);
+
 
                     $file->move(public_path('images/'), asset('public/immobili_images'));
                     echo "Immagini inserite con successo";
@@ -380,7 +380,6 @@ class ImmobiliController extends Controller
                     $img_name = $file->hashName();
 
                     Image::addWaterMark($img_path, $img_name);
-                    Image::addResize($img_path, $img_name);
                     Image::create([
                         'immobile_id' => $immobile->id,
                         'filepath' => $path_foto
