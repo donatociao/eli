@@ -71,7 +71,7 @@ Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('de
 Route::get('/{slug}/{immobile_id}', 'ImmobiliController@show')->name('show.immobile'); //apri scheda immobile
 Route::any('/immobile/search', 'ImmobiliController@search')->name('search.immobile');
 Route::any('/dash/immobili/edit/{id}', 'ImmobiliController@edit')->name('edit.immobile')->middleware('auth');
-Route::put('/dash/immobili/upd/{id}', 'ImmobiliController@update')->name('update.immobile')->middleware('auth');
+Route::post('/dash/immobili/upd/{id}', 'ImmobiliController@update')->name('update.immobile')->middleware('auth');
 
 Route::post('/dash/news', 'NewsController@store')->name('store.news')->middleware('auth'); //Inserisco news
 Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news')->middleware('auth'); //Elimino una news
