@@ -22,7 +22,7 @@
           </div>
           <div class="card-body">
             <div class="card-height">
-              <h5 class="card-title" >{!!$single_match->titolo!!} </h5>
+              <h5 class="card-title font-weight-bold">{!!$single_match->titolo!!} </h5>
             </div>
 
             {{-- <p class="card-text">{!! $single_match->description !!}</p> --}}
