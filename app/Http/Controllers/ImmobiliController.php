@@ -158,14 +158,14 @@ class ImmobiliController extends Controller
         //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
         {
-            $files = $request->file('img_preview');
             $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
+            $files = $request->file('img_preview');
             foreach($files as $file){
+                $file = Image::resizeImage($file);
                 $filename = $file->getClientOriginalName();
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
-                  $file = Image::resizeImage($file);
                   $filename = $file->store('public/preview');
                   $nuovo_immobile->img_preview = $filename;
                     echo "Immagine inserita con successo";
@@ -204,7 +204,6 @@ class ImmobiliController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
-                  $file = Image::resizeImage($file);
                   $path_foto = $file->store('public/immobili_images');
                   // $filename = Storage::put('immobili_images', $file);
                     $img_path = public_path('storage/public/immobili_images/'.$file->hashName());
@@ -354,7 +353,6 @@ class ImmobiliController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
-                  $file = Image::resizeImage($file);
                   $filename = $file->store('public/preview');
                   $immobile->img_preview = $filename;
                     echo "Immagine inserita con successo";
@@ -376,7 +374,6 @@ class ImmobiliController extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $check=in_array($extension,$allowedfileExtension);
                 if($check) {
-                  $file = Image::resizeImage($file);
                     $path_foto = $file->store('public/immobili_images');
                     // $filename = Storage::put('immobili_images', $file);
                     $img_path = public_path('storage/public/immobili_images/'.$file->hashName());
