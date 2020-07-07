@@ -11381,3 +11381,13 @@ hr {
   height: 50px;
 }
 
+::-moz-selection {
+  color: red;
+  background: white;
+}
+
+::selection {
+  color: red;
+  background: white;
+}
+
