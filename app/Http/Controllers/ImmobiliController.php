@@ -309,7 +309,6 @@ class ImmobiliController extends Controller
         $immobile->video_link = $request->video_link;
         $immobile->description = $request->description;
         $immobile->stato_id = $request->stato_id;
-        $immobile->category_id = $request->category_id;
         $immobile->price = $request->price;
         $immobile->city_id = $check_city->id;
 
