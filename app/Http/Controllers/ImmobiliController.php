@@ -158,8 +158,8 @@ class ImmobiliController extends Controller
         //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
         {
-            $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             $files = $request->file('img_preview');
+            $allowedfileExtension=['jpg','png','PNG','JPG','JPEG','jpeg'];
             foreach($files as $file){
                 $file = Image::resizeImage($file);
                 $filename = $file->getClientOriginalName();
