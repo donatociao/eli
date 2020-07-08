@@ -50,7 +50,7 @@
         <tr>
           <th scope="row">{{$immobile->id}}</th>
           <td>{{$immobile->titolo}}</td>
-          <td>numero</td>
+          <td>{{ DB::table('views')->where(['viewable_id' => $immobile->id])->count() }}</td>
           <td>{{$immobile->stato->name}}</td>
           <td>{{$immobile->category->name }}</td>
           <td>{{ $immobile['city']['name'] }}</td>
