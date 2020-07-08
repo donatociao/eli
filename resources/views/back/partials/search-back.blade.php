@@ -37,6 +37,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Immobile</th>
+        <th scope="col">Visite</th>
         <th scope="col">Stato</th>
         <th scope="col">Categoria</th>
         <th scope="col">Città</th>
@@ -45,9 +46,11 @@
       </thead>
       <tbody id="content">
       @foreach ($immobili as $immobile)
+
         <tr>
           <th scope="row">{{$immobile->id}}</th>
           <td>{{$immobile->titolo}}</td>
+          <td>{{$visite}}</td>
           <td>{{$immobile->stato->name}}</td>
           <td>{{$immobile->category->name }}</td>
           <td>{{ $immobile['city']['name'] }}</td>
@@ -57,6 +60,7 @@
             <a href="{{route('show.immobile', ['slug' => $immobile->slug, 'immobile_id' => $immobile->id])}}"><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></a>
           </td>
         </tr>
+
       @endforeach
       </tbody>
     </table>

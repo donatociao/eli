@@ -242,7 +242,9 @@ class ImmobiliController extends Controller
      */
     public function show($slug, $immobile_id)
     {
+
       $immobile_show = Immobile::where('slug', $slug)->first();
+      views($immobile_show)->record();
       if(empty($immobile_show)) {
       echo('Metodo show Immobile controller');
       }
