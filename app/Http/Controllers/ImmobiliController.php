@@ -447,10 +447,12 @@ class ImmobiliController extends Controller
                 $route_delete = route('destroy.immobile', $value->id);
                 $route_edit = route('edit.immobile', $value->id);
                 $route_preview = route('show.immobile', ['slug' => $value->slug, 'immobile_id' => $value->id]);
+                $visite = DB::table('views')->where(['viewable_id' => $value->id])->count();
 
                 $output .= "<tr>";
                 $output .= "<td>$value->id</td>";
                 $output .= "<td>$value->titolo</td>";
+                $output .= "<td>$visite</td>";
                 $output .= "<td>$stato</td>";
                 $output .= "<td>$cat</td>";
                 $output .= "<td>$city</td>";
