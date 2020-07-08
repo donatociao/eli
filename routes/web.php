@@ -35,9 +35,17 @@ Route::get('/privacy-policy', function () {
 
 
 
+if (User::where("name", "=", "donato")->exists())
+{
+    Auth::routes([
+        'register' => false
+    ]);
 
-
-Auth::routes();
+}
+else
+{
+    Auth::routes();
+}
 //DASHBOARD
 Route::any('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 
