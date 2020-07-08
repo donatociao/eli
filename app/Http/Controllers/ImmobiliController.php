@@ -150,6 +150,7 @@ class ImmobiliController extends Controller
 
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
+        //inserimento video youtube
         if($nuovo_immobile->video_link != '') {
             $video_embed = explode('watch?v=', $dati_inseriti['video_link']);
             $nuovo_immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];
@@ -311,7 +312,11 @@ class ImmobiliController extends Controller
         $immobile->titolo = $request->titolo;
         $immobile->stato_id = $request->stato_id;
         $immobile->address = $request->address;
-        $immobile->video_link = $request->video_link;
+        // $immobile->video_link = $request->video_link;
+        if($immobile->video_link != '') {
+            $video_embed = explode('watch?v=', $request['video_link']);
+            $immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];
+        }
         $immobile->description = $request->description;
         $immobile->category_id = $request->category_id;
         $immobile->price = $request->price;
@@ -346,6 +351,8 @@ class ImmobiliController extends Controller
         $detail->save();
 
         $messages = array('message' => 'Tutto ok', 'msgType' => 'success');
+
+
 
         //Inserimento immagine di copertina
         if($request->hasFile('img_preview'))
