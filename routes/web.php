@@ -32,6 +32,8 @@ Route::get('/privacy-policy', function () {
     return view('front.privacy');
 })->name('privacy');
 
+
+//disattiva registrazione
 use App\User;
 
 if (User::where("name","=", "donato")->exists())
@@ -46,8 +48,9 @@ else
     Auth::routes();
 }
 
-
+// Decommentare se attivata la registrazione
 // Auth::routes();
+
 //DASHBOARD
 Route::any('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 
