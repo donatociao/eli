@@ -8,7 +8,7 @@
               {{ session('status') }}
             </div>
           @endif
-        <img src="{{asset('img/logo.png')}}" class="logo" alt="logo">
+        <a href="{{route('home')}}"><img src="{{asset('img/logo.png')}}" class="logo" alt="logo"></a> 
       </div>
     </div>
   </div>
