@@ -33,10 +33,6 @@ Route::get('/privacy-policy', function () {
 })->name('privacy');
 
 
-
-
-
-
 Auth::routes();
 //DASHBOARD
 Route::any('/dash', 'DashController@index')->name('dash'); //pannello di controllo
