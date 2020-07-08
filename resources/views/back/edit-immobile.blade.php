@@ -62,7 +62,7 @@
                             <label for="stato_id">Status</label>
                             <select id="stato_id" name="stato_id" class="form-control" value="{{ old('stato_id') }}">
                                 @foreach ($status as $stato)
-                                    <option value="{{$stato->id}}" {{ $stato->id == $imm_to_edit->category_id ? 'selected' : '' }}>{{$stato->name}}</option>
+                                    <option value="{{$stato->id}}" {{ $stato->id == $imm_to_edit->stato_id ? 'selected' : '' }}>{{$stato->name}}</option>
                                 @endforeach
                             </select>
                         </div>
