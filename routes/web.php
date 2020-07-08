@@ -32,8 +32,22 @@ Route::get('/privacy-policy', function () {
     return view('front.privacy');
 })->name('privacy');
 
+use App\User;
 
-Auth::routes();
+if (User::where("name","=", "donato")->exists())
+{
+    Auth::routes([
+        'register' => false
+    ]);
+
+}
+else
+{
+    Auth::routes();
+}
+
+
+// Auth::routes();
 //DASHBOARD
 Route::any('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 

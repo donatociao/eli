@@ -27,8 +27,6 @@ class DashController extends Controller
     {
       $immobili = Immobile::all();
       $count = Immobile::all()->count();
-      //$visite = views(Immobile::class)->count();
-
       return view('back.dash', compact('immobili', 'count'));
     }
 }
