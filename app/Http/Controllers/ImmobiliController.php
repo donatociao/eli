@@ -27,7 +27,7 @@ class ImmobiliController extends Controller
      */
     public function indexAffittasi()
     {
-        $matches = Immobile::where('stato_id', '=', '2')->orderBy('id', 'DESC');->get();
+        $matches = Immobile::where('stato_id', '=', '2')->orderBy('id', 'DESC')->get();
         $cat = DB::table('categories')->get();
         $stato = array('Fittasi');
         $cities = DB::select("CALL getAvailCities()");
@@ -36,7 +36,7 @@ class ImmobiliController extends Controller
 
     public function indexVendesi()
     {
-        $matches = Immobile::where('stato_id', '=', '1')->orderBy('id', 'DESC');->get();
+        $matches = Immobile::where('stato_id', '=', '1')->orderBy('id', 'DESC')->get();
         $cat = DB::table('categories')->get();
         $stato = array('Vendesi');
         $cities = DB::select("CALL getAvailCities()");
