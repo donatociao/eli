@@ -28,7 +28,7 @@
             {{-- <p class="card-text">{!! $single_match->description !!}</p> --}}
             <div class="container">
               <div class="row d-flex justify-content-between">
-                <h5>€ {{ number_format($single_match->price, 0, ',', '.') }}</h5>
+                <h5 class="red-eliano">€ {{ number_format($single_match->price, 0, ',', '.') }}</h5>
                 <a href="{{route('show.immobile', ['slug' => $single_match->slug, 'immobile_id' => $single_match->id])}}" class="btn bg-yellow btn-sm">Apri <i class="fa fa-search"></i></a>
               </div>
             </div>
