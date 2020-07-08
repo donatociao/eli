@@ -11387,3 +11387,7 @@ select option {
   color: black;
 }
 
+.iframerz > iframe[src=""] {
+  display: none;
+}
+

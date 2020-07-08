@@ -337,3 +337,7 @@ select option {
     background-color: white;
     color: black;
 }
+
+.iframerz > iframe[src=""] {
+    display: none;
+}
