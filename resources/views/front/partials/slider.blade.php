@@ -22,7 +22,7 @@
             <div class="carousel-caption text-left d-none d-md-block">
               <div class="status text-center"><p class="text-uppercase text-dark">{{$slider->immobile->stato->name}}</p></div>
               <div class="container pr-0">
-                <h4 class="text-dark text-uppercase">{{$slider->immobile->titolo}}</h4>
+                <h4 class="text-dark text-uppercase font-weight-bold">{{$slider->immobile->titolo}}</h4>
                 <div class="go-to d-flex flex-row justify-content-between p-0">
                   <h4 class="text-dark">€ {{ number_format($slider->immobile->price, 0, ',', '.') }}</h4>
                   <a href="{{route('show.immobile', ['slug' => $slider->immobile->slug, 'immobile_id' => $slider->immobile_id])}}" class="text-center">
