@@ -112,6 +112,7 @@
                         <div class="form-group col-md-1">
                             <label for="ape">APE</label>
                             <select id="ape" name="ape" class="form-control" value="{{ $imm_to_edit->detail->ape }}">
+                                <option value="in definizione" {{ $imm_to_edit->detail->ape == "in definizione" ? 'selected' : '' }}>in definizione</option>
                                 <option value="G" {{ $imm_to_edit->detail->ape == "G" ? 'selected' : '' }}>G</option>
                                 <option value="F" {{ $imm_to_edit->detail->ape == "F" ? 'selected' : '' }}>F</option>
                                 <option value="E" {{ $imm_to_edit->detail->ape == "E" ? 'selected' : '' }}>E</option>

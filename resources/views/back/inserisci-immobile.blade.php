@@ -72,6 +72,7 @@
             <div class="form-group col-md-1">
               <label for="ape">APE</label>
               <select id="ape" name="ape" class="form-control" value="{{ old('stato_id') }}">
+                <option value="in definizione">in definizione</option>
                 <option value="G">G</option>
                 <option value="F">F</option>
                 <option value="E">E</option>
