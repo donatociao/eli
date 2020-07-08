@@ -11387,7 +11387,3 @@ select option {
   color: black;
 }
 
-iframe[src=""] {
-  display: none;
-}
-
