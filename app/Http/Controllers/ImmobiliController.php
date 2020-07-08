@@ -442,7 +442,9 @@ class ImmobiliController extends Controller
                 $stato = $value->stato->name;
                 $cat = $value->category->name;
                 $city = $value->city->name;
-                $route = route('destroy.immobile', $value->id);
+                $route_delete = route('destroy.immobile', $value->id);
+                $route_edit = route('edit.immobile', $value->id);
+                $route_preview = route('show.immobile', ['slug' => $value->slug, 'immobile_id' => $value->id]);
 
                 $output .= "<tr>";
                 $output .= "<td>$value->id</td>";
@@ -451,8 +453,7 @@ class ImmobiliController extends Controller
                 $output .= "<td>$cat</td>";
                 $output .= "<td>$city</td>";
                 $output .= "<td>";
-                $output .= "<button type=\"button\" class=\"btn btn-info\"><i class=\"fas fa-search-plus\"></i></button><a href=\"{$route}\"><button type=\"button\" class=\"btn btn-danger\"><i class=\"far fa-trash-alt\"></i></button></a>
-                            <a href=\"{{ route('edit.immobile', $value->id) }}\"><button type=\"button\" class=\"btn btn-warning\"><i class=\"far fa-edit\"></i></button></a></td>";
+                $output .= "<a href=\"{$route_delete}\"><button type=\"button\" class=\"btn btn-danger\"><i class=\"far fa-trash-alt\"></i></button></a><a href=\"{$route_edit}\"><button type=\"button\" class=\"btn btn-warning\"><i class=\"far fa-edit\"></i></button></a><a href=\"{$route_preview}\"><button type=\"button\" class=\"btn btn-info\"><i class=\"fas fa-search-plus\"></i></button></a></td>";
                 $output .= '</tr>';
 
             }
