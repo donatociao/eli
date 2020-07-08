@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Immobile;
 use App\Stato;
-use Illuminate\Support\Facades\DB;
 
 class DashController extends Controller
 {
@@ -28,8 +27,8 @@ class DashController extends Controller
     {
       $immobili = Immobile::all();
       $count = Immobile::all()->count();
-      $visite = DB::table('views')->where('viewable_id', '=', '?')->count();
+      //$visite = views(Immobile::class)->count();
 
-      return view('back.dash', compact('immobili', 'count', 'visite'));
+      return view('back.dash', compact('immobili', 'count'));
     }
 }

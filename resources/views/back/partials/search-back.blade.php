@@ -50,7 +50,7 @@
         <tr>
           <th scope="row">{{$immobile->id}}</th>
           <td>{{$immobile->titolo}}</td>
-          <td>{{$visite}}</td>
+          <td>numero</td>
           <td>{{$immobile->stato->name}}</td>
           <td>{{$immobile->category->name }}</td>
           <td>{{ $immobile['city']['name'] }}</td>
