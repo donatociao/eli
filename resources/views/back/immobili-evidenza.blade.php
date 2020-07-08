@@ -43,7 +43,7 @@
                     <td>{{$highlight->immobile->category->name}}</td>
                     <td>{{$highlight->$immobile['city']['name'] }}</td>
                     <td>
-                      <button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button>
+                      <a href="{{route('show.immobile', ['slug' => $highlight->immobile->slug, 'immobile_id' => $highlight->immobile_id])}}" class="btn btn-info"><i class="fa fa-search-plus"></i></a>
                       <a href="{{ route('destroy.evidenza', $highlight->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
                     </td>
                   </tr>
