@@ -25,7 +25,7 @@ class ContactController extends Controller
 
       $contact->save();
 
-      \Mail::send('contact_email',
+      \Mail::send('email_template',
              array(
                  'name' => $request->get('name'),
                  'email' => $request->get('email'),
