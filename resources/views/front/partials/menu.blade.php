@@ -11,8 +11,8 @@
         <h5><i class="fi-xnluxx-phone mr-1"></i>0828 367378</h5>
       </div>
       <div class="col-lg-6 text-right d-flex flex-row justify-content-end">
-        <h5><a class="mr-3" href="https://www.facebook.com/elianoimmobiliare/"><i class="fi-xnsuxx-facebook"></i></a></h5>
-        <h5 class="mt-1"><a href="https://twitter.com/elianoinfo" class="mt-1"><i class="fi-xnsuxx-twitter"></i></a></h5>
+        <h5><a class="mr-3" href="#"><i class="fi-xnsuxx-facebook"></i></a></h5>
+        <h5 class="mt-1"><a class="mr-3" href="#"><i class="fi-xnsuxx-twitter"></i></a></h5>
       </div>
     </div>
   </div>
