@@ -38,34 +38,23 @@
       </div>
     </div>
     <div class="col-lg-6 mb-5">
-      @if (count($errors) > 0)
-        <div class="alert alert-danger">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
+      @if(Session::has('success'))
+        <div class="alert alert-success">
+          {{ Session::get('success') }}
         </div>
       @endif
-      @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-block">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <strong>{{ $message }}</strong>
-        </div>
-      @endif
-      <form method="post" action="{{route('send_email')}}">
-        @csrf
+      <form method="post" action="{{route('invio.richiesta')}}">
+        {{csrf_field()}}
         <h5 class="mb-3">Come possiamo aiutarti?</h5>
         <div class="form-group">
-          <input name="name" type="name" class="form-control" id="name" placeholder="Nome e Cognome">
+          <input name="name" type="text" class="form-control" id="name" placeholder="Nome e Cognome">
         </div>
         <div class="form-group">
           <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
           <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
-          <input name="mobile" type="mobile" class="form-control" id="mobile" placeholder="Cellulare">
+          <input name="phone" type="text" class="form-control" id="mobile" placeholder="Telefono">
         </div>
         <div class="form-group">
           <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Scrivi qui il tuo messaggio..."></textarea>

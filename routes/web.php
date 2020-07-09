@@ -12,7 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::post('/sendemail', 'SendEmailController@send')->name('send_email');
+
+Route::get('/richiesta', 'ContactController@getContact');
+Route::post('/richiesta', 'ContactController@saveContact')->name('invio.richiesta');
 
 Route::get('/fittasi', 'ImmobiliController@indexAffittasi')->name('fittasi');
 Route::get('/vendesi', 'ImmobiliController@indexVendesi')->name('vendesi');
