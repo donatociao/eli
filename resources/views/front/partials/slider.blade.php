@@ -24,7 +24,7 @@
               <div class="container pr-0">
                 <h4 class="text-dark text-uppercase font-weight-bold">{{$slider->immobile->titolo}}</h4>
                 <div class="go-to d-flex flex-row justify-content-between p-0">
-                  <h4 class="text-dark">€ {{ number_format($slider->immobile->price, 0, ',', '.') }}</h4>
+                  <h4 class="red-eliano">€ {{ number_format($slider->immobile->price, 0, ',', '.') }}</h4>
                   <a href="{{route('show.immobile', ['slug' => $slider->immobile->slug, 'immobile_id' => $slider->immobile_id])}}" class="text-center">
                     <i class="fa fa-2x fa-arrow-right text-white"></i>
                   </a>
