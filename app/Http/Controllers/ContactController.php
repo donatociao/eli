@@ -7,6 +7,13 @@ use Mail;
 
 class ContactController extends Controller
 {
+
+  public function getContact() {
+
+       return view('home'); 
+     }
+
+
   public function saveContact(Request $request) {
 
       $this->validate($request, [
