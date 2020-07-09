@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Contact;
 use Mail;
-use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -21,8 +20,7 @@ class ContactController extends Controller
 
       $contact->name = $request->name;
       $contact->email = $request->email;
-      $contact->subject = $request->subject;
-      $contact->phone_number = $request->phone_number;
+      $contact->phone = $request->phone;
       $contact->message = $request->message;
 
       $contact->save();
