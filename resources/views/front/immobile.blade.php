@@ -79,7 +79,7 @@
           </div>
         </div>
         <div class="row">
-          <p class="font-55 eliano-red mt-4 ml-4">€ {{$immobile_show->price}}</p>
+          <p class="font-55 eliano-red mt-4 ml-3">€ {{$immobile_show->price}}</p>
         </div>
       </div>
     </div>
