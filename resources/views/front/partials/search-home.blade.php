@@ -4,7 +4,7 @@
     <h2 class="text-white">Cerco</h2>
     <form class="container d-flex flex-row align-items-center justify-content-center" method="post" action="{{route('search.immobile')}}" enctype="multipart/form-data">
 
-      {{ csrf_field() }}
+      @csrf
 
     <select name="category_id" class="search-sel custom-select-sm ml-3 text-white">
       <option selected value="">Cosa cerchi?</option>

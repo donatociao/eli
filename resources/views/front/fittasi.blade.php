@@ -15,7 +15,7 @@
         <div class="bg-eliano search-scheda d-flex flex-row justify-content-center">
           <div class="container d-flex flex-row align-items-center justify-content-center">
             <form class="container d-flex flex-row align-items-center justify-content-center" method="post" action="{{route('search.immobile')}}" enctype="multipart/form-data">
-              {{ csrf_field() }}
+              @csrf
             <h2 class="text-white">Cerco</h2>
             <select name="category_id" class="search-sel custom-select-sm ml-3 text-white">
               <option selected value="">Cosa cerchi?</option>

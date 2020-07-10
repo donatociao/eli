@@ -7,9 +7,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta lang=”it” content="Eliano immobiliare, immobiliare eboli, affitto eboli, appartamento eboli, vendita eboli, immobile eboli, immobiliare eboli" name="keywords">
     <meta http-equiv=”content-language” content=”it”>
-     <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
     <title>Eliano Immobiliare a Eboli</title>
     @if(Route::current()->getName() == 'show.immobile')
       <!-- Open Graph -->
