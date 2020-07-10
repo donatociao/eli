@@ -62,8 +62,8 @@
         <div class="container">
           <div class="row mt-5">
             <div class="col-lg-12">
-              <h1 class="eliano-red">Errore 419. Sembra che qualcosa sia andato storto.</h1>
-              <h3>Ti aiutiamo a trovare la via di <b>casa!</b></h4>
+              <h1 class="eliano-red">Ops, sembra che qualcosa sia andato storto.</h1>
+              <h3>Aggiorna la pagina!</b></h4>
               <a href="{{route('home')}}"> <button class="btn btn-info mt-5">Vai alla Home Page</button></a>
             </div>
           </div>
