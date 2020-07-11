@@ -44,7 +44,7 @@
         </div>
       @endif
       <form method="post" action="{{route('invio.richiesta')}}">
-        {{csrf_field()}}
+        @csrf
         <h5 class="mb-3">Come possiamo aiutarti?</h5>
         <div class="form-group">
           <input name="name" type="text" class="form-control" id="name" placeholder="Nome e Cognome">

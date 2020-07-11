@@ -10,12 +10,13 @@ class ContactController extends Controller
 
   public function getContact() {
 
-       return view('home'); 
+       return view('home');
      }
 
 
   public function saveContact(Request $request) {
 
+      // $contact = $request->all();
       $this->validate($request, [
           'name' => 'required',
           'email' => 'required|email',
@@ -47,5 +48,4 @@ class ContactController extends Controller
       return back()->with('success', 'Grazie per averci inviato la tua richiesta!');
 
   }
-}
 }
