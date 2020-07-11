@@ -1,4 +1,30 @@
-<section class="mb-5 mt-3">
+<section id="cont" class="mb-5 mt-3">
+  @if(Session::get('success'))
+    <script>
+    $(function() {
+      $('#ok-invio').modal('show');
+    });
+  </script>
+  @endif
+  <div id="ok-invio" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Grazie!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Il tuo messaggio è stato inviato correttamente!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Continua a navigare</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <div class="container">
     <div class="row d-flex justify-content-center">
       <div class="col-lg-2 text-center">
@@ -45,7 +71,11 @@
       @endif
       <form method="post" action="{{route('invio.richiesta')}}">
         @csrf
-        <h5 class="mb-3">Come possiamo aiutarti?</h5>
+        @if (Route::current()->getName() == 'show.immobile')
+          <h5 class="mb-3">Sei interessato a questo immobile?</h5>
+        @else
+          <h5 class="mb-3">Come possiamo aiutarti?</h5>
+        @endif
         <div class="form-group">
           <input name="name" type="text" class="form-control" id="name" placeholder="Nome e Cognome">
         </div>
@@ -57,7 +87,8 @@
           <input name="phone" type="text" class="form-control" id="mobile" placeholder="Telefono">
         </div>
         <div class="form-group">
-          <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+          <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Scrivi qui il tuo messaggio...">@if (Route::current()->getName() == 'show.immobile')Salve, sono interessato a questo immobile: {{$immobile_show->titolo}}
+            @endif</textarea>
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
