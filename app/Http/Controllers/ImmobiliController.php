@@ -438,7 +438,10 @@ class ImmobiliController extends Controller
     public function search(Request $request) {
 
         if($request->ajax()) {
-            $immobili = Immobile::where('titolo', 'LIKE', "%$request->search%")->orderBy('id','DESC')->get();
+            $immobili = Immobile::where('titolo', 'LIKE', "%$request->search%")
+            ->orderBy('id','DESC')
+            ->get();
+
             $output = '';
 
             foreach($immobili as $key => $value) {
