@@ -438,10 +438,7 @@ class ImmobiliController extends Controller
     public function search(Request $request) {
 
         if($request->ajax()) {
-            $immobili = Immobile::where('titolo', 'LIKE', "%$request->search%")
-            ->orderBy('id','DESC')
-            ->get();
-
+            $immobili = Immobile::where('titolo', 'LIKE', "%$request->search%")->get();
             $output = '';
 
             foreach($immobili as $key => $value) {
@@ -490,7 +487,9 @@ class ImmobiliController extends Controller
             }
         }
 
-        $matches = Immobile::where($filters)->get();
+        $matches = Immobile::where($filters)
+        ->orderBy('id','DESC')
+        ->get();
         return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
     }
 }
