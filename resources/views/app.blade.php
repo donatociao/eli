@@ -21,6 +21,49 @@
       <meta property="og:description" content="Scopri questo immobile in {{$immobile_show->stato->name}} a {{$immobile_show->price}} €">
       <meta property="og:locale" content="it_IT">
     @endif
+{{-- Dati strutturati --}}
+    <script type="application/ld+json">
+    {
+  "@context": "http://www.schema.org",
+  "@type": "LocalBusiness",
+  "name": "Eliano Servizi Immobiliari a Eboli | Salerno",
+  "description": "Agenzia immobiliare a Eboli per vendite e locazioni residenziali e commerciali.",
+  "url": "https://eliano.it",
+  "sameAs": [
+    "https://www.facebook.com/elianoimmobiliare/",
+    "https://twitter.com/elianoinfo"
+  ],
+  "hasMap": "https://goo.gl/maps/QojGtMSQ6FiyT2ga6",
+  "logo": "https://eliano.it/img/logo.png",
+  "image": "https://eliano.it/img/logo.png",
+  "priceRange" : "$ - $$$",
+  "telephone": "+390828367378",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via B. Buozzi, 41",
+    "addressLocality": "Eboli",
+    "addressRegion": "Salerno",
+    "postalCode": "84025",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "40.6151593",
+    "longitude": "15.0538478"
+  },
+  "openingHours": "Mo, Tu, We, Th, Fr, 09:00-19:00",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@eliano.it",
+    "telephone": "+390828367378"
+  },
+  "aggregateRating": {
+  "@type": "AggregateRating",
+  "ratingValue": "5",
+  "reviewCount": "108"
+  }
+}
+</script>
 
 
 
