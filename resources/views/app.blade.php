@@ -17,15 +17,7 @@
       <meta property="og:title" content="{{$immobile_show->titolo}}">
       <meta property="og:site_name" content="Eliano Immobiliare"  >
       <meta property="og:image" content="{{ asset('storage/'.$immobile_show->img_preview) }}">
-      <meta property="og:url" content="https://www.eliano.it">
-      <meta property="og:description" content="Eliano Servizi Immobiliari a Eboli">
-      <meta property="og:locale" content="it_IT">
-    @elseif (Route::current()->getName() == 'home')
-      <meta property="og:type" content="website">
-      <meta property="og:title" content="Eliano Servizi Immobiliari a Eboli">
-      <meta property="og:site_name" content="Eliano Immobiliare"  >
-      <meta property="og:image" content="">
-      <meta property="og:url" content="https://www.eliano.it">
+      <meta property="og:url" content="{{ URL::current() }}">
       <meta property="og:description" content="Eliano Servizi Immobiliari a Eboli">
       <meta property="og:locale" content="it_IT">
     @endif
