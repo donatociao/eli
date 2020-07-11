@@ -179,6 +179,7 @@ class ImmobiliController extends Controller
                 }
             }
         }
+
         $nuovo_immobile->save();
 
       if(!array_key_exists('evidenza', $dati_inseriti)) {
