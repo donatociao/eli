@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta lang=”it” content="Eliano immobiliare, immobiliare eboli, affitto eboli, appartamento eboli, vendita eboli, immobile eboli, immobiliare eboli" name="keywords">
     <meta http-equiv=”content-language” content=”it”>
+    <meta name="google-site-verification" content="VjG8DabjcLd9uGCtAyyrSZ06Z6KEIxoQgf8RcwHRrPg" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
