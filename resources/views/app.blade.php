@@ -18,7 +18,7 @@
       <meta property="og:site_name" content="Eliano Immobiliare"  >
       <meta property="og:image" content="{{ asset('storage/'.$immobile_show->img_preview) }}">
       <meta property="og:url" content="{{ URL::current() }}">
-      <meta property="og:description" content="Scopri questo immobile in {{$immobile_show->stato->name}} a {{$immobile_show->price}}">
+      <meta property="og:description" content="Scopri questo immobile in {{$immobile_show->stato->name}} a {{$immobile_show->price}} €">
       <meta property="og:locale" content="it_IT">
     @endif
 
