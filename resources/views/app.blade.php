@@ -19,7 +19,7 @@
 
 <!-- Add to homescreen for Chrome on Android -->
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="PWA">
+<meta name="application-name" content="Eliano Immobiliare">
 <link rel="icon" sizes="512x512" href="/images/icons/icon-512x512.png">
 
 <!-- Add to homescreen for Safari on iOS -->
