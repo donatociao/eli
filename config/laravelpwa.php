@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'name' => 'LaravelPWA',
+    'name' => 'Eliano Immobiliare',
     'manifest' => [
-        'name' => env('APP_NAME', 'Eliano Immobiliare'),
+        'name' => env('APP_NAME'),
         'short_name' => 'PWA',
         'start_url' => '/',
         'background_color' => '#ffffff',
@@ -59,9 +59,9 @@ return [
         ],
         'shortcuts' => [
             [
-                'name' => 'Installa Eliano Immobiliare',
-                'description' => 'Tutti gli annunci immobiliare a portata di smartphone',
-                'url' => '/install',
+                'name' => 'Shortcut Link 1',
+                'description' => 'Shortcut Link 1 Description',
+                'url' => '/shortcutlink1',
                 'icons' => [
                     "src" => "/images/icons/icon-72x72.png",
                     "purpose" => "any"
