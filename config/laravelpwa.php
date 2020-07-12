@@ -3,10 +3,10 @@
 return [
     'name' => 'Eliano Immobiliare',
     'manifest' => [
-        'name' => env('APP_NAME'),
-        'short_name' => 'PWA',
+        'name' => 'Eliano Immobiliare',
+        'short_name' => 'Eliano Immobiliare',
         'start_url' => '/',
-        'background_color' => '#ffffff',
+        'background_color' => '#437D90',
         'theme_color' => '#000000',
         'display' => 'standalone',
         'orientation'=> 'any',
