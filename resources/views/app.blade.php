@@ -131,7 +131,8 @@
 
   <!-- Animate CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-  </head>
+ @laravelPWA
+</head>
   <body>
     {{-- <ul class="nav justify-content-between bg-eliano h-60 d-flex align-items-center sticky-top">
       <li class="nav-item">
