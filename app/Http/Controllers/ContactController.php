@@ -33,17 +33,17 @@ class ContactController extends Controller
 
       $contact->save();
 
-      \Mail::send('email_template',
-             array(
-                 'name' => $request->get('name'),
-                 'email' => $request->get('email'),
-                 'phone' => $request->get('phone'),
-                 'user_message' => $request->get('message'),
-             ), function($message) use ($request)
-               {
-                  $message->from($request->email);
-                  $message->to('ciao.donatociao@gmail.com');
-               });
+      // \Mail::send('email_template',
+      //        array(
+      //            'name' => $request->get('name'),
+      //            'email' => $request->get('email'),
+      //            'phone' => $request->get('phone'),
+      //            'user_message' => $request->get('message'),
+      //        ), function($message) use ($request)
+      //          {
+      //             $message->from($request->email);
+      //             $message->to('ciao.donatociao@gmail.com');
+      //          });
 
       return back()->with('success', 'Grazie per averci inviato la tua richiesta!');
 

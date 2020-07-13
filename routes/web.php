@@ -56,6 +56,8 @@ else
 
 //DASHBOARD
 Route::any('/dash', 'DashController@index')->name('dash'); //pannello di controllo
+Route::get('/messaggi', 'DashController@messages')->name('messages');
+Route::any('/messaggi/{id}', 'DashController@messageShow')->name('show.message');
 
 //NEWS
 Route::get('/dash/news', 'HomeController@create_news')->name('create.news'); //Gestione News

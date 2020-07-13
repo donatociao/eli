@@ -1,4 +1,4 @@
-<h2>Ciao Enrico,</h2>
+<h4>Ciao Enrico,</h4>
 <p>hai ricevuto una richiesta da : {{ $name }}</p><br>
 <br>
 <p>Ecco i dettagli:</p> <br>
