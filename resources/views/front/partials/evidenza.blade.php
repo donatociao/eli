@@ -28,7 +28,9 @@
       @foreach($highlights as $highlight)
       <div class="col-md-4 mb-4">
         <div class="card mr-0">
-          <img src="{{ asset('storage/'.$highlight->img_preview) }}" class="card-img-top" alt="...">
+          <a href="{{route('show.immobile', ['slug' => $highlight->slug, 'immobile_id' => $highlight->immobile_id])}}">
+            <img src="{{ asset('storage/'.$highlight->img_preview) }}" class="card-img-top" alt="...">
+          </a>
           <div class="card-body bg-eliano d-flex flex-row text-white">
             <div class="p-0 col-md-4 text-center">
               <div class="d-flex align-items-center justify-content-center"><img src="{{asset('img/vaniw.png')}}" alt="area" class="icona-card"><span class="ml-2">{{$highlight->vani}} vani</span></div>
