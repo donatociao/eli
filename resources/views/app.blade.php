@@ -162,6 +162,7 @@
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
 
     <script src="/js/lightslider.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -186,6 +187,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/css/app.css">
+
 
   <!-- Animate CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
@@ -228,14 +230,5 @@
           },
         })
   </script>
-
-  <script>
-  $('#delete').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget)
-    var slider_id = button.data('sliderid')
-    var modal = $(this);
-    modal.find('.modal-body #slider_to_delete').val(slider_id);
-    })
- </script>
   </body>
 </html>
