@@ -7,7 +7,7 @@ return [
         'short_name' => 'Eliano Immobiliare',
         'start_url' => '/',
         'background_color' => '#437D90',
-        'theme_color' => '#000000',
+        'theme_color' => '#437D90',
         'display' => 'standalone',
         'orientation'=> 'any',
         'status_bar'=> 'black',
