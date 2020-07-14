@@ -51,4 +51,15 @@ class DashController extends Controller
 
       return view('back.messageshow', compact('messageToshow'));
     }
+
+    public function messageDelete($id)
+    {
+
+      $msg_to_delete = Contact::find($id);
+      if (!empty($msg_to_delete)) {
+        $msg_to_delete->delete();
+      }
+
+      return redirect(route('messages'));
+    }
 }

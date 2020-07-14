@@ -27,6 +27,7 @@
                     <td>
                       {{-- <a href="{{ route('destroy.message', ['id' => $contact->id ]) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a> --}}
                       <a href="{{route('show.message', ['id' => $contact->id])}}"><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></a>
+                      <a href="{{ route('destroy.message', $contact->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
                     </td>
                   </tr>
                 @else
@@ -37,6 +38,7 @@
                     <td>
                       {{-- <a href="{{ route('destroy.message', ['id' => $contact->id ]) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a> --}}
                       <a href="{{route('show.message', ['id' => $contact->id])}}"><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></a>
+                      <a href="{{ route('destroy.message', $contact->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
                     </td>
                   </tr>
                 @endif

@@ -25,7 +25,7 @@
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="PWA">
+<meta name="apple-mobile-web-app-title" content="Eliano Immobiliare">
 <link rel="apple-touch-icon" href="/images/icons/icon-512x512.png">
 
 <link href="/images/icons/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />

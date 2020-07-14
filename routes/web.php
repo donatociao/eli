@@ -58,6 +58,8 @@ else
 Route::any('/dash', 'DashController@index')->name('dash'); //pannello di controllo
 Route::get('/messaggi', 'DashController@messages')->name('messages');
 Route::any('/messaggi/{id}', 'DashController@messageShow')->name('show.message');
+Route::get('/messaggi/delete/{id}', 'DashController@messageDelete')->name('destroy.message'); //Elimino un messaggio
+
 
 //NEWS
 Route::get('/dash/news', 'HomeController@create_news')->name('create.news'); //Gestione News
