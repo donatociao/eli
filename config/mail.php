@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.googlemail.com'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 465),
+    'port' => env('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
 
     /*
     |--------------------------------------------------------------------------
@@ -119,6 +119,16 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+
+    'pretend' => false,
+    'stream' => [
+     'ssl' => [
+         'allow_self_signed' => true,
+         'verify_peer' => false,
+         'verify_peer_name' => false,
+        ],
+      ],
 
     /*
     |--------------------------------------------------------------------------

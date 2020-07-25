@@ -39,10 +39,11 @@ class ContactController extends Controller
                  'email' => $request->get('email'),
                  'phone' => $request->get('phone'),
                  'user_message' => $request->get('message'),
-             ), function($message) use ($request)
-               {
-                  $message->from($request->email);
-                  $message->to('ciao.donatociao@gmail.com');
+             ), function($message) {
+                  $message->from('mailereliano@gmail.com');
+                  // $message->to('ciao.donatociao@gmail.com');
+                  $message->to('info@eliano.it', 'Enrico Eliano')->subject
+            ('Nuova richiesta dal sito Eliano.it');
                });
 
       return back()->with('success', 'Grazie per averci inviato la tua richiesta!');

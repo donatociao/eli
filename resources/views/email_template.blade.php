@@ -1,5 +1,5 @@
 <h4>Ciao Enrico,</h4>
-<p>hai ricevuto una richiesta da : {{ $name }}</p><br>
+<p>hai ricevuto una richiesta da : {{ $name }}</p>
 <br>
 <p>Ecco i dettagli:</p> <br>
 <b>Nome:</b> {{ $name }} <br>
