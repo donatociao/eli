@@ -110,7 +110,7 @@
           <li id="codiceFiscale" style="display: none;">Codice Fiscale: <span id="codice_Fiscale"></span></li>
           <li><span id="indirizzo">Via B. Buozzi, 41 </span></li>
           <li><span id="cap">84025</span> - <span id="citta">Eboli </span> (<span id="provincia">(SA)</span>)</li>
-          <li>Tel/Fax: <span id="telefono">+39 0828 367278</span></li>
+          <li>Tel/Fax: <span id="telefono">+39 0828 367378</span></li>
           <li>E-mail: <span id="email">info@eliano.it</span></li>
         </ul>
         <p>Per esercitare i diritti previsti all'art. 7 del Codice della Privacy ovvero per la cancellazione dei vostri dati dall'archivio, è sufficiente contattarci attraverso uno dei canali messi a disposizione.</p>
