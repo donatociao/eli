@@ -100,6 +100,11 @@ $(document).ready(function () {
   $(".close-menu").click(function () {
     $("#menu").addClass("d-none ");
   });
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
   $("#light-slider").lightSlider({
     item: 3,
     autoWidth: false,
