@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="row mt-3">
-      <div class="col-lg-8">
+      <div class="col-lg-8 animate__animated animate__fadeIn">
         <ul id="imageGallery">
           <li data-thumb="{{ asset('storage/'.$immobile_show->img_preview) }}" data-src="{{ asset('storage/'.$immobile_show->img_preview) }}">
             <img class="img-fluid" src="{{ asset('storage/'.$immobile_show->img_preview) }}" />
