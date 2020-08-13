@@ -7,7 +7,7 @@
       @endphp
       @foreach ($matches as $single_match)
       <div class="col-md-4">
-        <div class="card mr-0 mt-3">
+        <div class="card mr-0 mt-3 animate__animated animate__fadeIn">
         <a href="{{route('show.immobile', ['slug' => $single_match->slug, 'immobile_id' => $single_match->id])}}">
           <img src="{{ asset('storage/' . $single_match->img_preview) }}" class="card-img-top" alt="...">
         </a>
