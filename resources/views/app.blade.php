@@ -178,7 +178,8 @@
         currentPagerPosition:'left',
         onSliderLoad: function(el) {
           el.lightGallery({
-            selector: '#imageGallery .lslide'
+            selector: '#imageGallery .lslide',
+            mode: "lg-fade",
           });
         }
       });

@@ -3,6 +3,13 @@
 @section('content')
   @include('front.partials.nav')
   @include('front.partials.subnav')
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <a class=" text-uppercase font-weight-bold text-decoration-none" href="{{route('searchBack.immobile')}}"><i class="fas fa-angle-double-left"></i> Vai alla ricerca</a>
+      </div>
+    </div>
+  </div>
   <div class="container mb-4">
     <div class="row mt-5">
       <div class="col-lg-12">

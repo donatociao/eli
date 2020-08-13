@@ -112,7 +112,7 @@ $(document).ready(function () {
     // slidemove will be 1 if loop is true
     slideMargin: 10,
     addClass: '',
-    mode: "slide",
+    mode: "fade",
     useCSS: true,
     cssEasing: 'ease',
     //'cubic-bezier(0.25, 0, 0.25, 1)',//

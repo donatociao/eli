@@ -43,6 +43,7 @@ class ImmobiliController extends Controller
         return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
     }
 
+
     /*
      * Show the form for creating a new resource.
      *
@@ -245,7 +246,7 @@ class ImmobiliController extends Controller
     {
 
       $immobile_show = Immobile::where('slug', $slug)->first();
-      views($immobile_show)->record();
+      //COUNTER
       if(empty($immobile_show)) {
       echo('Metodo show Immobile controller');
       }
@@ -490,6 +491,16 @@ class ImmobiliController extends Controller
         $matches = Immobile::where($filters)
         ->orderBy('id','DESC')
         ->get();
-        return view('front.fittasi', compact('matches', 'stato', 'cities','cat'));
+        return view('front.results', compact('matches', 'stato', 'cities','cat'));
+    }
+
+    public function searchBack(Request $request) {
+
+        $stato = array('Ricerca');
+        $cat = DB::table('categories')->get();
+        $cities = DB::select("CALL getAvailCities()");
+
+        $matches = Immobile::orderBy('id','DESC')->get();
+        return view('front.results', compact('matches', 'stato', 'cities','cat'));
     }
 }

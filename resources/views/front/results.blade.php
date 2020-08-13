@@ -1,11 +1,10 @@
 @extends('app')
 
 @section('content')
+
   @include('front.partials.nav')
   @include('front.partials.subnav')
 
-  @php
-  @endphp
   <div class="subnav container mt-5 mb-5">
     <div class="row d-flex align-items-center">
       <div class="col-lg-3">

@@ -61,6 +61,7 @@ Route::any('/messaggi/{id}', 'DashController@messageShow')->name('show.message')
 Route::get('/messaggi/delete/{id}', 'DashController@messageDelete')->name('destroy.message'); //Elimino un messaggio
 
 
+
 //NEWS
 Route::get('/dash/news', 'HomeController@create_news')->name('create.news'); //Gestione News
 Route::any('/news/{news_id}', 'NewsController@show')->name('show.news')->middleware('auth'); //apri scheda articolo
@@ -90,6 +91,7 @@ Route::post('/dash', 'ImmobiliController@store')->name('immobili.store')->middle
 Route::get('/dash/immobili/delete/{id}', 'ImmobiliController@destroy')->name('destroy.immobile')->middleware('auth'); //Elimino un immobile
 Route::get('/{slug}/{immobile_id}', 'ImmobiliController@show')->name('show.immobile'); //apri scheda immobile
 Route::any('/immobile/search', 'ImmobiliController@search')->name('search.immobile');
+Route::get('/immobile/search/back', 'ImmobiliController@searchBack')->name('searchBack.immobile');
 Route::any('/dash/immobili/edit/{id}', 'ImmobiliController@edit')->name('edit.immobile')->middleware('auth');
 Route::post('/dash/immobili/upd/{id}', 'ImmobiliController@update')->name('update.immobile')->middleware('auth');
 
