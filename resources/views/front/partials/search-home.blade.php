@@ -1,4 +1,4 @@
-<div id="barra-ricerca" class="animate__animated animate__fadeIn search-home position-absolute bg-eliano d-flex flex-row justify-content-center">
+<div id="barra-ricerca" class="search-home position-absolute bg-eliano d-flex flex-row justify-content-center">
   <div class="container d-flex flex-row align-items-center justify-content-center">
 
     <h2 class="text-white">Cerco</h2>
