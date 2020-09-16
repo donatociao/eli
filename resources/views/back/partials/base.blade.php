@@ -10,11 +10,11 @@
           @endif
         <a href="{{route('home')}}"><img src="{{asset('img/logo.png')}}" class="logo" alt="logo"></a>
         @if ($newMessages)
-          <div class="mt-4 alert alert-danger" role="alert">
-            <h2 class="text-center">Hai un nuovo messaggio!</h2>
+          <div class="mt-4 alert alert-primary" role="alert">
+            Hai un nuovo messaggio!
           </div>
         @endif
-        <a class="text-decoration-none"href="{{route('messages')}}"><button class="mt-4 btn btn-info d-flex justify-content-center"type="button" name="button"><h5>Vai ai messaggi</h5><i class="ml-2 far fa-2x fa-envelope"></i></button></a>
+        <a href="{{route('messages')}}"><button class="mt-4 btn btn-info d-flex justify-content-center"type="button" name="button"><h5>Messaggi</h5><i class="ml-2 far fa-2x fa-envelope"></i></button></a>
       </div>
     </div>
   </div>
