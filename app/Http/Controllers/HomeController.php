@@ -27,12 +27,15 @@ class HomeController extends Controller
         $statos = DB::table('statos')->get();
         $cities = DB::select("CALL getAvailCities()");
         $highlights = DB::select("CALL getHighlights()");
+        // $highlights = DB::select("CALL getHighlightsVisible()");
         $offers = DB::select('CALL getOffers()');
         $sliders = Slider::all();
         $news = News::orderBy('id', 'DESC')->get();
         $news_images = NewsImage::orderBy('id','DESC')->get();
         $images = array();
-        $immobili = Immobile::all();
+        $immobili = Immobile::where([
+        ['visible', '=', 'on']
+        ])->orderBy('id', 'DESC')->get();
 
         foreach($news_images as $single_image) {
             $images[$single_image['news_id']] = $single_image['path'];

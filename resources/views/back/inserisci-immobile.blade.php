@@ -138,7 +138,7 @@
               </div>
               <div class="col-lg-1 ml-3">
                   <label for="visible">Visibilità</label>
-                  <input id="visible" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">           
+                  <input id="visible" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">
               </div>
             </div>
 
