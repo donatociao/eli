@@ -42,6 +42,7 @@
         <th scope="col">Categoria</th>
         <th scope="col">Città</th>
         <th scope="col">Azioni</th>
+        <th scope="col">Visibilità</th>
       </tr>
       </thead>
       <tbody id="content">
@@ -58,6 +59,13 @@
             <a href="{{ route('destroy.immobile', $immobile->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
             <a href="{{ route('edit.immobile', $immobile->id) }}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button></a>
             <a href="{{route('show.immobile', ['slug' => $immobile->slug, 'immobile_id' => $immobile->id])}}"><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></a>
+          </td>
+          <td class="text-center">
+            @if ( $immobile->visible == 'on')
+              <i class="text-success fas fa-2x fa-check-circle"></i>
+            @else
+              <i class="text-danger fas fa-2x fa-times-circle"></i>
+            @endif
           </td>
         </tr>
 

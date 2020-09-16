@@ -9,9 +9,9 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 class Immobile extends Model implements Viewable
 {
   use InteractsWithViews;
-  
+
   protected $fillable = [
-      'titolo', 'description', 'price', 'address', 'slug', 'img_preview','stato_id', 'category_id', 'city_id', 'feature_id', 'detail_id', 'video_link'
+      'titolo', 'description', 'price', 'address', 'slug', 'img_preview','stato_id', 'category_id', 'city_id', 'feature_id', 'detail_id', 'video_link', 'visible'
     ];
 
     /**

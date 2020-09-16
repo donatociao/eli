@@ -136,6 +136,10 @@
                 <label for="evidenza"><b>Evidenza</b></label>
                 <input id="evidenza" type="checkbox" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="evidenza">
               </div>
+              <div class="col-lg-1 ml-3">
+                  <label for="visible">Visibilità</label>
+                  <input id="visible" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">           
+              </div>
             </div>
 
            <button type="submit" class="mt-2 btn btn-primary">Carica immobile</button>

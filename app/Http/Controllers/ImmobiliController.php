@@ -27,7 +27,7 @@ class ImmobiliController extends Controller
      */
     public function indexAffittasi()
     {
-        $matches = Immobile::where('stato_id', '=', '2')->orderBy('id', 'DESC')->get();
+        $matches = Immobile::where('stato_id', '=', '2')->where('visible', '=', 'on')->orderBy('id', 'DESC')->get();
         $cat = DB::table('categories')->get();
         $stato = array('Fittasi');
         $cities = DB::select("CALL getAvailCities()");
@@ -36,7 +36,7 @@ class ImmobiliController extends Controller
 
     public function indexVendesi()
     {
-        $matches = Immobile::where('stato_id', '=', '1')->orderBy('id', 'DESC')->get();
+        $matches = Immobile::where('stato_id', '=', '1')->where('visible', '=', 'on')->orderBy('id', 'DESC')->get();
         $cat = DB::table('categories')->get();
         $stato = array('Vendesi');
         $cities = DB::select("CALL getAvailCities()");
@@ -123,7 +123,6 @@ class ImmobiliController extends Controller
         $nuove_features = new Feature();
         $nuove_features->fill($dati_inseriti);
 
-
         if($nuove_features->ristrutturato == null)
             $nuove_features->ristrutturato = 'off';
         if($nuove_features->riscaldamento == null)
@@ -148,6 +147,14 @@ class ImmobiliController extends Controller
 
         //Prendo i dati immobile
         $nuovo_immobile->fill($dati_inseriti);
+
+        //inserimento visibilità
+        if ($nuovo_immobile->visible == null){
+          $nuovo_immobile->visible = 'off';
+        } else {
+          $nuovo_immobile->visible = 'on';
+        }
+
 
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
@@ -180,6 +187,7 @@ class ImmobiliController extends Controller
                 }
             }
         }
+
 
         $nuovo_immobile->save();
 
@@ -317,7 +325,8 @@ class ImmobiliController extends Controller
         $immobile->titolo = $request->titolo;
         $immobile->stato_id = $request->stato_id;
         $immobile->address = $request->address;
-        // $immobile->video_link = $request->video_link;
+        $immobile->visible = $request->visible;
+       // $immobile->video_link = $request->video_link;
         if($immobile->video_link != '') {
             $video_embed = explode('watch?v=', $request['video_link']);
             $immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];

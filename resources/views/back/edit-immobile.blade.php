@@ -132,6 +132,7 @@
                             <input type="text" class="form-control" id="title" name="video_link" value="{{ $imm_to_edit->video_link}}">
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-8">
                             <label for="exampleFormControlTextarea1">Descrizione</label>
@@ -141,8 +142,8 @@
                             <label for="Product Name">Immagine di anteprima</label>
                             <br/>
                             <input type="file" class="form-control" name="img_preview[]" multiple />
-                            <div id="{{ $imm_to_edit->id }}" class="img-container">
-                                <img class="img-thumbnail" src="{{ asset('storage/'.$imm_to_edit->img_preview) }}" />
+                            <div id="{{ $imm_to_edit->id }}" class="mt-3">
+                                <img class="img-fluid" src="{{ asset('storage/'.$imm_to_edit->img_preview) }}" />
                                 <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#" onclick="delRequestPreview({{ $imm_to_edit->id }}); return false;">CANCELLA</a></div>
                             </div>
                         </div>
@@ -154,17 +155,20 @@
                         </div>
                     </div>
 
+                    <div class="d-flex flex-row row">
+                      @foreach ($immobile_images as $image)
+                              <div id="{{ $image->id }}" class="col-lg-2 mt-2">
+                                  <img class="img-thumbnail mr-3" src="{{ asset('storage/'.$image->filepath) }}" />
+                                  <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#" onclick="delRequest({{ $image->id }}); return false;">CANCELLA</a></div>
+                              </div>
+                       @endforeach
+                    </div>
 
-                    @foreach ($immobile_images as $image)
-                            <div id="{{ $image->id }}" class="img-container">
-                                <img class="img-thumbnail" src="{{ asset('storage/'.$image->filepath) }}" />
-                                <div class="overlay justify-content-center d-flex align-items-center"><a class="text-white si" href="#" onclick="delRequest({{ $image->id }}); return false;">CANCELLA</a></div>
-                            </div>
-                     @endforeach
 
 
 
-                    <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">
+
+                    <div id="label" class="form-group d-flex flex-row col-lg-12 mt-4">
                         <div class="col-lg-1 align-items-center">
                             <label for="ristutturato">Ristrutturato</label>
                             <input id="ristrutturato" type="checkbox" {{ $features->ristrutturato == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">
@@ -188,6 +192,10 @@
                         <div class="col-lg-1 ml-5">
                             <label for="evidenza"><b>Evidenza</b></label>
                             <input id="evidenza" type="checkbox" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="evidenza">
+                        </div>
+                        <div class="col-lg-1 ml-3">
+                            <label for="visible">Visibilità</label>
+                            <input id="visible" type="checkbox" {{ $imm_to_edit->visible == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="riscaldamento">
                         </div>
                     </div>
 

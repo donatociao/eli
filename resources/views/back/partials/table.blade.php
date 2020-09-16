@@ -9,6 +9,7 @@
           <th scope="col">Categoria</th>
           <th scope="col">Città</th>
           <th scope="col">Azioni</th>
+          <th scope="col">Visibilità</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,7 @@
               <a href="{{ route('edit.immobile', $immobile->id) }}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button></a>
               <a href="{{route('show.immobile', ['slug' => $immobile->slug, 'immobile_id' => $immobile->id])}}"><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></a>
             </td>
+            <td>on off</td>
           </tr>
         @endforeach
       </tbody>
