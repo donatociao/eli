@@ -32,7 +32,7 @@ class HomeController extends Controller
         $news = News::orderBy('id', 'DESC')->get();
         $news_images = NewsImage::orderBy('id','DESC')->get();
         $images = array();
-        $immobili = Immobile::where('visible', '=', 'on')->get();
+        $immobili = Immobile::all();
 
         foreach($news_images as $single_image) {
             $images[$single_image['news_id']] = $single_image['path'];
