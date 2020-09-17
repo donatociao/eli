@@ -26,12 +26,12 @@ class HomeController extends Controller
         $category = Category::all();
         $statos = DB::table('statos')->get();
         $cities = DB::select("CALL getAvailCities()");
-        $highlights = DB::select("CALL getHighlights()");
-        $offers = DB::select('CALL getOffers()');
+        // $highlights = DB::select("CALL getHighlights()");
+        // $offers = DB::select('CALL getOffers()');
 
         //ATTIVARE DOPO AVER MIGRATO LE MODIFICHE
-        // $highlights = DB::select("CALL getHighlightsVisible()");
-        // $offers = DB::select('CALL getOffersVisible()');
+        $highlights = DB::select("CALL getHighlightsVisible()");
+        $offers = DB::select('CALL getOffersVisible()');
 
         $sliders = Slider::all();
         $news = News::orderBy('id', 'DESC')->get();

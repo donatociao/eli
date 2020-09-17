@@ -164,11 +164,9 @@
                        @endforeach
                     </div>
 
-
-
-
-
-                    <div id="label" class="form-group d-flex flex-row col-lg-12 mt-4">
+                    <div class="form-row">
+                      <h4 class="mt-5">Gestione Dettagli Immobile</h4>
+                      <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">
                         <div class="col-lg-1 align-items-center">
                             <label for="ristutturato">Ristrutturato</label>
                             <input id="ristrutturato" type="checkbox" {{ $features->ristrutturato == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">
@@ -189,20 +187,37 @@
                             <label for="posto-auto">Posto auto</label>
                             <input id="posto_auto" type="checkbox" {{ $features->posto_auto == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="posto_auto">
                         </div>
-                        <div class="col-lg-1 ml-5">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <h4 class="mt-5">Gestione Visibilità</h4>
+                      <div id="label" class="form-group d-flex flex-row col-lg-12 mt-4 ">
+                            {{-- EVIDENZA --}}
+                            {{-- <div class="col-lg-1">
+                              <label for="evidenza">Evidenza</label>
+                              <input id="evidenza" type="checkbox" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="evidenza">
+                            </div> --}}
+                          <div class="col-lg-1 ml-3">
+                            <label for="visible">Visibilità</label>
+                            <input id="visible" type="checkbox" {{ $imm_to_edit->visible == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">
+                          </div>
+                        </div>
+                      </div>
+
+                        {{-- Evidenza --}}
+                        {{-- <div class="col-lg-1 ml-5">
                             <label for="evidenza"><b>Evidenza</b></label>
                             <input id="evidenza" type="checkbox" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="evidenza">
-                        </div>
-                        <div class="col-lg-1 ml-3">
+                        </div> --}}
+
+                        {{-- <div class="col-lg-1 ml-3">
                             <label for="visible">Visibilità</label>
                             <input id="visible" type="checkbox" {{ $imm_to_edit->visible == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="riscaldamento">
-                        </div>
+                        </div> --}}
                     </div>
 
                     <button type="submit" class="mt-2 btn btn-primary">Modifica immobile</button>
                 </form>
-
-
             </div>
         </div>
     </div>

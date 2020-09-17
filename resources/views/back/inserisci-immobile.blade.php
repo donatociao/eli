@@ -107,11 +107,58 @@
               <br/>
               <input type="file" class="form-control" name="photos[]" multiple />
             </div>
+          </div>
+          <div class="form-row">
+            <h4 class="mt-5">Gestione Dettagli Immobile</h4>
+            <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">
+              <div class="col-lg-1 align-items-center">
+                <label for="ristutturato">Ristrutturato</label>
+                <input id="ristrutturato" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">
+              </div>
+              <div class="col-lg-1 ml-3">
+                <label for="riscaldamento">Riscaldamento</label>
+                <input id="riscaldamento" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="riscaldamento">
+              </div>
+              <div class="col-lg-1 ml-3">
+                <label for="terrazzo">Terrazzo</label>
+                <input id="terrazzo" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="terrazzo">
+              </div>
+              <div class="col-lg-1 ml-3">
+                <label for="balconi">Balconi</label>
+                <input id="balconi" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="balconi">
+              </div>
+              <div class="col-lg-1 ml-3">
+                <label for="posto-auto">Posto auto</label>
+                <input id="posto_auto" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="posto_auto">
+              </div>
+            </div>
+          </div>
+            {{-- <div class="col-lg-1 ml-5">
+            <label for="evidenza"><b>Evidenza</b></label>
+            <input id="evidenza" type="checkbox" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="evidenza">
+          </div>
+          <div class="col-lg-1 ml-3">
+            <label for="visible">Visibilità</label>
+            <input id="visible" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">
+          </div> --}}
+          <div class="form-row">
+            <h4 class="mt-5">Gestione Visibilità</h4>
+            <div id="label" class="form-group d-flex flex-row col-lg-12 mt-4 ">
 
+              {{-- EVIDENZA --}}
+              {{-- <div class="col-lg-1">
+                <label for="evidenza">Evidenza</label>
+                <input id="evidenza" type="checkbox" data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="evidenza">
+              </div> --}}
+
+              <div class="col-lg-1 ml-3 align-self-end">
+                <label for="visible">Visibilità</label>
+                <input id="visible" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">
+              </div>
+            </div>
           </div>
 
-
-            <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">
+            {{-- <div id="label"class="form-group d-flex flex-row col-lg-12 mt-4">
               <div class="col-lg-1 align-items-center">
                 <label for="ristutturato">Ristrutturato</label>
                 <input id="ristrutturato" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="ristrutturato">
@@ -140,12 +187,10 @@
                   <label for="visible">Visibilità</label>
                   <input id="visible" type="checkbox" checked data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">
               </div>
-            </div>
+            </div> --}}
 
            <button type="submit" class="mt-2 btn btn-primary">Carica immobile</button>
         </form>
-
-
       </div>
     </div>
   </div>

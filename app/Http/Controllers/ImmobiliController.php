@@ -161,6 +161,9 @@ class ImmobiliController extends Controller
           $nuovo_immobile->visible = 'on';
         }
 
+        dd($nuovo_immobile);
+
+
 
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
@@ -331,11 +334,18 @@ class ImmobiliController extends Controller
         $immobile->stato_id = $request->stato_id;
         $immobile->address = $request->address;
         $immobile->visible = $request->visible;
-       // $immobile->video_link = $request->video_link;
-        if($immobile->video_link != '') {
-            $video_embed = explode('watch?v=', $request['video_link']);
-            $immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];
+        $immobile->video_link = $request->video_link;
+
+        if (strpos($immobile->video_link, 'watch?v=') !== false) {
+          $video_embed = explode('watch?v=', $request['video_link']);
+          $immobile->video_link = 'https://www.youtube.com/embed/' . $video_embed[1];
         }
+
+        elseif (strpos($immobile->video_link, 'embed') !== false) {
+          $video_embed = $request['video_link'];
+          $immobile->video_link = $video_embed;
+        }
+
         $immobile->description = $request->description;
         $immobile->category_id = $request->category_id;
         $immobile->price = $request->price;
@@ -365,6 +375,13 @@ class ImmobiliController extends Controller
             $features->posto_auto = 'off';
         if($features->balconi == null)
             $features->balconi = 'off';
+
+            //inserimento visibilità
+            if ($immobile->visible == null){
+              $immobile->visible = 'off';
+            } else {
+              $immobile->visible = 'on';
+            }
 
         $features->save();
         $detail->save();
@@ -426,6 +443,8 @@ class ImmobiliController extends Controller
                 }
             }
         }
+
+
         $immobile->save();
         return redirect(route('dash'))->with('messages',$messages);
 
