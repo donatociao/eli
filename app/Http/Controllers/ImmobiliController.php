@@ -161,10 +161,6 @@ class ImmobiliController extends Controller
           $nuovo_immobile->visible = 'on';
         }
 
-        dd($nuovo_immobile);
-
-
-
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
         //inserimento video youtube
