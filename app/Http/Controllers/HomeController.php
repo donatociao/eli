@@ -33,7 +33,8 @@ class HomeController extends Controller
         $highlights = DB::select("CALL getHighlightsVisible()");
         $offers = DB::select('CALL getOffersVisible()');
 
-        $sliders = Slider::all();
+        $sliders = Slider::where('visible', '=', 'on')->get();
+        
         $news = News::orderBy('id', 'DESC')->get();
         $news_images = NewsImage::orderBy('id','DESC')->get();
         $images = array();
