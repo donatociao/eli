@@ -198,7 +198,11 @@
 </head>
   <body>
     {{-- PRELOADER --}}
-    <div id="preloader"></div>
+    <div id="preloader" class="text-center">
+      <div class="spinner-border text-light" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
     {{-- END PRELOADER --}}
 
     @isset($messages)
