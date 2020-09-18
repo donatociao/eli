@@ -518,9 +518,11 @@ class ImmobiliController extends Controller
             }
         }
 
-        $matches = Immobile::where($filters)
-        ->orderBy('id','DESC')
-        ->get();
+        $matches = Immobile::where([
+          [$filters],
+          ['visible', '=', 'on']
+          ])->orderBy('id','DESC')
+          ->get();
         return view('front.results', compact('matches', 'stato', 'cities','cat'));
     }
 

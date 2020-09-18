@@ -197,6 +197,10 @@
 
 </head>
   <body>
+    {{-- PRELOADER --}}
+    <div id="preloader"></div>
+    {{-- END PRELOADER --}}
+
     @isset($messages)
       <script>Swal.fire({
               icon: '{{ $messages->msgType }}',
