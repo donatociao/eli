@@ -337,34 +337,34 @@ select option {
     background-color: white;
     color: black;
 }
-
-/* Prelaoder */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99999;
-  overflow: hidden;
-  background: $eliano;
-}
-
-#preloader:before {
-  content: url('img/logo_w_pre.png');
-  display: block;
-   // margin: 42px auto 24px;
-   margin: auto;
-   position: relative;
-   text-align: center;
-   width: 50%;
-  //position: fixed;
-  //left: calc(100vw - 65%);
-  // border: 400px solid white;
-  // border-top: 400px solid white;
-  // border-radius: 50%;
-  //width: 80px;
-  //height: 80px;
-  -webkit-animation: animate-preloader 1.2s linear infinite;
-  animation: animate-preloader 1.2s linear infinite;
- }
+//
+// /* Prelaoder */
+// #preloader {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: 99999;
+//   overflow: hidden;
+//   background: $eliano;
+// }
+//
+// #preloader:before {
+//   content: url('img/logo_w_pre.png');
+//   display: block;
+//    // margin: 42px auto 24px;
+//    margin: auto;
+//    position: relative;
+//    text-align: center;
+//    width: 50%;
+//   //position: fixed;
+//   //left: calc(100vw - 65%);
+//   // border: 400px solid white;
+//   // border-top: 400px solid white;
+//   // border-radius: 50%;
+//   //width: 80px;
+//   //height: 80px;
+//   -webkit-animation: animate-preloader 1.2s linear infinite;
+//   animation: animate-preloader 1.2s linear infinite;
+//  }
