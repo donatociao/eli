@@ -1,6 +1,6 @@
 <header>
   <!-- Slider main container -->
-  <div class="swiper-container">
+  <div class="swiper-container animate__animated animate__fadeIn">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
