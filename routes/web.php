@@ -85,6 +85,9 @@ Route::get('/dash/offerte/delete/{id}', 'OffersController@destroy')->name('destr
 Route::any('/delimg/{id}', 'ImageController@removeImage')->name('removeImage'); //delete image
 Route::any('/delfrompreview/{path}', 'ImageController@removeImageFromImmobile')->name('removeImageFromImmobile'); //delete preview image
 
+//DOWNLOAD 
+Route::get('/scarica/{id}','PdfController@downloadPDF')->name('download.immobile');
+
 //IMMOBILI
 Route::get('/dash/immobili/', 'ImmobiliController@create')->name('create.immobile')->middleware('auth'); //view di inserimento nuovo immobile
 Route::post('/dash', 'ImmobiliController@store')->name('immobili.store')->middleware('auth'); //inserisco nuovo immobile
@@ -94,6 +97,7 @@ Route::any('/immobile/search', 'ImmobiliController@search')->name('search.immobi
 Route::get('/immobile/search/back', 'ImmobiliController@searchBack')->name('searchBack.immobile');
 Route::any('/dash/immobili/edit/{id}', 'ImmobiliController@edit')->name('edit.immobile')->middleware('auth');
 Route::post('/dash/immobili/upd/{id}', 'ImmobiliController@update')->name('update.immobile')->middleware('auth');
+
 
 Route::post('/dash/news', 'NewsController@store')->name('store.news')->middleware('auth'); //Inserisco news
 Route::get('/dash/news/delete/{id}', 'NewsController@destroy')->name('destroy.news')->middleware('auth'); //Elimino una news
