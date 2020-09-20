@@ -10,7 +10,7 @@
   <div class="container mb-4">
     <div class="row mt-5">
       <div class="col-lg-12">
-        <h1 class="animate__animated animate__fadeIn text-uppercase"><div class=" status-scheda text-center "><p class="text-uppercase text-dark">{{$immobile->stato->name}}</p></div>{{$immobile->titolo}}</h1>
+        <h1 class="animate__animated animate__fadeIn text-uppercase">{{$immobile->stato->name}}: {{$immobile->titolo}}</h1>
       </div>
     </div>
     <div class="row mt-3">
