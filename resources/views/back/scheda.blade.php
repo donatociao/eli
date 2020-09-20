@@ -15,7 +15,7 @@
     </div>
     <div class="row mt-3">
       <div class="col-lg-8 animate__animated animate__fadeIn">
-        <img class="img-fluid" src="{{ asset('storage/'.$immobile->img_preview) }}" />
+        <img class="img-fluid" src="{{ asset('storage/'.$immobile->img_preview) }}" width="100%"/>
         <h4 class="mt-3">Descrizione</h4>
         <p>{!!$immobile->description!!}</p>
       </div>
