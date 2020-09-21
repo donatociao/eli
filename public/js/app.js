@@ -94,14 +94,14 @@
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-  // Preloader
-  $(window).on('load', function () {
-    if ($('#preloader').length) {
-      $('#preloader').delay(20).fadeOut('slow', function () {
-        $(this).remove();
-      });
-    }
-  });
+  // // Preloader
+  // $(window).on('load', function() {
+  //     if ($('#preloader').length) {
+  //         $('#preloader').delay(20).fadeOut('slow', function() {
+  //             $(this).remove();
+  //         });
+  //     }
+  // });
   $(".menu-open").click(function () {
     $("#menu").removeClass("d-none").addClass("fadeInDown");
   });

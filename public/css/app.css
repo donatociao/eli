@@ -11365,27 +11365,7 @@ select option {
   color: black;
 }
 
-/* Prelaoder */
-
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99999;
-  overflow: hidden;
-  background: #437C90;
-}
-
-#preloader:before {
-  content: url(/images/logo_w_pre.png?be5182c4a11fddaf2c78108e2d62b36f);
-  display: block;
-  margin: auto;
-  position: relative;
-  text-align: center;
-  width: 50%;
-  -webkit-animation: animate-preloader 1.2s linear infinite;
-  animation: animate-preloader 1.2s linear infinite;
+#pdf {
+  font-family: "Poppins", sans-serif;
 }
 

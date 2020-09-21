@@ -6,7 +6,7 @@
     <title></title>
 </head>
 
-<body>
+<body id='pdf'>
   <div class="container mb-4">
     <div class="row mt-5">
       <div class="col-lg-12">
@@ -16,7 +16,7 @@
     <div class="row mt-3">
       <div class="col-lg-8 animate__animated animate__fadeIn">
         <img class="img-fluid" src="{{ asset('storage/'.$immobile->img_preview) }}" width="100%"/>
-        <h4 class="mt-3">Descrizione</h4>
+        <h3 class="mt-3">Descrizione</h3>
         <p>{!!$immobile->description!!}</p>
       </div>
       <div class="col-lg-4 mb-5">
