@@ -4,8 +4,22 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 </head>
+<style>
 
+@font-face {
+  font-family: 'OpenSans-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('https://fonts.gstatic.com');
+}
+
+#pdf {
+    font-family: 'Poppins', sans-serif;;
+}
+
+</style>
 <body id='pdf'>
   <div class="container mb-4">
     <div class="row mt-5">
