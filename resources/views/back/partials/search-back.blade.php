@@ -56,10 +56,10 @@
           <td>{{$immobile->category->name }}</td>
           <td>{{ $immobile['city']['name'] }}</td>
           <td>
-            <a href="{{ route('destroy.immobile', $immobile->id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
-            <a href="{{ route('edit.immobile', $immobile->id) }}"><button type="button" class="btn btn-warning"><i class="far fa-edit"></i></button></a>
-            <a href="{{route('show.immobile', ['slug' => $immobile->slug, 'immobile_id' => $immobile->id])}}"><button type="button" class="btn btn-info"><i class="fas fa-search-plus"></i></button></a>
-            <a href="{{route('download.immobile', ['id' => $immobile->id])}}"><button type="button" class="btn btn-success"><i class="fas fa-file-download"></i></button></a>
+            <a href="{{ route('destroy.immobile', $immobile->id) }}"><button type="button" class="btn btn-danger mb-2"><i class="far fa-trash-alt"></i></button></a>
+            <a href="{{ route('edit.immobile', $immobile->id) }}"><button type="button" class="btn btn-warning mb-2"><i class="far fa-edit"></i></button></a>
+            <a href="{{route('show.immobile', ['slug' => $immobile->slug, 'immobile_id' => $immobile->id])}}"><button type="button" class="mb-2 btn btn-info"><i class="fas fa-search-plus"></i></button></a>
+            <a href="{{route('download.immobile', ['id' => $immobile->id])}}"><button type="button" class="mb-2 btn btn-success"><i class="fas fa-file-download"></i></button></a>
           </td>
           <td class="text-center">
             @if ( $immobile->visible == 'on')
