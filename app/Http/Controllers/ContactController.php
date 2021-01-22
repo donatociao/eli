@@ -39,7 +39,7 @@ class ContactController extends Controller
                  'email' => $request->get('email'),
                  'phone' => $request->get('phone'),
                  'user_message' => $request->get('message'),
-                 'immobile' => URL::current();
+                 'immobile' => URL::current()
              ), function($message) {
                   $message->from('mailereliano@gmail.com');
                   // $message->to('ciao.donatociao@gmail.com');
