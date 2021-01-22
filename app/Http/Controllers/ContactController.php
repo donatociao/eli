@@ -36,8 +36,6 @@ class ContactController extends Controller
 
       $url = URL::previous();
 
-      dd($url);
-
       Mail::send('email_template',
              array(
                  'name' => $request->get('name'),
@@ -48,7 +46,7 @@ class ContactController extends Controller
              ), function($message) {
                   $message->from('mailereliano@gmail.com');
                   // $message->to('ciao.donatociao@gmail.com');
-                  $message->to('ciao.donatociao@gmail.com', 'Enrico Eliano')->subject
+                  $message->to('info@eliano.it', 'Enrico Eliano')->subject
             ('Nuova richiesta dal sito Eliano.it');
                });
 
