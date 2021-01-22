@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use App\Contact;
 use Mail;
 
@@ -41,7 +42,7 @@ class ContactController extends Controller
                  'email' => $request->get('email'),
                  'phone' => $request->get('phone'),
                  'user_message' => $request->get('message'),
-            
+                 'immobile' => $url,
              ), function($message) {
                   $message->from('mailereliano@gmail.com');
                   // $message->to('ciao.donatociao@gmail.com');
