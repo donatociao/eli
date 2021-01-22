@@ -34,7 +34,7 @@ class ContactController extends Controller
 
       $contact->save();
 
-      $url = URL::current();
+      $url = URL::previous();
 
       dd($url);
 
