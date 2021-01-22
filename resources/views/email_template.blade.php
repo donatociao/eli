@@ -6,5 +6,6 @@
 <b>Email:</b> {{ $email }} <br>
 <b>Telefono:</b> {{ $phone}} <br>
 <b>Messaggio:</b> {{ $user_message }} <br>
+<b>Link immobile:</b> {{ $immobile }} <br>
 <br>
 <p>Buona giornata :)</p>
