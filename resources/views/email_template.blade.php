@@ -1,6 +1,6 @@
 <h4>Ciao Enrico,</h4>
 <p>hai ricevuto una richiesta da : {{ $name }} per l'immobile:</p>
-<p> <b>Link immobile:</b> {{ $immobile }}</p> <br>
+<p> <b>Link immobile:</b></p><a href="{{ $immobile }}">{{ $immobile }}</a> <br>
 <br>
 <p>Ecco i dettagli:</p> <br>
 <b>Nome:</b> {{ $name }} <br>
