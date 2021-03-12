@@ -26,10 +26,14 @@ class HomeController extends Controller
         $category = Category::all();
         $statos = DB::table('statos')->get();
         $cities = DB::select("CALL getAvailCities()");
+
+
+
+        //ATTIVARE PER LOCALHOST
         // $highlights = DB::select("CALL getHighlights()");
         // $offers = DB::select('CALL getOffers()');
 
-        //ATTIVARE DOPO AVER MIGRATO LE MODIFICHE
+        //DISATTIVARE PER LOCALHOST
         $highlights = DB::select("CALL getHighlightsVisible()");
         $offers = DB::select('CALL getOffersVisible()');
 
