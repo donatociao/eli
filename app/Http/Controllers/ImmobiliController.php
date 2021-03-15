@@ -161,6 +161,13 @@ class ImmobiliController extends Controller
           $nuovo_immobile->visible = 'on';
         }
 
+        //inserimento venduto
+        if ($nuovo_immobile->venduto == null || $nuovo_immobile->venduto == 'off'){
+          $nuovo_immobile->venduto = 'off';
+        } else {
+          $nuovo_immobile->venduto = 'on';
+        }
+
         $nuovo_immobile->slug = str_slug($nuovo_immobile->titolo.' '.$nuovo_immobile->id, '-') . '-' . rand(1,999999);
 
         //inserimento video youtube
@@ -261,7 +268,7 @@ class ImmobiliController extends Controller
       $immobile_show = Immobile::where('slug', $slug)->first();
       //COUNTER
       views($immobile_show)->record();
-      
+
       if(empty($immobile_show)) {
       echo('Metodo show Immobile controller');
       }
@@ -284,6 +291,7 @@ class ImmobiliController extends Controller
         $categories = Category::all();
         $features = Feature::find($imm_to_edit->feature_id);
         $immobile_images = Image::where('immobile_id', '=', $imm_to_edit->id)->get();
+
         return view('back.edit-immobile', compact('imm_to_edit', 'status','categories', 'immobile_images', 'features'));
     }
 
@@ -332,6 +340,7 @@ class ImmobiliController extends Controller
         $immobile->stato_id = $request->stato_id;
         $immobile->address = $request->address;
         $immobile->visible = $request->visible;
+        $immobile->venduto = $request->venduto;
         $immobile->video_link = $request->video_link;
 
         if (strpos($immobile->video_link, 'watch?v=') !== false) {
@@ -379,6 +388,13 @@ class ImmobiliController extends Controller
               $immobile->visible = 'off';
             } else {
               $immobile->visible = 'on';
+            }
+
+            //inserimento venduto
+            if ($immobile->venduto == null){
+              $immobile->venduto = 'off';
+            } else {
+              $immobile->venduto = 'on';
             }
 
         $features->save();

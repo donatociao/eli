@@ -50,6 +50,7 @@ class HomeController extends Controller
             $images[$single_image['news_id']] = $single_image['path'];
         }
 
+
         return view('front.home', compact('immobili', 'statos', 'cities', 'cat', 'highlights', 'offers', 'sliders','news','images','category'));
     }
 

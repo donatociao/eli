@@ -1,4 +1,7 @@
 <div class="card mt-5 mb-3">
+  @if ($single_offer->venduto == "on")
+      <span class="position-absolute py-2 ml-2 mt-2 label-card badge rounded-pill bg-danger text-light">VENDUTO</span>
+  @endif
     <div class="row no-gutters">
         <div class="col-md-4">
             <img src="{{ asset('storage/' . $single_offer->img_preview) }}" class="card-img img-fluid" alt="...">

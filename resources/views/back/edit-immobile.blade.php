@@ -201,6 +201,10 @@
                             <label for="visible">Visibilità</label>
                             <input id="visible" type="checkbox" {{ $imm_to_edit->visible == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="visible">
                           </div>
+                          <div class="col-lg-1 ml-3">
+                            <label for="venduto">Venduto</label>
+                            <input id="venduto" type="checkbox" {{ $imm_to_edit->venduto == 'on' ? 'checked' : '' }} data-toggle="toggle" data-on="Si" data-off="No" data-onstyle="success" data-offstyle="danger" name="venduto">
+                          </div>
                         </div>
                       </div>
 

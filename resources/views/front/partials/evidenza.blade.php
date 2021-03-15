@@ -26,8 +26,12 @@
   <div class="container">
     <div class="row">
       @foreach($highlights as $highlight)
+    
       <div class="col-md-4 mb-4">
-        <div class="card h-100 mr-0">
+        <div class="card mr-0">
+        @if ($highlight->venduto == "on")
+            <span class="position-absolute py-2 ml-2 mt-2 label-card badge rounded-pill bg-danger text-light">VENDUTO</span>
+        @endif
           <a href="{{route('show.immobile', ['slug' => $highlight->slug, 'immobile_id' => $highlight->immobile_id])}}">
             <img src="{{ asset('storage/'.$highlight->img_preview) }}" class="card-img-top" alt="...">
           </a>
