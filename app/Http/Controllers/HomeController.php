@@ -30,12 +30,12 @@ class HomeController extends Controller
 
 
         //ATTIVARE PER LOCALHOST
-        // $highlights = DB::select("CALL getHighlights()");
-        // $offers = DB::select('CALL getOffers()');
+        $highlights = DB::select("CALL getHighlights()");
+        $offers = DB::select('CALL getOffers()');
 
         //DISATTIVARE PER LOCALHOST
-        $highlights = DB::select("CALL getHighlightsVisible()");
-        $offers = DB::select('CALL getOffersVisible()');
+        // $highlights = DB::select("CALL getHighlightsVisible()");
+        // $offers = DB::select('CALL getOffersVisible()');
 
         $sliders = Slider::all();
 
