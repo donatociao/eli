@@ -8,6 +8,9 @@
       @foreach ($matches as $single_match)
       <div class="col-md-4">
         <div class="card mr-0 mt-3 animate__animated animate__fadeIn">
+          @if ($single_match->venduto == "on")
+            <img class="position-absolute w-100" src="{{asset('img/venduto.png')}}" alt="">
+          @endif
         <a href="{{route('show.immobile', ['slug' => $single_match->slug, 'immobile_id' => $single_match->id])}}">
           <img src="{{ asset('storage/' . $single_match->img_preview) }}" class="card-img-top" alt="...">
         </a>
