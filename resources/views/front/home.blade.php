@@ -12,6 +12,7 @@
   @include('front.partials.slider')
   @include('front.partials.search-mobile')
   @include('front.partials.search-home')
+  @include('front.partials.valutazione')
 
   @if(count($highlights) > 0)
     @include('front.partials.evidenza')
