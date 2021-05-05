@@ -31,7 +31,7 @@
       <div class="col-md-8">
         <h2 class="text-uppercase">Valutiamo il tuo immobile <b>GRATIS!</b></h2>
         <p>Ci occupiamo dell'analisi completa di valutazione del tuo immobile considerando il mercato di zona, comparabili in vendita, valori OMI, venduto e molto altro ancora.</p>
-        <button class="btn bg-yellow"><a style="text-decoration: none; color: inherit;" href="/contatti">Contattaci</a></button>
+        <button class="btn bg-yellow"><a style="text-decoration: none; color: inherit;" href="https://www.agentpricing.com/e.eliano">Contattaci</a></button>
       </div>
 
     </div>
